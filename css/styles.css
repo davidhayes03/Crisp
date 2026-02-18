@@ -889,3 +889,112 @@ footer {
     color: #666;
     margin-top: 0.5rem;
 }
+
+/* Contact Page Styles */
+.contact-hero {
+    background-image: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920');
+}
+
+.contact-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.contact-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.contact-card h4 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+}
+
+.contact-info p {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.contact-info a {
+    color: var(--primary-red);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--primary-red-dark);
+    text-decoration: underline;
+}
+
+.contact-info i {
+    color: var(--primary-red);
+    margin-right: 0.5rem;
+    width: 20px;
+}
+
+.address-section {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.address-details {
+    font-size: 1.25rem;
+    line-height: 1.8;
+}
+
+.address-line {
+    margin-bottom: 0.25rem;
+}
+
+.map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    border: none;
+}
+
+.quick-links {
+    padding: 2rem 0;
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+    color: white;
+}
