@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisp Interiors | Healthcare Interior Specialists</title>
+    <meta name="description" content="Specialist healthcare interior refurbishment. Private hospitals, wards, theatres, premium suites. CHAS registered with 20+ years experience.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <style>
+        /* Apollo Interiors Style - Clean, Minimalist, Soft Movement */
+        :root {
+            --primary-red: #C8102E; /* Pantone Red 186C */
+            --primary-red-dark: #A00D24;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Calibri', 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Soft, fluid animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Clean Navigation */
+        .navbar-apollo {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .navbar-apollo.scrolled {
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        
+        .navbar-apollo .navbar-brand {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--text-dark) !important;
+        }
+        
+        .navbar-apollo .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 400;
+            font-size: 0.95rem;
+            margin: 0 1rem;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .navbar-apollo .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+        
+        .navbar-apollo .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Soft Hero */
+        .hero-apollo {
+            min-height: 90vh;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-apollo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(200, 16, 46, 0.03) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, -30px) rotate(2deg); }
+        }
+        
+        .hero-apollo h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-apollo h1 span {
+            color: var(--primary-red);
+            font-weight: 600;
+        }
+        
+        /* Soft Button */
+        .btn-apollo {
+            background: var(--primary-red);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border: 2px solid var(--primary-red);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-apollo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transition: left 0.4s ease;
+            z-index: 0;
+        }
+        
+        .btn-apollo:hover::before {
+            left: 0;
+        }
+        
+        .btn-apollo:hover {
+            color: var(--primary-red);
+        }
+        
+        .btn-apollo span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Clean Section Headers */
+        .section-header-apollo {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .section-title-apollo {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Soft Cards - Less boxy */
+        .service-card-apollo {
+            background: white;
+            padding: 3rem 2rem;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        
+        .service-card-apollo:hover {
+            border-bottom-color: var(--primary-red);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        
+        .service-icon-apollo {
+            width: 60px;
+            height: 60px;
+            background: rgba(200, 16, 46, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+        
+        .service-card-apollo:hover .service-icon-apollo {
+            background: var(--primary-red);
+        }
+        
+        .service-icon-apollo i {
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            transition: var(--transition);
+        }
+        
+        .service-card-apollo:hover .service-icon-apollo i {
+            color: white;
+        }
+        
+        /* Project Gallery - Soft hover */
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .project-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 3rem 2rem 2rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        /* Contractor Logos Section */
+        .contractor-section {
+            background: var(--bg-light);
+            padding: 5rem 0;
+        }
+        
+        .contractor-logo {
+            background: white;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .contractor-logo:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* CHAS Badge */
+        .chas-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-left: 4px solid var(--primary-red);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        /* Stats - Soft display */
+        .stat-apollo {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .stat-number-apollo {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--primary-red);
+            line-height: 1;
+        }
+        
+        .stat-label-apollo {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+        }
+        
+        /* Clean Footer */
+        .footer-apollo {
+            background: var(--text-dark);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-apollo a {
+            color: rgba(255,255,255,0.7);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-apollo a:hover {
+            color: white;
+        }
+        
+        /* Soft Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-apollo" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Crisp Interiors</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contractors">Partners</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="construction.html">Construction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-apollo">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
+                    <span class="section-label">Healthcare Interior Specialists</span>
+                    <h1>Creating Exceptional <span>Healthcare Spaces</span></h1>
+                    <p class="lead mb-4">Specialist interior refurbishment for private hospitals. Wards, theatres, premium suites & more.</p>
+                    <a href="#services" class="btn btn-apollo"><span>Explore Services</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAS & Certifications -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="d-flex flex-wrap justify-content-center gap-4" data-aos="fade-up">
+                        <div class="chas-badge">
+                            <i class="fas fa-shield-alt fa-2x" style="color: var(--primary-red);"></i>
+                            <div>
+                                <strong>CHAS Registered</strong>
+                                <p class="mb-0 small">Health & Safety Accredited</p>
+                            </div>
+                        </div>
+                        <div class="chas-badge">
+                            <i class="fas fa-leaf fa-2x" style="color: var(--primary-red);"></i>
+                            <div>
+                                <strong>Environmental Commitment</strong>
+                                <p class="mb-0 small">Sustainable Practices</p>
+                            </div>
+                        </div>
+                        <div class="chas-badge">
+                            <i class="fas fa-heartbeat fa-2x" style="color: var(--primary-red);"></i>
+                            <div>
+                                <strong>Healthcare Focused</strong>
+                                <p class="mb-0 small">20+ Years Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="section-header-apollo" data-aos="fade-up">
+                <span class="section-label">What We Do</span>
+                <h2 class="section-title-apollo">Healthcare Interior Services</h2>
+                <p class="text-muted">Comprehensive refurbishment solutions for private hospitals</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card-apollo">
+                        <div class="service-icon-apollo">
+                            <i class="fas fa-procedures"></i>
+                        </div>
+                        <h4>Ward Refurbishment</h4>
+                        <p>Complete ward transformations including patient rooms, nursing stations, and circulation areas.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card-apollo">
+                        <div class="service-icon-apollo">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h4>Theatre Suites</h4>
+                        <p>Specialist operating theatre design and refurbishment to meet the highest clinical standards.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card-apollo">
+                        <div class="service-icon-apollo">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Premium Suites</h4>
+                        <p>Luxury private patient suites combining clinical excellence with hotel-quality comfort.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card-apollo">
+                        <div class="service-icon-apollo">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <h4>Fire Doors & Compartmentalising</h4>
+                        <p>Full compliance fire door installations and fire compartmentalisation solutions.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card-apollo">
+                        <div class="service-icon-apollo">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Electrical & Plumbing</h4>
+                        <p>Complete M&E services including medical gas installations and specialist healthcare systems.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card-apollo">
+                        <div class="service-icon-apollo">
+                            <i class="fas fa-paint-roller"></i>
+                        </div>
+                        <h4>Flooring & Decorating</h4>
+                        <p>Specialist healthcare flooring and infection-control compliant decorating services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-apollo">
+                        <div class="stat-number-apollo">20+</div>
+                        <div class="stat-label-apollo">Years Experience</div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-apollo">
+                        <div class="stat-number-apollo">100+</div>
+                        <div class="stat-label-apollo">Projects Completed</div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-apollo">
+                        <div class="stat-number-apollo">15+</div>
+                        <div class="stat-label-apollo">Hospital Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5">
+        <div class="container-fluid px-0">
+            <div class="section-header-apollo" data-aos="fade-up">
+                <span class="section-label">Our Work</span>
+                <h2 class="section-title-apollo">Featured Projects</h2>
+            </div>
+            
+            <div class="row g-0">
+                <div class="col-md-6 col-lg-3">
+                    <div class="project-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800" alt="Private Hospital Ward">
+                        <div class="project-overlay">
+                            <h5>Private Ward Refurbishment</h5>
+                            <p>Ramsay Hospital</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="project-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800" alt="Operating Theatre">
+                        <div class="project-overlay">
+                            <h5>Theatre Suite</h5>
+                            <p>Private Hospital</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="project-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800" alt="Premium Suite">
+                        <div class="project-overlay">
+                            <h5>Premium Patient Suite</h5>
+                            <p>Luxury Healthcare</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="project-item" data-aos="fade-up" data-aos-delay="400">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800" alt="Reception">
+                        <div class="project-overlay">
+                            <h5>Reception Area</h5>
+                            <p>Healthcare Facility</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contractor Partners -->
+    <section id="contractors" class="contractor-section">
+        <div class="container">
+            <div class="section-header-apollo" data-aos="fade-up">
+                <span class="section-label">Our Network</span>
+                <h2 class="section-title-apollo">Trusted Contractors & Suppliers</h2>
+                <p class="text-muted">We work with industry-leading specialists across all sectors</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contractor-logo">
+                        <i class="fas fa-building fa-2x mb-2" style="color: var(--primary-red);"></i>
+                        <p class="mb-0 small"><strong>Pas-Clad</strong><br>Cladding Systems</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="150">
+                    <div class="contractor-logo">
+                        <i class="fas fa-door-closed fa-2x mb-2" style="color: var(--primary-red);"></i>
+                        <p class="mb-0 small"><strong>Young's Doors</strong><br>Door Solutions</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contractor-logo">
+                        <i class="fas fa-hospital fa-2x mb-2" style="color: var(--primary-red);"></i>
+                        <p class="mb-0 small"><strong>Dortek</strong><br>Hospital Doors</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="250">
+                    <div class="contractor-logo">
+                        <i class="fas fa-hard-hat fa-2x mb-2" style="color: var(--primary-red);"></i>
+                        <p class="mb-0 small"><strong>DBHB</strong><br>Building Services</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contractor-logo">
+                        <i class="fas fa-fire fa-2x mb-2" style="color: var(--primary-red);"></i>
+                        <p class="mb-0 small"><strong>HAC Gas</strong><br>Gas Services</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="350">
+                    <div class="contractor-logo">
+                        <i class="fas fa-warehouse fa-2x mb-2" style="color: var(--primary-red);"></i>
+                        <p class="mb-0 small"><strong>1st 4 Storage</strong><br>Storage Systems</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <span class="section-label">About Us</span>
+                    <h2 class="section-title-apollo text-start">Specialist Healthcare Interiors</h2>
+                    <p class="lead">With over 20 years of experience, we specialise in interior refurbishment for private hospitals across the UK.</p>
+                    <p>Our in-depth knowledge of working with private hospitals and understanding their specialist needs sets us apart. We currently work extensively with Ramsay Hospital and understand the critical importance of maintaining operational continuity during refurbishment works.</p>
+                    <p class="mt-4"><strong>Key Client:</strong> Ramsay Health Care</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800" alt="Healthcare Interior" class="img-fluid shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health & Safety / Environmental -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-5 bg-white h-100">
+                        <i class="fas fa-shield-alt fa-3x mb-4" style="color: var(--primary-red);"></i>
+                        <h4>Health & Safety</h4>
+                        <p>We take our commitments to Health & Safety seriously. All works comply with the highest safety standards and healthcare environment requirements.</p>
+                        <a href="health-safety.html" class="btn btn-outline-dark btn-sm mt-3">Read Our Policy</a>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-5 bg-white h-100">
+                        <i class="fas fa-leaf fa-3x mb-4" style="color: var(--primary-red);"></i>
+                        <h4>Environmental Responsibility</h4>
+                        <p>Committed to sustainable practices and environmental responsibility. We carefully manage waste and use environmentally friendly materials wherever possible.</p>
+                        <a href="environmental.html" class="btn btn-outline-dark btn-sm mt-3">Our Commitment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-apollo">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4>Crisp Interiors</h4>
+                    <p class="mt-3">Specialist healthcare interior refurbishment services for private hospitals.</p>
+                    <div class="mt-4">
+                        <i class="fas fa-shield-alt me-2"></i> CHAS Registered
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact</h5>
+                    <p class="mt-3">
+                        126 High Street<br>
+                        Edenbridge, Kent TN8 5AY<br>
+                        <a href="tel:01732300018">01732 300018</a><br>
+                        <a href="mailto:info@crispint.co.uk">info@crispint.co.uk</a>
+                    </p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="gdpr.html">GDPR</a></li>
+                        <li><a href="slavery.html">Modern Slavery Policy</a></li>
+                        <li><a href="health-safety.html">Health & Safety</a></li>
+                        <li><a href="environmental.html">Environmental Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-5 pt-4 border-top border-secondary">
+                <div class="col-md-6">
+                    <p class="small">Company No. 8170695 | Registered: 9 Limes Road, Beckenham, Kent BR3 6NS</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small">&copy; 2024 Crisp Interiors. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
