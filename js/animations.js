@@ -121,3 +121,139 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// In-Page Image Viewer
+document.addEventListener('DOMContentLoaded', function() {
+    // Create viewer HTML structure
+    const viewerHTML = `
+        <div id="imageViewer" class="image-viewer-overlay">
+            <button class="image-viewer-close" onclick="closeImageViewer()">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="image-viewer-nav image-viewer-prev" onclick="navigateImage(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="image-viewer-nav image-viewer-next" onclick="navigateImage(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="image-viewer-container">
+                <img id="viewerImage" class="image-viewer-img" src="" alt="">
+                <div id="viewerTitle" class="image-viewer-title"></div>
+                <div id="viewerCounter" class="image-viewer-counter"></div>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', viewerHTML);
+    
+    // Setup clickable images
+    setupImageViewer();
+});
+
+let currentImageGroup = [];
+let currentImageIndex = 0;
+
+function setupImageViewer() {
+    // Find all images with data-viewer attribute
+    const clickableImages = document.querySelectorAll('[data-viewer="true"]');
+    
+    clickableImages.forEach((img, index) => {
+        img.style.cursor = 'pointer';
+        img.classList.add('clickable-image');
+        img.addEventListener('click', function() {
+            const group = this.dataset.group || 'default';
+            currentImageGroup = Array.from(document.querySelectorAll(`[data-group="${group}"]`));
+            currentImageIndex = currentImageGroup.indexOf(this);
+            openImageViewer(this);
+        });
+    });
+}
+
+function openImageViewer(imgElement) {
+    const viewer = document.getElementById('imageViewer');
+    const viewerImg = document.getElementById('viewerImage');
+    const viewerTitle = document.getElementById('viewerTitle');
+    const viewerCounter = document.getElementById('viewerCounter');
+    
+    viewerImg.src = imgElement.dataset.fullsrc || imgElement.src;
+    viewerTitle.textContent = imgElement.dataset.title || imgElement.alt || '';
+    
+    if (currentImageGroup.length > 1) {
+        viewerCounter.textContent = `${currentImageIndex + 1} / ${currentImageGroup.length}`;
+    } else {
+        viewerCounter.textContent = '';
+    }
+    
+    viewer.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Update navigation visibility
+    updateNavVisibility();
+}
+
+function closeImageViewer() {
+    const viewer = document.getElementById('imageViewer');
+    viewer.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+function navigateImage(direction) {
+    if (currentImageGroup.length <= 1) return;
+    
+    currentImageIndex += direction;
+    
+    if (currentImageIndex < 0) {
+        currentImageIndex = currentImageGroup.length - 1;
+    } else if (currentImageIndex >= currentImageGroup.length) {
+        currentImageIndex = 0;
+    }
+    
+    const imgElement = currentImageGroup[currentImageIndex];
+    const viewerImg = document.getElementById('viewerImage');
+    const viewerTitle = document.getElementById('viewerTitle');
+    const viewerCounter = document.getElementById('viewerCounter');
+    
+    // Fade effect
+    viewerImg.style.opacity = '0';
+    setTimeout(() => {
+        viewerImg.src = imgElement.dataset.fullsrc || imgElement.src;
+        viewerTitle.textContent = imgElement.dataset.title || imgElement.alt || '';
+        viewerCounter.textContent = `${currentImageIndex + 1} / ${currentImageGroup.length}`;
+        viewerImg.style.opacity = '1';
+        updateNavVisibility();
+    }, 200);
+}
+
+function updateNavVisibility() {
+    const prevBtn = document.querySelector('.image-viewer-prev');
+    const nextBtn = document.querySelector('.image-viewer-next');
+    
+    if (currentImageGroup.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+    } else {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+    }
+}
+
+// Close viewer on Escape key and navigate with arrow keys
+document.addEventListener('keydown', function(e) {
+    const viewer = document.getElementById('imageViewer');
+    if (!viewer.classList.contains('active')) return;
+    
+    if (e.key === 'Escape') {
+        closeImageViewer();
+    } else if (e.key === 'ArrowLeft') {
+        navigateImage(-1);
+    } else if (e.key === 'ArrowRight') {
+        navigateImage(1);
+    }
+});
+
+// Close viewer when clicking outside the image
+document.addEventListener('click', function(e) {
+    const viewer = document.getElementById('imageViewer');
+    if (e.target === viewer) {
+        closeImageViewer();
+    }
+});
