@@ -127,17 +127,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create viewer HTML structure
     const viewerHTML = `
         <div id="imageViewer" class="image-viewer-overlay">
-            <button class="image-viewer-close" onclick="closeImageViewer()">
-                <i class="fas fa-times"></i>
-            </button>
-            <button class="image-viewer-nav image-viewer-prev" onclick="navigateImage(-1)">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="image-viewer-nav image-viewer-next" onclick="navigateImage(1)">
-                <i class="fas fa-chevron-right"></i>
-            </button>
             <div class="image-viewer-container">
-                <img id="viewerImage" class="image-viewer-img" src="" alt="">
+                <div class="image-viewer-img-wrapper">
+                    <button class="image-viewer-close" onclick="closeImageViewer()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <button class="image-viewer-nav image-viewer-prev" onclick="navigateImage(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <img id="viewerImage" class="image-viewer-img" src="" alt="">
+                    <button class="image-viewer-nav image-viewer-next" onclick="navigateImage(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
                 <div id="viewerTitle" class="image-viewer-title"></div>
                 <div id="viewerCounter" class="image-viewer-counter"></div>
             </div>
