@@ -1,0 +1,299 @@
+/* Construction Site - Practical, Professional Style */
+/* Inspired by Tive.com - Clean, corporate, functional */
+
+:root {
+    /* Construction Color Palette - Professional, Trustworthy */
+    --const-primary: #1a1a2e;
+    --const-secondary: #16213e;
+    --const-accent: #dc3545;
+    --const-accent-dark: #b71c1c;
+    --const-text: #333333;
+    --const-text-light: #666666;
+    --const-bg: #ffffff;
+    --const-bg-light: #f8f9fa;
+    --const-border: #e0e0e0;
+    
+    /* Typography - Clean, Professional */
+    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Spacing - Generous, Clear */
+    --section-padding: 6rem;
+    --container-max: 1200px;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-body);
+    color: var(--const-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography - Bold, Clear */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--const-primary);
+}
+
+/* Hero Section - Bold, Impactful */
+.construction-hero {
+    background: linear-gradient(135deg, var(--const-primary) 0%, var(--const-secondary) 100%);
+    position: relative;
+}
+
+.construction-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920') center/cover;
+    opacity: 0.3;
+}
+
+/* Navigation - Clean, Professional */
+.navbar-construction {
+    background: rgba(26, 26, 46, 0.98) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.navbar-construction .nav-link {
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.9) !important;
+    transition: all 0.3s ease;
+}
+
+.navbar-construction .nav-link:hover {
+    color: var(--const-accent) !important;
+}
+
+/* Buttons - Bold, Action-Oriented */
+.btn-construction {
+    background: var(--const-accent);
+    color: white;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-construction:hover {
+    background: var(--const-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(220, 53, 69, 0.3);
+}
+
+/* Cards - Clean, Information-Dense */
+.const-card {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 1px solid var(--const-border);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.const-card:hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    transform: translateY(-3px);
+}
+
+.const-card-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--const-accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.const-card-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Stats Section - Bold Numbers */
+.const-stats {
+    background: var(--const-bg-light);
+    padding: 4rem 0;
+}
+
+.const-stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--const-accent);
+    line-height: 1;
+}
+
+.const-stat-label {
+    font-size: 1rem;
+    color: var(--const-text-light);
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+/* Projects Grid - Practical Layout */
+.const-project-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 1px solid var(--const-border);
+}
+
+.const-project-image {
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+}
+
+.const-project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.const-project-card:hover .const-project-image img {
+    transform: scale(1.05);
+}
+
+.const-project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(26, 26, 46, 0.95));
+    padding: 2rem;
+    color: white;
+}
+
+/* Section Headers - Clean */
+.const-section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.const-section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--const-primary);
+    margin-bottom: 1rem;
+}
+
+.const-section-subtitle {
+    font-size: 1.2rem;
+    color: var(--const-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Trust Badges/Logos */
+.const-trust-section {
+    background: var(--const-bg-light);
+    padding: 3rem 0;
+    border-top: 1px solid var(--const-border);
+    border-bottom: 1px solid var(--const-border);
+}
+
+.const-trust-text {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--const-text-light);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Minimal Copy Sections */
+.const-minimal-section {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.const-minimal-text {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--const-primary);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Guided Scrolling Indicator */
+.const-scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--const-accent);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* Practical Grid Layout */
+.const-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+/* Contact Section - Professional */
+.const-contact-section {
+    background: var(--const-primary);
+    color: white;
+    padding: 5rem 0;
+}
+
+.const-contact-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.const-contact-info {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.const-contact-item {
+    text-align: center;
+}
+
+.const-contact-item i {
+    font-size: 2rem;
+    color: var(--const-accent);
+    margin-bottom: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .const-section-title {
+        font-size: 2rem;
+    }
+    
+    .const-stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .const-grid {
+        grid-template-columns: 1fr;
+    }
+}

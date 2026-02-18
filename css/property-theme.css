@@ -1,0 +1,443 @@
+/* Property/Interior Site - Artistic, Creative Style */
+/* Inspired by Neundex.com - Bold, artistic, experimental */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Property Color Palette - Rich, Artistic */
+    --prop-primary: #0a0a0a;
+    --prop-secondary: #1a1a1a;
+    --prop-accent: #dc3545;
+    --prop-accent-light: #ff6b7a;
+    --prop-cream: #faf8f5;
+    --prop-warm: #f5f0e8;
+    --prop-gold: #d4af37;
+    --prop-text: #1a1a1a;
+    --prop-text-light: #666666;
+    --prop-text-muted: #999999;
+    
+    /* Typography - Artistic, Editorial */
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Spacing - Generous, Editorial */
+    --section-padding: 8rem;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-body);
+    color: var(--prop-text);
+    line-height: 1.7;
+    background: var(--prop-cream);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography - Editorial, Artistic */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--prop-primary);
+}
+
+/* Hero Section - Full Screen, Artistic */
+.property-hero {
+    background: var(--prop-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.property-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920') center/cover;
+    opacity: 0.4;
+}
+
+.property-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.property-hero h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 600;
+    color: white;
+    line-height: 1;
+    margin-bottom: 2rem;
+}
+
+.property-hero h1 span {
+    color: var(--prop-accent);
+    font-style: italic;
+}
+
+/* Navigation - Minimal, Artistic */
+.navbar-property {
+    background: transparent !important;
+    padding: 2rem 0;
+    transition: all 0.4s ease;
+}
+
+.navbar-property.scrolled {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+}
+
+.navbar-property .navbar-brand {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white !important;
+}
+
+.navbar-property.scrolled .navbar-brand {
+    color: var(--prop-primary) !important;
+}
+
+.navbar-property .nav-link {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9) !important;
+    margin: 0 1rem;
+    position: relative;
+}
+
+.navbar-property.scrolled .nav-link {
+    color: var(--prop-text) !important;
+}
+
+.navbar-property .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--prop-accent);
+    transition: width 0.3s ease;
+}
+
+.navbar-property .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Artistic Section Headers */
+.prop-section-label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--prop-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.prop-section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.prop-section-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    color: var(--prop-text-light);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* Property Cards - Editorial Style */
+.prop-card {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prop-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.prop-card-image {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+}
+
+.prop-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prop-card:hover .prop-card-image img {
+    transform: scale(1.08);
+}
+
+.prop-card-content {
+    padding: 2.5rem;
+}
+
+.prop-card-title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--prop-primary);
+}
+
+.prop-card-price {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--prop-accent);
+    margin-bottom: 1rem;
+}
+
+.prop-card-location {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--prop-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Grid Layout - Asymmetric, Artistic */
+.prop-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+}
+
+.prop-grid-item-large {
+    grid-column: span 7;
+}
+
+.prop-grid-item-small {
+    grid-column: span 5;
+}
+
+@media (max-width: 991px) {
+    .prop-grid-item-large,
+    .prop-grid-item-small {
+        grid-column: span 12;
+    }
+}
+
+/* Full Bleed Images */
+.prop-full-image {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+}
+
+/* Text Effects - Dynamic */
+.prop-text-highlight {
+    position: relative;
+    display: inline;
+}
+
+.prop-text-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: rgba(220, 53, 69, 0.2);
+    z-index: -1;
+    transition: height 0.3s ease;
+}
+
+.prop-text-highlight:hover::after {
+    height: 100%;
+}
+
+/* Infinite Canvas - Dot Grid Background */
+.prop-canvas-section {
+    background: 
+        radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    padding: var(--section-padding) 0;
+}
+
+/* Color Explosion - Rich Accents */
+.prop-color-accent-1 { color: #dc3545; }
+.prop-color-accent-2 { color: #d4af37; }
+.prop-color-accent-3 { color: #2c5f2d; }
+.prop-color-accent-4 { color: #1e3a5f; }
+
+/* Mission Section - Editorial */
+.prop-mission {
+    background: var(--prop-warm);
+    padding: var(--section-padding) 0;
+}
+
+.prop-mission-text {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+.prop-mission-text em {
+    color: var(--prop-accent);
+    font-style: italic;
+}
+
+/* Service Cards - Minimal, Elegant */
+.prop-service-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.prop-service-card:hover {
+    background: var(--prop-primary);
+    color: white;
+}
+
+.prop-service-card:hover h4 {
+    color: white;
+}
+
+.prop-service-card:hover .prop-service-icon {
+    background: var(--prop-accent);
+}
+
+.prop-service-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--prop-warm);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    transition: all 0.4s ease;
+}
+
+.prop-service-icon i {
+    font-size: 1.75rem;
+    color: var(--prop-primary);
+    transition: all 0.4s ease;
+}
+
+.prop-service-card:hover .prop-service-icon i {
+    color: white;
+}
+
+/* Gallery/Portfolio Grid */
+.prop-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.prop-gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+}
+
+.prop-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.prop-gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.prop-gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0);
+    transition: background 0.3s ease;
+}
+
+.prop-gallery-item:hover::after {
+    background: rgba(0,0,0,0.3);
+}
+
+/* Footer - Minimal */
+.prop-footer {
+    background: var(--prop-primary);
+    color: white;
+    padding: 4rem 0;
+}
+
+.prop-footer-brand {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Scroll Animations - Artistic */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.prop-animate {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Staggered Animation Delays */
+.prop-delay-1 { animation-delay: 0.1s; }
+.prop-delay-2 { animation-delay: 0.2s; }
+.prop-delay-3 { animation-delay: 0.3s; }
+.prop-delay-4 { animation-delay: 0.4s; }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 4rem;
+    }
+    
+    .prop-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .prop-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .prop-card-image {
+        height: 300px;
+    }
+}
