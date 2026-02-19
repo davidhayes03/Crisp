@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisp Property - Static Image Hero Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #C8102E;
+            --color-dark: #1a1a1a;
+            --color-light: #f5f5f5;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-dark);
+            background: var(--color-light);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .header-logo {
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+        }
+
+        .btn-cta {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            color: var(--color-dark);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section with Ken Burns */
+        .hero-section {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            overflow: hidden;
+            background: var(--color-dark);
+        }
+
+        /* Image Slideshow */
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: kenBurns 20s ease-in-out infinite;
+        }
+
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+            50% {
+                transform: scale(1.1) translate(-2%, -2%);
+            }
+            100% {
+                transform: scale(1) translate(0, 0);
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+            z-index: 1;
+        }
+
+        /* Logo Animation Container */
+        .logo-reveal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 400px;
+            height: 400px;
+        }
+
+        /* Animated Logo SVG */
+        .logo-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-path {
+            fill: none;
+            stroke: white;
+            stroke-width: 3;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLogo 3s ease forwards;
+        }
+
+        .logo-fill {
+            fill: white;
+            opacity: 0;
+            animation: fadeInLogo 1s ease 2.5s forwards;
+        }
+
+        @keyframes drawLogo {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes fadeInLogo {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Hero Title - Bottom Right */
+        .hero-title {
+            position: absolute;
+            bottom: 20%;
+            right: 5%;
+            z-index: 2;
+            text-align: right;
+            color: white;
+        }
+
+        .hero-title h1 {
+            font-size: clamp(3rem, 8vw, 7rem);
+            line-height: 0.9;
+            font-weight: 400;
+            margin: 0;
+            letter-spacing: -2px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUpFade 1.5s ease 3.5s forwards;
+        }
+
+        .hero-title .line {
+            display: block;
+        }
+
+        .hero-title .accent {
+            color: var(--color-primary);
+            font-style: italic;
+        }
+
+        @keyframes slideUpFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Content Box */
+        .hero-content {
+            position: absolute;
+            left: 5%;
+            bottom: 10%;
+            z-index: 2;
+            background: rgba(26, 26, 26, 0.95);
+            color: white;
+            padding: 3rem;
+            max-width: 500px;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 1s ease 4s forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-content h2 {
+            font-size: 1.35rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .btn-explore {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn-explore:hover {
+            color: white;
+            gap: 1.5rem;
+        }
+
+        .btn-arrow {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Demo Info Section */
+        .demo-info {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .features-list i {
+            color: var(--color-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-reveal {
+                width: 250px;
+                height: 250px;
+            }
+
+            .hero-title {
+                bottom: 30%;
+            }
+
+            .hero-content {
+                left: 5%;
+                right: 5%;
+                bottom: 5%;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header" id="mainHeader">
+        <div class="header-inner">
+            <a href="#" class="header-logo">CRISP</a>
+            <a href="#" class="btn-cta">Say hello</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <!-- Background Images with Ken Burns -->
+        <div class="hero-slideshow">
+            <div class="hero-slide active">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80" alt="Modern Architecture">
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80" alt="Luxury Interior">
+            </div>
+        </div>
+        
+        <div class="hero-overlay"></div>
+
+        <!-- Animated Logo -->
+        <div class="logo-reveal">
+            <svg class="logo-svg" viewBox="0 0 400 400">
+                <!-- Background circle -->
+                <circle cx="200" cy="200" r="180" fill="none" stroke="white" stroke-width="2" class="logo-path"/>
+                
+                <!-- CRISP Text -->
+                <g class="logo-fill">
+                    <text x="200" y="160" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="60" font-weight="700" letter-spacing="8">CRISP</text>
+                    <text x="200" y="210" text-anchor="middle" fill="var(--color-primary)" font-family="Inter, sans-serif" font-size="24" font-weight="500" letter-spacing="12">PROPERTY</text>
+                </g>
+                
+                <!-- Decorative lines -->
+                <path d="M100 250 L300 250" stroke="white" stroke-width="2" class="logo-path"/>
+                <path d="M150 270 L250 270" stroke="var(--color-primary)" stroke-width="3" class="logo-path"/>
+            </svg>
+        </div>
+
+        <!-- Title - Bottom Right -->
+        <div class="hero-title">
+            <h1>
+                <span class="line">For the</span>
+                <span class="line accent">creatively</span>
+                <span class="line">curious</span>
+            </h1>
+        </div>
+
+        <!-- Content Box -->
+        <div class="hero-content">
+            <h2>Find your next property in Kent's most exciting new developments</h2>
+            <a href="#info" class="btn-explore">
+                <span>Explore Crisp</span>
+                <div class="btn-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Demo Info -->
+    <section class="demo-info" id="info">
+        <h2>Demo Features</h2>
+        <p>This demo showcases a hero section using static images with animation effects instead of video.</p>
+        
+        <ul class="features-list">
+            <li>
+                <i class="fas fa-image"></i>
+                <div>
+                    <strong>2 Stock Photos</strong> - High-quality Unsplash images cycling every 8 seconds
+                </div>
+            </li>
+            <li>
+                <i class="fas fa-film"></i>
+                <div>
+                    <strong>Ken Burns Effect</strong> - Slow zoom and pan animation on each image (20s loop)
+                </div>
+            </li>
+            <li>
+                <i class="fas fa-adjust"></i>
+                <div>
+                    <strong>Crossfade Transition</strong> - Smooth 2-second fade between images
+                </div>
+            </li>
+            <li>
+                <i class="fas fa-pen-fancy"></i>
+                <div>
+                    <strong>Animated Logo</strong> - SVG stroke animation drawing the logo (3s)
+                </div>
+            </li>
+            <li>
+                <i class="fas fa-font"></i>
+                <div>
+                    <strong>Staggered Text</strong> - "For the creatively curious" slides up from bottom right
+                </div>
+            </li>
+            <li>
+                <i class="fas fa-box"></i>
+                <div>
+                    <strong>Content Box</strong> - Slides in from left with description and CTA
+                </div>
+            </li>
+        </ul>
+
+        <h3 style="margin-top: 3rem;">How to use with your own content:</h3>
+        <p>1. Replace the Unsplash URLs with your own high-res property photos (1920x1080 minimum)</p>
+        <p>2. Upload your Crisp logo SVG to the images folder and reference it</p>
+        <p>3. Adjust animation timings in the CSS (search for "animation:" properties)</p>
+        <p>4. Update text content to match your messaging</p>
+    </section>
+
+    <script>
+        // Slideshow
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Change slide every 8 seconds
+        setInterval(nextSlide, 8000);
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255,255,255,0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+                header.querySelector('.header-logo').style.color = '#1a1a1a';
+            } else {
+                header.style.background = 'transparent';
+                header.style.backdropFilter = 'none';
+                header.querySelector('.header-logo').style.color = 'white';
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
