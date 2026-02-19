@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wickside ⁄ Discover East London's boldest new community</title>
-    <meta name="description" content="Delivering an exciting mix of uses to the Heart of Hackney Wick with 176 residential units, +100k sf of commercial spaces, shops and workshops.">
+    <title>Crisp Property ⁄ Premium Property Development</title>
+    <meta name="description" content="Crisp Property - Creating exceptional residential and commercial developments with innovative design and sustainable practices.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
         :root {
-            --color-1: #9786fa;
-            --color-2: #e2d9d3;
-            --color-3: #003019;
-            --color-4: #60f63d;
-            --color-5: #ffa5c1;
-            --color-6: #ff6606;
-            --color-7: #380921;
-            --color-8: #7ce0f6;
-            --color-9: #10162d;
+            --color-primary: #C8102E;
+            --color-primary-dark: #A00D24;
+            --color-1: #C8102E;
+            --color-2: #f5f5f5;
+            --color-3: #1a1a1a;
+            --color-4: #C8102E;
+            --color-5: #ffcccc;
+            --color-6: #C8102E;
+            --color-7: #2a0a0a;
+            --color-8: #ffffff;
+            --color-9: #1a1a1a;
             --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
@@ -194,10 +196,61 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 8rem 0 4rem;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 8rem 5% 4rem;
             background: var(--color-3);
             color: white;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        .hero-heading {
+            position: absolute;
+            bottom: 15%;
+            right: 5%;
+            z-index: 2;
+            text-align: right;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.9;
+            font-weight: 400;
+            margin: 0;
+            letter-spacing: -2px;
         }
 
         .hero-background {
@@ -241,14 +294,50 @@
         }
 
         .hero-content {
-            position: relative;
+            position: absolute;
+            left: 5%;
+            bottom: 10%;
             z-index: 2;
-            background: var(--color-7);
-            color: var(--color-4);
+            background: rgba(26, 26, 26, 0.95);
+            color: white;
             padding: 3rem;
-            max-width: 600px;
-            margin-left: 5%;
-            margin-top: auto;
+            max-width: 550px;
+        }
+
+        .content-title {
+            font-size: 1.35rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            color: white;
+        }
+
+        .btn-explore {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn-explore:hover {
+            color: white;
+        }
+
+        .btn-arrow {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-arrow svg {
+            width: 13px;
+            height: 14px;
+            fill: currentColor;
+            margin-right: -5px;
         }
 
         .content-title {
@@ -920,21 +1009,14 @@
     <!-- Header -->
     <header class="site-header" id="mainHeader">
         <div class="header-inner">
-            <a href="#" class="header-logo" aria-label="Wickside" data-cursor-text="TOP">
-                <svg viewBox="0 0 197 67" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M31.2345 66.113L14.0634 26.6862L10.4795 49.571L0.515625 48.0121L6.78151 8.00043L16.3866 6.76776L28.9323 35.5712L27.7369 17.3771L36.5147 13.6698L48.711 27.1989L44.6821 2.22855L54.639 0.623047L61.5014 43.1816L51.866 45.7612L38.7517 31.2138L40.8908 63.7689L31.2345 66.113Z" fill="white"/>
-                    <path d="M86.6482 28.4291L87.6898 11.0854H95.4773L91.3878 36.2212H82.9129L81.1536 21.6063L79.4293 36.2212H71.0243L66.9697 11.0854H74.5801L75.6567 28.8252L77.7748 11.0854H84.5627L86.6459 28.4291H86.6482Z" fill="white"/>
-                    <path d="M103.33 36.2212H96.9385V11.0854H103.33V36.2212Z" fill="white"/>
-                    <path d="M131.877 11.0854H140.101L134.678 20.6742L139.418 36.2235H131.733L130.764 27.5692L129.111 30.4773V36.2235H122.72V11.0854H129.111V22.3962L131.877 11.0854Z" fill="white"/>
-                    <path d="M147.462 36.5803C144.852 36.5803 142.936 35.9815 141.715 34.7861C140.494 33.5884 139.884 31.8058 139.884 29.436L146.42 27.6767C146.229 29.1843 146.245 30.2073 146.474 30.7479C146.7 31.2861 147.138 31.5564 147.786 31.5564C148.144 31.5564 148.426 31.4073 148.629 31.1067C148.832 30.8085 148.934 30.4426 148.934 30.0115C148.934 29.3171 148.767 28.7369 148.431 28.2709C148.096 27.8048 147.66 27.4507 147.119 27.2106C146.581 26.9706 145.989 26.7446 145.341 26.5279C144.693 26.3135 144.043 26.0316 143.384 25.6844C142.724 25.3372 142.128 24.9061 141.59 24.3911C141.051 23.8761 140.613 23.1282 140.278 22.1471C139.942 21.1661 139.774 19.9917 139.774 18.6286C139.774 15.9232 140.462 13.9379 141.839 12.6679C143.216 11.4003 145.113 10.7642 147.532 10.7642C149.95 10.7642 151.698 11.398 152.919 12.6679C154.14 13.9379 154.751 15.7927 154.751 18.2348L148.179 19.994C148.324 19.2041 148.37 18.54 148.324 18.0017C148.275 17.4635 148.235 17.044 148.198 16.7458C148.163 16.4475 148.061 16.2261 147.893 16.0817C147.725 15.9372 147.588 15.8486 147.48 15.8114C147.373 15.7764 147.236 15.7578 147.068 15.7578C146.278 15.7578 145.882 16.3566 145.882 17.5543C145.882 18.272 146.05 18.8639 146.385 19.3323C146.721 19.7983 147.156 20.1641 147.695 20.4275C148.233 20.6908 148.827 20.9308 149.473 21.1452C150.118 21.3595 150.771 21.6368 151.43 21.97C152.087 22.3056 152.686 22.7297 153.227 23.2447C153.765 23.7596 154.203 24.5076 154.538 25.4886C154.874 26.4696 155.042 27.6441 155.042 29.0072C155.042 34.0591 152.516 36.585 147.464 36.585L147.462 36.5803Z" fill="white"/>
-                    <path d="M163.226 36.2212H156.834V11.0854H163.226V36.2212Z" fill="white"/>
-                    <path d="M172.991 11.0854C178.57 11.0854 181.359 15.2751 181.359 23.6545C181.359 32.0339 178.57 36.2235 172.991 36.2235H165.952V11.0854H172.991ZM172.346 30.906H172.525C173.364 30.906 173.979 30.3864 174.375 29.3448C174.769 28.3032 174.967 26.4065 174.967 23.6522C174.967 20.8979 174.769 19.0011 174.375 17.9618C173.979 16.9202 173.364 16.4006 172.525 16.4006H172.346V30.9084V30.906Z" fill="white"/>
-                    <path d="M189.797 26.4181V30.906H196.692V36.2212H183.405V11.0854H196.223V16.4006H189.797V21.1402H195.65V26.4181H189.797Z" fill="white"/>
-                    <path d="M114.478 25.2742C114.473 26.3275 114.462 27.1733 114.445 27.8001C114.422 28.674 114.361 29.3986 114.266 29.9719C114.17 30.5474 114.038 30.9063 113.87 31.0484C113.702 31.1929 113.45 31.2628 113.117 31.2628C112.758 31.2628 112.488 31.1067 112.309 30.7968C112.129 30.4868 111.992 29.7785 111.896 28.6786C111.801 27.5788 111.752 25.9267 111.752 23.7223C111.752 21.5179 111.801 19.7913 111.896 18.6774C111.992 17.5636 112.129 16.8459 112.309 16.522C112.488 16.1981 112.758 16.0373 113.117 16.0373C113.453 16.0373 113.704 16.1096 113.87 16.254C114.038 16.3985 114.168 16.7574 114.266 17.3306C114.361 17.9038 114.422 18.6285 114.445 19.5023C114.462 20.1431 114.473 21.0076 114.478 22.0935L120.832 20.5952C120.672 17.4028 120.045 15.0097 118.952 13.4159C117.719 11.6193 115.774 10.7222 113.117 10.7222C107.97 10.7222 105.397 15.0563 105.397 23.72C105.397 32.3836 107.97 36.5756 113.117 36.5756C115.774 36.5756 117.719 35.6785 118.952 33.8819C120.038 32.2997 120.662 29.9276 120.83 26.7679L114.478 25.2695V25.2742Z" fill="white"/>
-                </svg>
+            <a href="#" class="header-logo" aria-label="Crisp Property" data-cursor-text="TOP">
+                <div style="color: white; font-family: var(--font-main); font-size: 1.75rem; font-weight: 600; letter-spacing: 2px;">
+                    CRISP
+                    <span style="display: block; font-size: 0.7rem; letter-spacing: 4px; color: var(--color-primary);">PROPERTY</span>
+                </div>
             </a>
             <div class="header-buttons">
-                <a href="https://www.instagram.com/wicksidelife/" class="btn-social" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a href="https://www.instagram.com/crispproperty/" class="btn-social" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
                 <a href="/register/" class="btn-cta" aria-label="Say hello" target="_self"><span class="btn-label">Say hello</span></a>
@@ -973,7 +1055,7 @@
         <section class="caption-section" id="explore">
             <div class="container">
                 <h3 class="caption-text">
-                    <span class="tooltip-placeholder" data-tooltip="Wickside offers a collection of one, two and three-bedroom rental apartments and duplexes - each thoughtfully designed with a raw-yet-refined aesthetic that reflects Hackney Wick's industrial heritage.">Wickside</span> brings together canal-side rental homes, green space, artist studios and independent businesses to create a truly mixed community – rooted in the area's industrial past and designed for its creative future.
+                    <span class="tooltip-placeholder" data-tooltip="Crisp Property creates exceptional residential and commercial developments - each thoughtfully designed with meticulous attention to detail that reflects our commitment to quality and innovation.">Crisp Property</span> brings together premium homes, green space, and modern amenities to create truly mixed communities – rooted in local heritage and designed for contemporary living.
                 </h3>
             </div>
             <div class="pattern-offset"></div>
@@ -983,16 +1065,16 @@
         <section class="marquee-section">
             <div class="marquee-track">
                 <div class="marquee-content">
-                    <span>Coming Early 2026</span>
-                    <span>Coming Early 2026</span>
-                    <span>Coming Early 2026</span>
-                    <span>Coming Early 2026</span>
+                    <span>Coming Soon</span>
+                    <span>Coming Soon</span>
+                    <span>Coming Soon</span>
+                    <span>Coming Soon</span>
                 </div>
                 <div class="marquee-content" aria-hidden="true">
-                    <span>Coming Early 2026</span>
-                    <span>Coming Early 2026</span>
-                    <span>Coming Early 2026</span>
-                    <span>Coming Early 2026</span>
+                    <span>Coming Soon</span>
+                    <span>Coming Soon</span>
+                    <span>Coming Soon</span>
+                    <span>Coming Soon</span>
                 </div>
             </div>
         </section>
@@ -1013,28 +1095,28 @@
             <div class="swiper gallerySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/07/WICKSIDE_VIEW_8-2-scaled.jpg" alt="Wickside View">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600" alt="Property Development 1">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/07/18074-BUJ-HackneyWickside_View01_04-WINDOW-2-scaled.jpg" alt="Interior View">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600" alt="Property Development 2">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/07/18074-BUJ-HackneyWickside_View02_06-1-scaled.jpg" alt="Exterior View">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600" alt="Property Development 3">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/07/FM_View08_160331-6-scaled.jpg" alt="Canal View">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600" alt="Property Development 4">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/07/FM_View06_160331-3-scaled.jpg" alt="Rooftop View">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1600" alt="Property Development 5">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/07/FM_View05_160401-1-scaled.jpg" alt="Garden View">
+                        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1600" alt="Property Development 6">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/07/WICKSIDE_VIEW_3_update-2-scaled.jpg" alt="Aerial View">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600" alt="Property Development 7">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/07/18074-BUJ-HackneyWickside_View04_03-1-scaled.jpg" alt="Night View">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600" alt="Property Development 8">
                     </div>
                 </div>
                 <div class="swiper-controls">
@@ -1055,12 +1137,12 @@
         <section class="clip-section">
             <div class="clip-container">
                 <div class="clip-text">
-                    <h2>Start your<br>journey at<br><span>Wickside</span></h2>
-                    <p>Thoughtfully designed rental homes by the canal, where every detail serves a purpose – from light-filled interiors to rooftop gardens to beautifully curated amenity spaces. Wickside is where the past holds, creativity leads, and community grows. Designed with intention. Alive with possibility.</p>
+                    <h2>Start your<br>journey at<br><span>Crisp</span></h2>
+                    <p>Thoughtfully designed homes where every detail serves a purpose – from light-filled interiors to beautifully landscaped gardens to premium amenity spaces. Crisp Property is where quality meets innovation, creating spaces that inspire and endure. Designed with intention. Built to last.</p>
                     <a href="/register/" class="btn-outline">Let's talk</a>
                 </div>
                 <div class="clip-media">
-                    <img src="https://wicksidelife.com/wp-content/uploads/2025/07/ADAW_1-768x1024.jpg" alt="Apartment Interior">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" alt="Apartment Interior">
                 </div>
             </div>
         </section>
@@ -1068,48 +1150,48 @@
         <!-- Timeline Section -->
         <section class="timeline-section" id="lifestyle">
             <div class="timeline-header">
-                <h2>A day at Wickside</h2>
+                <h2>A day at Crisp</h2>
             </div>
             <div class="swiper timelineSwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide timeline-card">
-                        <div class="card-time">06:00</div>
-                        <div class="card-content">
-                            <h4>Watch the sunrise</h4>
-                            <p>Watch the sunrise ripple across the canal from your balcony.</p>
-                        </div>
-                        <div class="card-image">
-                            <img src="https://wicksidelife.com/wp-content/uploads/2025/07/ADAW_1-768x1024.jpg" alt="Sunrise">
-                        </div>
-                    </div>
-                    <div class="swiper-slide timeline-card">
                         <div class="card-time">07:00</div>
                         <div class="card-content">
-                            <h4>Morning run</h4>
-                            <p>Morning run through Victoria Park while the city slowly stirs.</p>
+                            <h4>Morning light</h4>
+                            <p>Wake up to natural light flooding through floor-to-ceiling windows.</p>
                         </div>
                         <div class="card-image">
-                            <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317816.png" alt="Morning Run">
+                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600" alt="Morning Light">
                         </div>
                     </div>
                     <div class="swiper-slide timeline-card">
-                        <div class="card-time">08:00</div>
+                        <div class="card-time">09:00</div>
                         <div class="card-content">
-                            <h4>Coffee brewed</h4>
-                            <p>Coffee brewed, emails checked, bike ready for the short ride.</p>
+                            <h4>Work from home</h4>
+                            <p>Work from your dedicated home office with stunning views.</p>
                         </div>
                         <div class="card-image">
-                            <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317817.png" alt="Coffee">
+                            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=600" alt="Home Office">
                         </div>
                     </div>
                     <div class="swiper-slide timeline-card">
-                        <div class="card-time">12:00</div>
+                        <div class="card-time">13:00</div>
                         <div class="card-content">
-                            <h4>Grab lunch</h4>
-                            <p>Grab lunch and sunlight at a local independent café terrace.</p>
+                            <h4>Lunch break</h4>
+                            <p>Enjoy lunch at nearby independent cafés and restaurants.</p>
                         </div>
                         <div class="card-image">
-                            <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317818.png" alt="Lunch">
+                            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600" alt="Lunch">
+                        </div>
+                    </div>
+                    <div class="swiper-slide timeline-card">
+                        <div class="card-time">18:00</div>
+                        <div class="card-content">
+                            <h4>Relax & unwind</h4>
+                            <p>Relax in beautifully landscaped communal gardens.</p>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600" alt="Garden">
                         </div>
                     </div>
                 </div>
@@ -1120,67 +1202,43 @@
         <section class="travel-section" id="location">
             <div class="travel-header">
                 <span class="travel-label">A gateway to anywhere</span>
-                <h3>Travel Times From Wickside</h3>
+                <h3>Travel Times From Edenbridge</h3>
             </div>
             <div class="travel-grid">
                 <div class="travel-card">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     <h4>By <span>Foot</span></h4>
                     <ul>
-                        <li>Hackney W. Station <strong>2 mins</strong></li>
-                        <li>Victoria park <strong>7 mins</strong></li>
-                        <li>Westfield <strong>20 mins</strong></li>
-                        <li>Stratford TFL <strong>22 mins</strong></li>
+                        <li>Town Centre <strong>5 mins</strong></li>
+                        <li>Train Station <strong>10 mins</strong></li>
+                        <li>Local Shops <strong>3 mins</strong></li>
                     </ul>
                 </div>
                 <div class="travel-card">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg>
-                    <h4>By <span>Bike</span></h4>
+                    <h4>By <span>Train</span></h4>
                     <ul>
-                        <li>Broadway market <strong>8 mins</strong></li>
-                        <li>Shoreditch/City <strong>20 mins</strong></li>
-                        <li>Canary Wharf <strong>20 mins</strong></li>
-                        <li>Soho/Westend <strong>30 mins</strong></li>
+                        <li>London Bridge <strong>45 mins</strong></li>
+                        <li>Victoria <strong>50 mins</strong></li>
+                        <li>Sevenoaks <strong>15 mins</strong></li>
                     </ul>
                 </div>
                 <div class="travel-card">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
                     <h4>By <span>Car</span></h4>
                     <ul>
-                        <li>City Airport <strong>20 mins</strong></li>
-                        <li>Blackwall tunnel <strong>20 mins</strong></li>
-                        <li>M25 North <strong>30 mins</strong></li>
-                        <li>Oxford Circus <strong>30 mins</strong></li>
+                        <li>M25 <strong>15 mins</strong></li>
+                        <li>Gatwick <strong>25 mins</strong></li>
+                        <li>Bluewater <strong>30 mins</strong></li>
                     </ul>
                 </div>
                 <div class="travel-card">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M6 14h.01"/></svg>
-                    <h4>By <span>Bus</span></h4>
-                    <ul>
-                        <li>Shoreditch <strong>20 mins</strong></li>
-                        <li>Euston <strong>40 mins</strong></li>
-                        <li>London Bridge <strong>40 mins</strong></li>
-                        <li>Marble Arch <strong>40 mins</strong></li>
-                    </ul>
-                </div>
-                <div class="travel-card">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16M12 3v16"/></svg>
-                    <h4>By <span>Train</span></h4>
-                    <ul>
-                        <li>City Airport <strong>25 mins</strong></li>
-                        <li>Liverpool St./City <strong>25 mins</strong></li>
-                        <li>Soho <strong>10 mins</strong></li>
-                        <li>Victoria Station <strong>30 mins</strong></li>
-                    </ul>
-                </div>
-                <div class="travel-card">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M12 2v20M12 2l10 10-10 10L2 12z"/></svg>
                     <h4>By <span>Plane</span></h4>
                     <ul>
-                        <li>Heathrow <strong>1 hr</strong></li>
-                        <li>Gatwick <strong>1.5 hrs</strong></li>
-                        <li>Stansted <strong>1.5 hrs</strong></li>
-                        <li>New York <strong>8.5 hrs</strong></li>
+                        <li>Gatwick <strong>25 mins</strong></li>
+                        <li>Heathrow <strong>55 mins</strong></li>
+                        <li>City Airport <strong>50 mins</strong></li>
                     </ul>
                 </div>
             </div>
@@ -1190,59 +1248,59 @@
         <section class="instagram-section">
             <div class="insta-header">
                 <span class="insta-label">BE INSPIRED</span>
-                <a href="https://www.instagram.com/wicksidelife/" class="insta-handle" target="_blank">@WICKSIDELIFE</a>
+                <a href="https://www.instagram.com/crispproperty/" class="insta-handle" target="_blank">@CRISPPROPERTY</a>
             </div>
             <div class="insta-marquee">
                 <div class="insta-track">
                     <div class="insta-card">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317773.jpg" alt="Instagram 1">
-                        <span class="insta-caption">Discover The Art Of Living</span>
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400" alt="Modern Living">
+                        <span class="insta-caption">Modern Living Spaces</span>
                     </div>
                     <div class="insta-card">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317774.jpg" alt="Instagram 2">
-                        <span class="insta-caption">Shared Moments Await</span>
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400" alt="Design Details">
+                        <span class="insta-caption">Quality Design Details</span>
                     </div>
                     <div class="insta-card">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317775.jpg" alt="Instagram 3">
-                        <span class="insta-caption">Not Afraid To Be Bold</span>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400" alt="Luxury">
+                        <span class="insta-caption">Luxury Interiors</span>
                     </div>
                     <div class="insta-card">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317776.jpg" alt="Instagram 4">
-                        <span class="insta-caption">City Moves, Hackney Mood</span>
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400" alt="Living">
+                        <span class="insta-caption">Thoughtful Living</span>
                     </div>
                     <div class="insta-card">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317777.jpg" alt="Instagram 5">
-                        <span class="insta-caption">Miles, Murals, Morning Light</span>
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400" alt="Kitchen">
+                        <span class="insta-caption">Stunning Kitchens</span>
                     </div>
                     <div class="insta-card">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317778.jpg" alt="Instagram 6">
-                        <span class="insta-caption">Your New Favourite Spot</span>
+                        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=400" alt="Architecture">
+                        <span class="insta-caption">Modern Architecture</span>
                     </div>
                 </div>
                 <div class="insta-track" aria-hidden="true">
                     <div class="insta-card">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317773.jpg" alt="Instagram 1">
-                        <span class="insta-caption">Discover The Art Of Living</span>
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400" alt="Modern Living">
+                        <span class="insta-caption">Modern Living Spaces</span>
                     </div>
                     <div class="insta-card">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317774.jpg" alt="Instagram 2">
-                        <span class="insta-caption">Shared Moments Await</span>
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400" alt="Design Details">
+                        <span class="insta-caption">Quality Design Details</span>
                     </div>
                     <div class="insta-card">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317775.jpg" alt="Instagram 3">
-                        <span class="insta-caption">Not Afraid To Be Bold</span>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400" alt="Luxury">
+                        <span class="insta-caption">Luxury Interiors</span>
                     </div>
                     <div class="insta-card">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317776.jpg" alt="Instagram 4">
-                        <span class="insta-caption">City Moves, Hackney Mood</span>
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400" alt="Living">
+                        <span class="insta-caption">Thoughtful Living</span>
                     </div>
                     <div class="insta-card">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317777.jpg" alt="Instagram 5">
-                        <span class="insta-caption">Miles, Murals, Morning Light</span>
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400" alt="Kitchen">
+                        <span class="insta-caption">Stunning Kitchens</span>
                     </div>
                     <div class="insta-card">
-                        <img src="https://wicksidelife.com/wp-content/uploads/2025/08/Frame-1321317778.jpg" alt="Instagram 6">
-                        <span class="insta-caption">Your New Favourite Spot</span>
+                        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=400" alt="Architecture">
+                        <span class="insta-caption">Modern Architecture</span>
                     </div>
                 </div>
             </div>
@@ -1253,15 +1311,15 @@
     <footer class="site-footer">
         <div class="footer-cta">
             <h2 class="footer-title">Register your interest today</h2>
-            <p class="footer-subtitle">Register your interest today</p>
-            <a href="mailto:wow@wicksidelife.com" class="btn-large">wow@wicksidelife.com</a>
+            <p class="footer-subtitle">Be the first to hear about our latest developments</p>
+            <a href="mailto:info@crispproperty.co.uk" class="btn-large">info@crispproperty.co.uk</a>
         </div>
         <div class="footer-info">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h5>Find us</h5>
-                    <p>Hertford Union Canal<br>Hackney Wick, London, E9 5HH</p>
-                    <a href="https://www.google.com/maps/dir//Hackney%20Wick,%20London" class="map-link" target="_blank">Map</a>
+                    <p>126 High Street<br>Edenbridge, Kent<br>TN8 5AY</p>
+                    <a href="https://maps.google.com" class="map-link" target="_blank">Map</a>
                 </div>
                 <div class="footer-col">
                     <h5>Stay in the loop</h5>
@@ -1272,15 +1330,17 @@
                 </div>
                 <div class="footer-col">
                     <h5>Let's get social</h5>
-                    <a href="https://www.instagram.com/wicksidelife/" class="social-link" target="_blank"><strong>@wicksidelife</strong></a>
+                    <a href="https://www.instagram.com/crispproperty/" class="social-link" target="_blank"><strong>@crispproperty</strong></a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="footer-links">
                     <a href="/terms-and-conditions/">Terms</a>
                     <a href="/privacy-policy/">Privacy</a>
+                    <a href="../interior.html">Crisp Interiors</a>
+                    <a href="../construction.html">Crisp Construction</a>
                 </div>
-                <p class="copyright">&copy; 2026 Wickside. All rights reserved</p>
+                <p class="copyright">&copy; 2024 Crisp Property. All rights reserved</p>
             </div>
         </div>
     </footer>
