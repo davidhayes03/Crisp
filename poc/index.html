@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisp Property ⁄ Premium Property Development</title>
+    <meta name="description" content="Crisp Property - Creating exceptional residential and commercial developments with innovative design and sustainable practices.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        :root {
+            --color-primary: #C8102E;
+            --color-primary-dark: #A00D24;
+            --color-1: #C8102E;
+            --color-2: #f5f5f5;
+            --color-3: #1a1a1a;
+            --color-4: #C8102E;
+            --color-5: #ffcccc;
+            --color-6: #C8102E;
+            --color-7: #2a0a0a;
+            --color-8: #ffffff;
+            --color-9: #1a1a1a;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-3);
+            background: var(--color-2);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Cookie Popup */
+        .cookie-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+            opacity: 0;
+            visibility: hidden;
+            transition: clip-path 0.6s ease, opacity 0.3s ease;
+        }
+
+        .cookie-popup.active {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cookie-popup h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .cookie-popup p {
+            max-width: 500px;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .cookie-popup a {
+            color: var(--color-1);
+        }
+
+        .cookie-controls {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-cookie {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cookie:hover {
+            background: white;
+            color: black;
+        }
+
+        .btn-cookie.accept {
+            background: var(--color-1);
+            border-color: var(--color-1);
+        }
+
+        /* Header */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            --backdrop-color: var(--color-1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .header-logo {
+            text-decoration: none;
+            display: block;
+        }
+
+        .header-logo svg {
+            width: 197px;
+            height: 67px;
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-social {
+            width: 45px;
+            height: 45px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-social:hover {
+            background: white;
+            color: black;
+        }
+
+        .btn-social svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .btn-cta {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            color: var(--color-3);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 8rem 5% 4rem;
+            background: var(--color-3);
+            color: white;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        .hero-heading {
+            position: absolute;
+            bottom: 15%;
+            right: 5%;
+            z-index: 2;
+            text-align: right;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.9;
+            font-weight: 400;
+            margin: 0;
+            letter-spacing: -2px;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.15);
+            z-index: 1;
+        }
+
+        .hero-heading {
+            position: relative;
+            z-index: 2;
+            padding: 0 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 7rem);
+            line-height: 0.95;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .hero-content {
+            position: absolute;
+            left: 5%;
+            bottom: 10%;
+            z-index: 2;
+            background: rgba(26, 26, 26, 0.95);
+            color: white;
+            padding: 3rem;
+            max-width: 550px;
+        }
+
+        .content-title {
+            font-size: 1.35rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            color: white;
+        }
+
+        .btn-explore {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn-explore:hover {
+            color: white;
+        }
+
+        .btn-arrow {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-arrow svg {
+            width: 13px;
+            height: 14px;
+            fill: currentColor;
+            margin-right: -5px;
+        }
+
+        .content-title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .btn-explore {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--color-4);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-arrow {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-arrow svg {
+            width: 13px;
+            height: 14px;
+            fill: currentColor;
+            margin-right: -5px;
+        }
+
+        /* Caption Section */
+        .caption-section {
+            padding: clamp(80px, 10vw, 110px) 5%;
+            background: var(--color-2);
+            position: relative;
+        }
+
+        .caption-text {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            line-height: 1.5;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .tooltip-placeholder {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            cursor: help;
+        }
+
+        .pattern-offset {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: var(--color-1);
+            opacity: 0.1;
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+
+        /* Marquee */
+        .marquee-section {
+            background: var(--color-3);
+            padding: 1rem 0;
+            overflow: hidden;
+            transform: rotate(-0.6deg);
+            margin: -10px 0;
+        }
+
+        .marquee-track {
+            display: flex;
+            animation: marquee 15s linear infinite;
+        }
+
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            padding-right: 2rem;
+        }
+
+        .marquee-content span {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Full Screen Media */
+        .fs-media-section {
+            padding: 40px 0;
+            background: var(--color-2);
+        }
+
+        .fs-media-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .fs-video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .fs-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Pattern Parallax Section */
+        .pattern-section {
+            min-height: 100vh;
+            position: relative;
+            background: var(--color-2);
+            overflow: hidden;
+        }
+
+        .pattern-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mask-svg {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+        }
+
+        .mask-text {
+            font-size: 80px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        /* Media Swiper */
+        .gallery-section {
+            background: var(--color-3);
+            padding: 0;
+        }
+
+        .gallerySwiper {
+            width: 100%;
+            height: 80vh;
+        }
+
+        .gallerySwiper .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallerySwiper .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-controls {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            z-index: 10;
+            color: white;
+        }
+
+        .swiper-btn {
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swiper-btn:hover {
+            background: white;
+            color: var(--color-3);
+        }
+
+        /* Clip Section */
+        .clip-section {
+            padding: clamp(80px, 10vw, 120px) 0;
+            background: var(--color-2);
+        }
+
+        .clip-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .clip-text h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .clip-text h2 span {
+            color: var(--color-1);
+            font-style: italic;
+        }
+
+        .clip-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--color-3);
+            color: var(--color-3);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--color-3);
+            color: white;
+        }
+
+        .clip-media {
+            position: relative;
+        }
+
+        .clip-media img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Cards Swiper */
+        .timeline-section {
+            padding: clamp(80px, 10vw, 120px) 0;
+            background: var(--color-3);
+            color: white;
+        }
+
+        .timeline-header {
+            padding: 0 5%;
+            margin-bottom: 4rem;
+        }
+
+        .timeline-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+        }
+
+        .timelineSwiper {
+            padding: 0 5%;
+        }
+
+        .timeline-card {
+            display: grid;
+            grid-template-columns: 150px 1fr 400px;
+            gap: 3rem;
+            align-items: center;
+            padding: 3rem 0;
+        }
+
+        .card-time {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--color-4);
+        }
+
+        .card-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .card-content p {
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        .card-image {
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Travel Section */
+        .travel-section {
+            padding: clamp(80px, 10vw, 120px) 5%;
+            background: var(--color-2);
+        }
+
+        .travel-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .travel-label {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            opacity: 0.6;
+        }
+
+        .travel-header h3 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .travel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .travel-card {
+            background: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .travel-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .travel-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .travel-card h4 span {
+            font-weight: 400;
+        }
+
+        .travel-card ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .travel-card li {
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+        }
+
+        .travel-card li strong {
+            color: var(--color-1);
+        }
+
+        /* Instagram Section */
+        .instagram-section {
+            padding: 4rem 0;
+            background: var(--color-3);
+            color: white;
+            overflow: hidden;
+        }
+
+        .insta-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .insta-label {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            opacity: 0.6;
+        }
+
+        .insta-handle {
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .insta-marquee {
+            display: flex;
+            overflow: hidden;
+        }
+
+        .insta-track {
+            display: flex;
+            animation: instaScroll 40s linear infinite;
+        }
+
+        .insta-card {
+            flex-shrink: 0;
+            width: 350px;
+            height: 450px;
+            position: relative;
+            margin-right: 1rem;
+        }
+
+        .insta-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .insta-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        @keyframes instaScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--color-3);
+            color: white;
+        }
+
+        .footer-cta {
+            padding: clamp(80px, 10vw, 120px) 5%;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(151,134,250,0.2), rgba(151,134,250,0.05));
+        }
+
+        .footer-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .footer-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+        }
+
+        .btn-large {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            background: white;
+            color: var(--color-3);
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-large:hover {
+            opacity: 0.9;
+        }
+
+        .footer-info {
+            padding: 4rem 5%;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-col h5 {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0.6;
+        }
+
+        .footer-col p {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .map-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: white;
+            text-decoration: underline;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            font-family: var(--font-main);
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .newsletter-form button {
+            padding: 1rem 1.5rem;
+            background: var(--color-1);
+            border: none;
+            color: white;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .social-link {
+            font-size: 1.1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            color: var(--color-1);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            margin-right: 2rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .clip-container {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .card-image {
+                display: none;
+            }
+
+            .hero-content {
+                margin: 2rem 5%;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .marquee-content span {
+                font-size: 2rem;
+            }
+
+            .insta-card {
+                width: 280px;
+                height: 380px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookiePopup">
+        <div class="cookie-content">
+            <h2>Cookies</h2>
+            <p>We use cookies to improve your experience on our site. By continuing to browse, you agree to our use of cookies. To learn more, see our <a href="/privacy-policy">Privacy Policy</a>.</p>
+        </div>
+        <div class="cookie-controls">
+            <button class="btn-cookie" onclick="declineCookies()">Decline cookies</button>
+            <button class="btn-cookie accept" onclick="acceptCookies()">Accept cookies</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header" id="mainHeader">
+        <div class="header-inner">
+            <a href="#" class="header-logo" aria-label="Crisp Property" data-cursor-text="TOP">
+                <div style="color: white; font-family: var(--font-main); font-size: 1.75rem; font-weight: 600; letter-spacing: 2px;">
+                    CRISP
+                    <span style="display: block; font-size: 0.7rem; letter-spacing: 4px; color: var(--color-primary);">PROPERTY</span>
+                </div>
+            </a>
+            <div class="header-buttons">
+                <a href="https://www.instagram.com/crispproperty/" class="btn-social" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="/register/" class="btn-cta" aria-label="Say hello" target="_self"><span class="btn-label">Say hello</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="hero-background">
+                <div class="background-video">
+                    <video autoplay muted loop playsinline class="hero-video">
+                        <source src="https://player.vimeo.com/external/1105186788.m3u8?s=e361b6c87b8fcca76a03dec762edb6903d2638c4&logging=false" type="application/x-mpegURL">
+                    </video>
+                </div>
+                <div class="hero-background-overlay"></div>
+            </div>
+            <div class="hero-heading">
+                <h1 class="hero-title">For the<br>creatively<br>curious</h1>
+            </div>
+            <div class="hero-content">
+                <h2 class="content-title">Find your next rental property in East London's most creative new neighbourhood</h2>
+                <a href="#explore" class="btn-explore" data-scroll-to>
+                    <span>Explore wickside</span>
+                    <div class="btn-arrow">
+                        <svg viewBox="0 0 13 14" fill="none"><path d="M0.0218896 1.76012L1.53389 0.224121L10.7739 9.46412L10.7739 0.536121L12.8379 2.60012L12.8379 13.0401L2.37389 13.0401L0.309889 11.0001L9.26189 11.0001L0.0218896 1.76012Z" fill="#003019"/></svg>
+                        <svg viewBox="0 0 13 14" fill="none"><path d="M0.0218896 1.76012L1.53389 0.224121L10.7739 9.46412L10.7739 0.536121L12.8379 2.60012L12.8379 13.0401L2.37389 13.0401L0.309889 11.0001L9.26189 11.0001L0.0218896 1.76012Z" fill="#003019"/></svg>
+                        <svg viewBox="0 0 13 14" fill="none"><path d="M0.0218896 1.76012L1.53389 0.224121L10.7739 9.46412L10.7739 0.536121L12.8379 2.60012L12.8379 13.0401L2.37389 13.0401L0.309889 11.0001L9.26189 11.0001L0.0218896 1.76012Z" fill="#003019"/></svg>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Caption Section -->
+        <section class="caption-section" id="explore">
+            <div class="container">
+                <h3 class="caption-text">
+                    <span class="tooltip-placeholder" data-tooltip="Crisp Property creates exceptional residential and commercial developments - each thoughtfully designed with meticulous attention to detail that reflects our commitment to quality and innovation.">Crisp Property</span> brings together premium homes, green space, and modern amenities to create truly mixed communities – rooted in local heritage and designed for contemporary living.
+                </h3>
+            </div>
+            <div class="pattern-offset"></div>
+        </section>
+
+        <!-- Marquee Section -->
+        <section class="marquee-section">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>Coming Soon</span>
+                    <span>Coming Soon</span>
+                    <span>Coming Soon</span>
+                    <span>Coming Soon</span>
+                </div>
+                <div class="marquee-content" aria-hidden="true">
+                    <span>Coming Soon</span>
+                    <span>Coming Soon</span>
+                    <span>Coming Soon</span>
+                    <span>Coming Soon</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Screen Media -->
+        <section class="fs-media-section">
+            <div class="fs-media-inner">
+                <div class="fs-video-wrapper">
+                    <video autoplay muted loop playsinline class="fs-video">
+                        <source src="https://player.vimeo.com/external/1110977881.m3u8?s=1354d2a2978f4ccedf57bd1de2a16163817e8fdb&logging=false" type="application/x-mpegURL">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="swiper gallerySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600" alt="Property Development 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600" alt="Property Development 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600" alt="Property Development 3">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600" alt="Property Development 4">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1600" alt="Property Development 5">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1600" alt="Property Development 6">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600" alt="Property Development 7">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600" alt="Property Development 8">
+                    </div>
+                </div>
+                <div class="swiper-controls">
+                    <button class="swiper-btn prev">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <span class="swiper-counter">
+                        <span class="current">1</span> / <span class="total">8</span>
+                    </span>
+                    <button class="swiper-btn next">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clip Section -->
+        <section class="clip-section">
+            <div class="clip-container">
+                <div class="clip-text">
+                    <h2>Start your<br>journey at<br><span>Crisp</span></h2>
+                    <p>Thoughtfully designed homes where every detail serves a purpose – from light-filled interiors to beautifully landscaped gardens to premium amenity spaces. Crisp Property is where quality meets innovation, creating spaces that inspire and endure. Designed with intention. Built to last.</p>
+                    <a href="/register/" class="btn-outline">Let's talk</a>
+                </div>
+                <div class="clip-media">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" alt="Apartment Interior">
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline-section" id="lifestyle">
+            <div class="timeline-header">
+                <h2>A day at Crisp</h2>
+            </div>
+            <div class="swiper timelineSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide timeline-card">
+                        <div class="card-time">07:00</div>
+                        <div class="card-content">
+                            <h4>Morning light</h4>
+                            <p>Wake up to natural light flooding through floor-to-ceiling windows.</p>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600" alt="Morning Light">
+                        </div>
+                    </div>
+                    <div class="swiper-slide timeline-card">
+                        <div class="card-time">09:00</div>
+                        <div class="card-content">
+                            <h4>Work from home</h4>
+                            <p>Work from your dedicated home office with stunning views.</p>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=600" alt="Home Office">
+                        </div>
+                    </div>
+                    <div class="swiper-slide timeline-card">
+                        <div class="card-time">13:00</div>
+                        <div class="card-content">
+                            <h4>Lunch break</h4>
+                            <p>Enjoy lunch at nearby independent cafés and restaurants.</p>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600" alt="Lunch">
+                        </div>
+                    </div>
+                    <div class="swiper-slide timeline-card">
+                        <div class="card-time">18:00</div>
+                        <div class="card-content">
+                            <h4>Relax & unwind</h4>
+                            <p>Relax in beautifully landscaped communal gardens.</p>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600" alt="Garden">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Section -->
+        <section class="travel-section" id="location">
+            <div class="travel-header">
+                <span class="travel-label">A gateway to anywhere</span>
+                <h3>Travel Times From Edenbridge</h3>
+            </div>
+            <div class="travel-grid">
+                <div class="travel-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    <h4>By <span>Foot</span></h4>
+                    <ul>
+                        <li>Town Centre <strong>5 mins</strong></li>
+                        <li>Train Station <strong>10 mins</strong></li>
+                        <li>Local Shops <strong>3 mins</strong></li>
+                    </ul>
+                </div>
+                <div class="travel-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg>
+                    <h4>By <span>Train</span></h4>
+                    <ul>
+                        <li>London Bridge <strong>45 mins</strong></li>
+                        <li>Victoria <strong>50 mins</strong></li>
+                        <li>Sevenoaks <strong>15 mins</strong></li>
+                    </ul>
+                </div>
+                <div class="travel-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                    <h4>By <span>Car</span></h4>
+                    <ul>
+                        <li>M25 <strong>15 mins</strong></li>
+                        <li>Gatwick <strong>25 mins</strong></li>
+                        <li>Bluewater <strong>30 mins</strong></li>
+                    </ul>
+                </div>
+                <div class="travel-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M6 14h.01"/></svg>
+                    <h4>By <span>Plane</span></h4>
+                    <ul>
+                        <li>Gatwick <strong>25 mins</strong></li>
+                        <li>Heathrow <strong>55 mins</strong></li>
+                        <li>City Airport <strong>50 mins</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Section -->
+        <section class="instagram-section">
+            <div class="insta-header">
+                <span class="insta-label">BE INSPIRED</span>
+                <a href="https://www.instagram.com/crispproperty/" class="insta-handle" target="_blank">@CRISPPROPERTY</a>
+            </div>
+            <div class="insta-marquee">
+                <div class="insta-track">
+                    <div class="insta-card">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400" alt="Modern Living">
+                        <span class="insta-caption">Modern Living Spaces</span>
+                    </div>
+                    <div class="insta-card">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400" alt="Design Details">
+                        <span class="insta-caption">Quality Design Details</span>
+                    </div>
+                    <div class="insta-card">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400" alt="Luxury">
+                        <span class="insta-caption">Luxury Interiors</span>
+                    </div>
+                    <div class="insta-card">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400" alt="Living">
+                        <span class="insta-caption">Thoughtful Living</span>
+                    </div>
+                    <div class="insta-card">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400" alt="Kitchen">
+                        <span class="insta-caption">Stunning Kitchens</span>
+                    </div>
+                    <div class="insta-card">
+                        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=400" alt="Architecture">
+                        <span class="insta-caption">Modern Architecture</span>
+                    </div>
+                </div>
+                <div class="insta-track" aria-hidden="true">
+                    <div class="insta-card">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400" alt="Modern Living">
+                        <span class="insta-caption">Modern Living Spaces</span>
+                    </div>
+                    <div class="insta-card">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400" alt="Design Details">
+                        <span class="insta-caption">Quality Design Details</span>
+                    </div>
+                    <div class="insta-card">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400" alt="Luxury">
+                        <span class="insta-caption">Luxury Interiors</span>
+                    </div>
+                    <div class="insta-card">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400" alt="Living">
+                        <span class="insta-caption">Thoughtful Living</span>
+                    </div>
+                    <div class="insta-card">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400" alt="Kitchen">
+                        <span class="insta-caption">Stunning Kitchens</span>
+                    </div>
+                    <div class="insta-card">
+                        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=400" alt="Architecture">
+                        <span class="insta-caption">Modern Architecture</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-cta">
+            <h2 class="footer-title">Register your interest today</h2>
+            <p class="footer-subtitle">Be the first to hear about our latest developments</p>
+            <a href="mailto:info@crispproperty.co.uk" class="btn-large">info@crispproperty.co.uk</a>
+        </div>
+        <div class="footer-info">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h5>Find us</h5>
+                    <p>126 High Street<br>Edenbridge, Kent<br>TN8 5AY</p>
+                    <a href="https://maps.google.com" class="map-link" target="_blank">Map</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Stay in the loop</h5>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email Address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-col">
+                    <h5>Let's get social</h5>
+                    <a href="https://www.instagram.com/crispproperty/" class="social-link" target="_blank"><strong>@crispproperty</strong></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="/terms-and-conditions/">Terms</a>
+                    <a href="/privacy-policy/">Privacy</a>
+                    <a href="../interior.html">Crisp Interiors</a>
+                    <a href="../construction.html">Crisp Construction</a>
+                </div>
+                <p class="copyright">&copy; 2024 Crisp Property. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Cookie Popup
+        function acceptCookies() {
+            document.getElementById('cookiePopup').classList.remove('active');
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        function declineCookies() {
+            document.getElementById('cookiePopup').classList.remove('active');
+            localStorage.setItem('cookiesDeclined', 'true');
+        }
+
+        // Show cookie popup after a delay
+        setTimeout(() => {
+            if (!localStorage.getItem('cookiesAccepted') && !localStorage.getItem('cookiesDeclined')) {
+                document.getElementById('cookiePopup').classList.add('active');
+            }
+        }, 1000);
+
+        // Gallery Swiper
+        const gallerySwiper = new Swiper('.gallerySwiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-btn.next',
+                prevEl: '.swiper-btn.prev',
+            },
+            on: {
+                slideChange: function() {
+                    document.querySelector('.swiper-counter .current').textContent = this.realIndex + 1;
+                }
+            }
+        });
+
+        // Timeline Swiper
+        const timelineSwiper = new Swiper('.timelineSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
