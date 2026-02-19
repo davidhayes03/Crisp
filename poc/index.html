@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crisp Property | Premium Property Development</title>
-    <meta name="description" content="Crisp Property - Creating exceptional residential and commercial developments. Premium property development with innovative design and sustainable practices.">
+    <meta name="description" content="Crisp Property - Creating exceptional residential and commercial developments with innovative design and sustainable practices.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -12,325 +12,398 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <span class="brand-text">Crisp</span>
-                <span class="brand-accent">Property</span>
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookiePopup">
+        <div class="cookie-content">
+            <h3>Cookies</h3>
+            <p>We use cookies to improve your experience on our site. By continuing to browse, you agree to our use of cookies. To learn more, see our <a href="privacy.html">Privacy Policy</a>.</p>
+        </div>
+        <div class="cookie-controls">
+            <button class="btn-cookie" onclick="declineCookies()">Decline cookies</button>
+            <button class="btn-cookie accept" onclick="acceptCookies()">Accept cookies</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header" id="mainHeader">
+        <div class="header-inner">
+            <a href="index.html" class="header-logo">
+                <span class="logo-text">Crisp</span>
+                <span class="logo-accent">Property</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#developments">Developments</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#lifestyle">Lifestyle</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+            <div class="header-buttons">
+                <a href="https://instagram.com" class="btn-social" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#register" class="btn-cta">Say hello</a>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
+    <section class="hero-section" id="home">
         <div class="hero-background">
-            <div class="hero-slider">
-                <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920');"></div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920');"></div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920');"></div>
-            </div>
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="https://player.vimeo.com/external/370331493.sd.mp4?s=e90dcaba73c19e0e36f03406b47bbd6992dd6c1c&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+            </video>
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10">
-                        <h1 class="hero-title">
-                            <span class="line">Crafting</span>
-                            <span class="line accent">Exceptional</span>
-                            <span class="line">Spaces</span>
-                        </h1>
-                        <p class="hero-subtitle">Premium property development that transforms landscapes and elevates lifestyles</p>
-                        <a href="#developments" class="btn btn-outline-light btn-lg hero-cta">
-                            Explore Developments
-                            <i class="fas fa-arrow-right ms-2"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <h1 class="hero-title">
+                <span class="line">For the</span>
+                <span class="line accent">creatively</span>
+                <span class="line">curious</span>
+            </h1>
         </div>
-        <div class="scroll-indicator" onclick="document.getElementById('developments').scrollIntoView({behavior: 'smooth'})">
-            <i class="fas fa-chevron-down"></i>
+        <div class="hero-box">
+            <h2 class="box-title">Find your next property in Kent's most exciting new developments</h2>
+            <a href="#explore" class="btn-explore">
+                <span>Explore Crisp</span>
+                <div class="btn-arrows">
+                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
         </div>
     </section>
 
-    <!-- Developments Gallery -->
-    <section id="developments" class="section-padding">
-        <div class="container-fluid">
-            <div class="section-header">
-                <span class="section-label">Current Projects</span>
-                <h2 class="section-title">Featured Developments</h2>
-            </div>
-            
-            <div class="swiper developmentSwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="development-card">
-                            <div class="development-image">
-                                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200" alt="The Residences">
-                                <div class="development-overlay">
-                                    <span class="status">Coming Soon</span>
-                                    <h3>The Residences</h3>
-                                    <p>Luxury apartments in prime location</p>
-                                    <a href="#" class="btn btn-light">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="development-card">
-                            <div class="development-image">
-                                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200" alt="Canal Quarter">
-                                <div class="development-overlay">
-                                    <span class="status">Now Selling</span>
-                                    <h3>Canal Quarter</h3>
-                                    <p>Waterside living redefined</p>
-                                    <a href="#" class="btn btn-light">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="development-card">
-                            <div class="development-image">
-                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200" alt="Urban Lofts">
-                                <div class="development-overlay">
-                                    <span class="status">Completed</span>
-                                    <h3>Urban Lofts</h3>
-                                    <p>Contemporary city living</p>
-                                    <a href="#" class="btn btn-light">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section-padding bg-dark text-white">
+    <!-- Caption Text Section -->
+    <section class="caption-section" id="explore">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <span class="section-label text-white-50">About Us</span>
-                    <h2 class="section-title text-white">Building Tomorrow's Landmarks Today</h2>
-                    <p class="lead">With over a decade of experience, Crisp Property creates exceptional residential and commercial developments that stand the test of time.</p>
-                    <p>We combine innovative design with sustainable practices, creating spaces that enhance communities and enrich lives. Every project reflects our commitment to quality, craftsmanship, and attention to detail.</p>
-                    <div class="stats-row mt-5">
-                        <div class="stat-item">
-                            <span class="stat-number">£50M+</span>
-                            <span class="stat-label">Projects Delivered</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">200+</span>
-                            <span class="stat-label">Homes Built</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">12+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800" alt="Property Development" class="img-fluid">
-                    </div>
-                </div>
+            <h3 class="caption-text">
+                <span class="tooltip-trigger" data-tooltip="Premium apartments and homes designed with meticulous attention to detail - from light-filled interiors to landscaped gardens to beautifully curated amenity spaces.">Crisp Property</span> brings together carefully designed homes, green space, and independent businesses to create truly mixed communities – rooted in local heritage and designed for modern living.
+            </h3>
+        </div>
+        <div class="pattern-bg"></div>
+    </section>
+
+    <!-- Marquee Section -->
+    <section class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span>Coming Early 2026</span>
+                <span class="divider">•</span>
+                <span>Coming Early 2026</span>
+                <span class="divider">•</span>
+                <span>Coming Early 2026</span>
+                <span class="divider">•</span>
+                <span>Coming Early 2026</span>
+                <span class="divider">•</span>
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                <span>Coming Early 2026</span>
+                <span class="divider">•</span>
+                <span>Coming Early 2026</span>
+                <span class="divider">•</span>
+                <span>Coming Early 2026</span>
+                <span class="divider">•</span>
+                <span>Coming Early 2026</span>
+                <span class="divider">•</span>
             </div>
         </div>
     </section>
 
-    <!-- Lifestyle Timeline -->
-    <section id="lifestyle" class="section-padding">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-label">The Crisp Lifestyle</span>
-                <h2 class="section-title">A Day in the Life</h2>
+    <!-- Full Screen Media -->
+    <section class="fs-media-section">
+        <div class="fs-media-inner">
+            <video autoplay muted loop playsinline class="fs-video">
+                <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1a9e7c02d&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <!-- SVG Mask Section -->
+    <section class="mask-section">
+        <div class="mask-container" id="maskContainer">
+            <svg viewBox="0 0 1200 1200" class="mask-svg" id="maskSvg">
+                <defs>
+                    <mask id="textMask">
+                        <path id="maskPath" class="mask-path" 
+                              d="M600,200 Q800,100 900,300 T1000,600 T800,900 T400,1000 T200,700 T300,400 Z" 
+                              fill="white"/>
+                    </mask>
+                </defs>
+                <text x="50%" y="45%" text-anchor="middle" class="mask-text" id="outsideText">
+                    <tspan x="50%" dy="0">EXCEPTIONAL</tspan>
+                    <tspan x="50%" dy="1.2em">DESIGN</tspan>
+                </text>
+                <g mask="url(#textMask)">
+                    <rect width="1200" height="1200" fill="#C8102E"/>
+                    <text x="50%" y="45%" text-anchor="middle" class="mask-text inner" id="insideText">
+                        <tspan x="50%" dy="0">EXCEPTIONAL</tspan>
+                        <tspan x="50%" dy="1.2em">DESIGN</tspan>
+                    </text>
+                </g>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Media Swiper Gallery -->
+    <section class="gallery-section">
+        <div class="swiper gallerySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600" alt="Development 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600" alt="Development 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600" alt="Development 3">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600" alt="Development 4">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1600" alt="Development 5">
+                </div>
             </div>
+            <div class="swiper-controls">
+                <button class="swiper-btn prev">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <span class="swiper-counter">
+                    <span class="current">1</span> / <span class="total">5</span>
+                </span>
+                <button class="swiper-btn next">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Text with Media Clip -->
+    <section class="clip-section">
+        <div class="clip-container">
+            <div class="clip-text">
+                <h2>Start your<br>journey at<br><span class="accent">Crisp</span></h2>
+                <p>Thoughtfully designed homes where every detail serves a purpose – from light-filled interiors to beautifully curated amenity spaces.</p>
+                <a href="#register" class="btn-light">Let's talk</a>
+            </div>
+            <div class="clip-media">
+                <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800" alt="Interior">
+            </div>
+        </div>
+    </section>
+
+    <!-- A Day Timeline Section -->
+    <section class="timeline-section" id="lifestyle">
+        <div class="container">
+            <h2 class="section-title">A day at Crisp</h2>
             
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-up">
-                    <div class="timeline-time">07:00</div>
-                    <div class="timeline-content">
+            <div class="timeline-cards">
+                <div class="timeline-card active" data-index="0">
+                    <div class="card-time">07:00</div>
+                    <div class="card-content">
                         <h4>Morning Light</h4>
                         <p>Wake up to floor-to-ceiling windows flooding your space with natural light</p>
                     </div>
-                    <div class="timeline-image">
+                    <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600" alt="Morning">
                     </div>
                 </div>
                 
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="timeline-time">09:00</div>
-                    <div class="timeline-content">
+                <div class="timeline-card" data-index="1">
+                    <div class="card-time">09:00</div>
+                    <div class="card-content">
                         <h4>Work From Home</h4>
-                        <p> Dedicated workspace with high-speed connectivity and stunning views</p>
+                        <p>Dedicated workspace with high-speed connectivity and stunning views</p>
                     </div>
-                    <div class="timeline-image">
+                    <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=600" alt="Workspace">
                     </div>
                 </div>
                 
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="timeline-time">13:00</div>
-                    <div class="timeline-content">
+                <div class="timeline-card" data-index="2">
+                    <div class="card-time">13:00</div>
+                    <div class="card-content">
                         <h4>Lunch Break</h4>
                         <p>Steps from independent cafés, restaurants, and artisan food markets</p>
                     </div>
-                    <div class="timeline-image">
+                    <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600" alt="Lunch">
                     </div>
                 </div>
                 
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="timeline-time">18:00</div>
-                    <div class="timeline-content">
+                <div class="timeline-card" data-index="3">
+                    <div class="card-time">18:00</div>
+                    <div class="card-content">
                         <h4>Relax & Unwind</h4>
                         <p>Rooftop gardens, private terraces, and landscaped communal spaces</p>
                     </div>
-                    <div class="timeline-image">
+                    <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600" alt="Evening">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Location Section -->
-    <section id="location" class="section-padding bg-light">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-label">Prime Locations</span>
-                <h2 class="section-title">Connected Living</h2>
-            </div>
             
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="location-card">
-                        <i class="fas fa-train"></i>
-                        <h4>Transport Links</h4>
-                        <p>Excellent connections to major transport hubs and city centers</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="location-card">
-                        <i class="fas fa-tree"></i>
-                        <h4>Green Spaces</h4>
-                        <p>Parks, gardens, and outdoor amenities within walking distance</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="location-card">
-                        <i class="fas fa-shopping-bag"></i>
-                        <h4>Local Amenities</h4>
-                        <p>Shops, restaurants, schools, and healthcare facilities nearby</p>
-                    </div>
-                </div>
+            <div class="timeline-nav">
+                <button class="timeline-btn prev">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <span class="timeline-counter">
+                    <span class="current">1</span> / <span class="total">4</span>
+                </span>
+                <button class="timeline-btn next">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Grid -->
-    <section class="section-padding">
-        <div class="container-fluid px-0">
-            <div class="gallery-grid">
-                <div class="gallery-item large" data-aos="fade-in">
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200" alt="Interior">
-                    <div class="gallery-overlay">
-                        <span>Designed for Living</span>
-                    </div>
-                </div>
-                <div class="gallery-item" data-aos="fade-in" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800" alt="Kitchen">
-                    <div class="gallery-overlay">
-                        <span>Modern Kitchens</span>
-                    </div>
-                </div>
-                <div class="gallery-item" data-aos="fade-in" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800" alt="Bedroom">
-                    <div class="gallery-overlay">
-                        <span>Serene Bedrooms</span>
-                    </div>
-                </div>
-                <div class="gallery-item" data-aos="fade-in" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800" alt="Living">
-                    <div class="gallery-overlay">
-                        <span>Open Spaces</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="contact" class="cta-section">
-        <div class="cta-background">
-            <div class="cta-overlay"></div>
-        </div>
+    <!-- Travel Times Section -->
+    <section class="travel-section" id="location">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="cta-title">Start Your Journey</h2>
-                    <p class="cta-subtitle">Register your interest today and be the first to hear about our latest developments</p>
-                    <a href="#" class="btn btn-primary btn-lg">Register Interest</a>
+            <h3 class="travel-title">A gateway to anywhere</h3>
+            <h4 class="travel-subtitle">Travel Times From Edenbridge</h4>
+            
+            <div class="travel-grid">
+                <div class="travel-card">
+                    <i class="fas fa-walking"></i>
+                    <h5>By Foot</h5>
+                    <ul>
+                        <li>Town Centre <strong>5 mins</strong></li>
+                        <li>Train Station <strong>10 mins</strong></li>
+                        <li>Local Shops <strong>3 mins</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="travel-card">
+                    <i class="fas fa-train"></i>
+                    <h5>By Train</h5>
+                    <ul>
+                        <li>London Bridge <strong>45 mins</strong></li>
+                        <li>Victoria <strong>50 mins</strong></li>
+                        <li>Sevenoaks <strong>15 mins</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="travel-card">
+                    <i class="fas fa-car"></i>
+                    <h5>By Car</h5>
+                    <ul>
+                        <li>M25 <strong>15 mins</strong></li>
+                        <li>Gatwick <strong>25 mins</strong></li>
+                        <li>Bluewater <strong>30 mins</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="travel-card">
+                    <i class="fas fa-plane"></i>
+                    <h5>By Plane</h5>
+                    <ul>
+                        <li>Gatwick <strong>25 mins</strong></li>
+                        <li>Heathrow <strong>55 mins</strong></li>
+                        <li>City Airport <strong>50 mins</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Marquee -->
+    <section class="instagram-section">
+        <div class="insta-header">
+            <span class="insta-label">Be Inspired</span>
+            <a href="https://instagram.com" class="insta-handle" target="_blank">@CRISPPROPERTY</a>
+        </div>
+        
+        <div class="insta-marquee">
+            <div class="insta-track">
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400" alt="Instagram 1">
+                    <span class="insta-caption">Modern Living</span>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=400" alt="Instagram 2">
+                    <span class="insta-caption">Design Details</span>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=400" alt="Instagram 3">
+                    <span class="insta-caption">Luxury Spaces</span>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400" alt="Instagram 4">
+                    <span class="insta-caption">Canal Views</span>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400" alt="Instagram 5">
+                    <span class="insta-caption">Community</span>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400" alt="Instagram 6">
+                    <span class="insta-caption">Architecture</span>
+                </div>
+            </div>
+            <div class="insta-track" aria-hidden="true">
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400" alt="Instagram 1">
+                    <span class="insta-caption">Modern Living</span>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=400" alt="Instagram 2">
+                    <span class="insta-caption">Design Details</span>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=400" alt="Instagram 3">
+                    <span class="insta-caption">Luxury Spaces</span>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400" alt="Instagram 4">
+                    <span class="insta-caption">Canal Views</span>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400" alt="Instagram 5">
+                    <span class="insta-caption">Community</span>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400" alt="Instagram 6">
+                    <span class="insta-caption">Architecture</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h3 class="footer-brand">Crisp Property</h3>
-                    <p>Premium property development creating exceptional residential and commercial spaces.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+    <footer class="site-footer" id="register">
+        <div class="footer-cta">
+            <h2 class="footer-title">Register your interest today</h2>
+            <p class="footer-subtitle">Be the first to hear about our latest developments</p>
+            <a href="mailto:info@crispproperty.co.uk" class="btn-large">info@crispproperty.co.uk</a>
+        </div>
+        
+        <div class="footer-info">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h5>Find us</h5>
+                        <p>126 High Street<br>Edenbridge, Kent<br>TN8 5AY</p>
+                        <a href="https://maps.google.com" class="map-link" target="_blank">Map</a>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h5>Stay in the loop</h5>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h5>Let's get social</h5>
+                        <a href="https://instagram.com" class="social-link" target="_blank">@crispproperty</a>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4">
-                    <h5>Contact</h5>
-                    <p>
-                        126 High Street<br>
-                        Edenbridge, Kent TN8 5AY<br>
-                        <a href="tel:01732300018">01732 300018</a><br>
-                        <a href="mailto:info@crispproperty.co.uk">info@crispproperty.co.uk</a>
-                    </p>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#developments">Developments</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="../interior.html">Crisp Interiors</a></li>
-                        <li><a href="../construction.html">Crisp Construction</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row mt-5 pt-4 border-top">
-                <div class="col text-center">
-                    <p>&copy; 2024 Crisp Property. All rights reserved.</p>
+                
+                <div class="footer-bottom">
+                    <div class="footer-links">
+                        <a href="../privacy.html">Privacy</a>
+                        <a href="../gdpr.html">GDPR</a>
+                        <a href="../interior.html">Crisp Interiors</a>
+                        <a href="../construction.html">Crisp Construction</a>
+                    </div>
+                    <p class="copyright">&copy; 2024 Crisp Property. All rights reserved.</p>
                 </div>
             </div>
         </div>
