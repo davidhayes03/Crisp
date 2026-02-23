@@ -2,41 +2,8 @@
    NUEVE RESIDENCES - REPLICA STYLES
    ======================================== */
 
-/* Font Face Definitions - Melodrama */
-@font-face {
-    font-family: 'Melodrama';
-    font-weight: 300;
-    font-display: swap;
-    src: url('https://fonts.cdnfonts.com/s/93226/Melodrama-Light.woff') format('woff');
-}
+/* Font Face Definitions */
 
-@font-face {
-    font-family: 'Melodrama';
-    font-weight: 400;
-    font-display: swap;
-    src: url('https://fonts.cdnfonts.com/s/93226/Melodrama-Regular.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Melodrama';
-    font-weight: 500;
-    font-display: swap;
-    src: url('https://fonts.cdnfonts.com/s/93226/Melodrama-Medium.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Melodrama';
-    font-weight: 600;
-    font-display: swap;
-    src: url('https://fonts.cdnfonts.com/s/93226/Melodrama-Semibold.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Melodrama';
-    font-weight: 700;
-    font-display: swap;
-    src: url('https://fonts.cdnfonts.com/s/93226/Melodrama-Bold.woff') format('woff');
-}
 
 /* CSS Variables */
 :root {
@@ -47,17 +14,13 @@
     --color-text-dark: #121212;
     --color-accent: #25a2dc;
     --color-accent-light: rgba(37, 162, 220, 0.1);
-    
-    
     /* Fonts */
-    --font-heading: 'Melodrama', Georgia, serif;
-    --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-    
+    --font-heading: 'Calibri', Georgia, serif;
+    --font-body: 'Calibri', -apple-system, BlinkMacSystemFont, sans-serif;
     /* Spacing */
     --header-height: 80px;
     --container-max-width: 1400px;
     --section-padding: 100px;
-    
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-medium: 0.4s ease;
@@ -805,7 +768,7 @@ img {
     font-weight: 300;
     color: var(--color-text-dark);
     line-height: 1.6;
-    mix-blend-mode: difference;
+  
 }
 
 .deco-section__text p {
@@ -857,7 +820,7 @@ img {
     width: 100%;
     max-width: 350px;
     aspect-ratio: 3/4;
-    border-radius: 100px;
+    border-radius: 20px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -999,7 +962,7 @@ img {
 .gallery-grid__item {
     border-radius: 25px;
     overflow: hidden;
-    aspect-ratio: 3/4;
+   /* aspect-ratio: 3/4;*/
 }
 
 .gallery-grid__item img {
@@ -1159,7 +1122,7 @@ img {
    FOOTER SPACER
    ======================================== */
 .footer-spacer {
-    height: 100vh;
+    height: 10vh;
     background-color: var(--color-bg-primary);
 }
 
@@ -1218,6 +1181,7 @@ img {
 
 .footer__container {
     position: relative;
+    top:50px;
     z-index: 2;
     width: 100%;
     max-width: 1400px;
