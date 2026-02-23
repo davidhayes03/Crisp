@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Eden View • Crisp Construction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="residence.css">
+</head>
+<body>
+    <!-- Site Loader -->
+    <div class="site-loader" id="siteLoader">
+        <div class="site-loader__progress-bar"></div>
+        <div class="site-loader__percentage-wrap">
+            <div class="site-loader__percentage" id="loaderPercentage">0</div>
+            <div class="site-loader__percentage site-loader__percentage--calc-100">100</div>
+        </div>
+    </div>
+
+    <!-- Off-canvas Menu -->
+    <div class="offcanvas-menu" id="offcanvasMenu">
+        <div class="offcanvas-menu__container">
+            <div class="offcanvas-menu__left">
+                <nav class="offcanvas-nav">
+                    <div class="menu-item">
+                        <a href="../index.html" class="menu-title swap-hover" data-text="HOME">
+                            <span class="swap-hover__wrapper">
+                                <span class="swap-hover__text">HOME</span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="menu-item menu-item--has-dropdown">
+                        <a href="#" class="menu-title swap-hover active" data-text="DEVELOPMENTS" id="residencesToggle">
+                            <span class="swap-hover__wrapper">
+                                <span class="swap-hover__text">DEVELOPMENTS</span>
+                            </span>
+                        </a>
+                        <div class="submenu active" id="residencesSubmenu">
+                            <a href="130-high-street.html" class="submenu-item">130 High Street</a>
+                            <a href="130a-high-street.html" class="submenu-item">130a High Street</a>
+                            <a href="6-eden-view.html" class="submenu-item">6 Eden View</a>
+                            <a href="7-eden-view.html" class="submenu-item submenu-item--active">7 Eden View</a>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <a href="contact.html" class="menu-title swap-hover" data-text="CONTACT">
+                            <span class="swap-hover__wrapper">
+                                <span class="swap-hover__text">CONTACT</span>
+                            </span>
+                        </a>
+                    </div>
+                </nav>
+                <div class="offcanvas-copyright">© 2026 All rights reserved.</div>
+            </div>
+            <div class="offcanvas-menu__center">
+                <div class="infinite-scroll-images">
+                    <div class="infinite-scroll-images__wrapper">
+                        <img src="../images/7 Eden View/7 Eden View 1.jpg" alt="7 Eden View">
+                        <img src="../images/7 Eden View/7 Eden View 3.jpg" alt="7 Eden View">
+                        <img src="../images/7 Eden View/7 Eden View 5.jpg" alt="7 Eden View">
+                        <img src="../images/7 Eden View/7 Eden View 7.jpg" alt="7 Eden View">
+                        <img src="../images/7 Eden View/7 Eden View 9.jpg" alt="7 Eden View">
+                    </div>
+                </div>
+            </div>
+            <div class="offcanvas-menu__right">
+                <div class="contact-info">
+                    <div class="contact-info__item">
+                        <span class="contact-info__label">mail</span>
+                        <span class="contact-info__value">info@crispconstruction.co.uk</span>
+                    </div>
+                    <div class="contact-info__item">
+                        <span class="contact-info__label">phone</span>
+                        <span class="contact-info__value">01732 300018</span>
+                    </div>
+                    <div class="contact-info__item">
+                        <span class="contact-info__label">social</span>
+                        <a href="#" class="contact-info__link">instagram</a>
+                        <a href="#" class="contact-info__link">facebook</a>
+                    </div>
+                </div>
+                <div class="offcanvas-links">
+                    <a href="contact.html" class="swap-hover offcanvas-link" data-text="get a quote">
+                        <span class="swap-hover__wrapper">
+                            <span class="swap-hover__text">get a quote</span>
+                        </span>
+                    </a>
+                    <a href="#" class="swap-hover offcanvas-link" data-text="privacy">
+                        <span class="swap-hover__wrapper">
+                            <span class="swap-hover__text">privacy</span>
+                        </span>
+                    </a>
+                    <a href="#" class="swap-hover offcanvas-link" data-text="cookies">
+                        <span class="swap-hover__wrapper">
+                            <span class="swap-hover__text">cookies</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header__container">
+            <a href="../index.html" class="header__logo">
+                <h1 class="header__logo-text">crisp.</h1>
+                <h1 class="header__logo-short">c.</h1>
+            </a>
+            <div class="header__menu">
+                <button class="burger" id="burgerMenu" aria-label="Menu">
+                    <span class="burger__box">
+                        <span class="burger__inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content residence-page" id="mainContent">
+        <!-- Residence Hero -->
+        <section class="residence-hero">
+            <div class="residence-hero__bg">
+                <img src="../images/7 Eden View/7 Eden View 1.jpg" alt="7 Eden View">
+            </div>
+            <div class="residence-hero__overlay"></div>
+            <div class="residence-hero__content">
+                <h1 class="residence-hero__title flicker-text">7 Eden View.</h1>
+                <p class="residence-hero__subtitle">Modern Family Home</p>
+            </div>
+        </section>
+
+        <!-- Residence Info -->
+        <section class="residence-info">
+            <div class="residence-info__container">
+                <div class="residence-info__left">
+                    <h2 class="residence-info__title">About This Development</h2>
+                    <div class="residence-info__text">
+                        <p>7 Eden View is a stunning example of modern residential design. This spacious family home has been meticulously planned to provide comfortable living spaces that flow seamlessly from one area to another.</p>
+                        <p>The property features high-quality finishes throughout, with a focus on natural light and open-plan living. Every detail has been considered, from the stylish kitchen to the well-appointed bedrooms, creating a home that is both beautiful and practical.</p>
+                    </div>
+                </div>
+                <div class="residence-info__right">
+                    <div class="residence-specs">
+                        <div class="residence-spec">
+                            <span class="residence-spec__label">Type</span>
+                            <span class="residence-spec__value">New Build</span>
+                        </div>
+                        <div class="residence-spec">
+                            <span class="residence-spec__label">Bedrooms</span>
+                            <span class="residence-spec__value">4</span>
+                        </div>
+                        <div class="residence-spec">
+                            <span class="residence-spec__label">Location</span>
+                            <span class="residence-spec__value">Edenbridge</span>
+                        </div>
+                        <div class="residence-spec">
+                            <span class="residence-spec__label">Status</span>
+                            <span class="residence-spec__value">Completed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="residence-gallery">
+            <div class="residence-gallery__container">
+                <h2 class="residence-gallery__title">Gallery</h2>
+                <div class="residence-gallery__grid">
+                    <div class="residence-gallery__item residence-gallery__item--large">
+                        <img src="../images/7 Eden View/7 Eden View 1.jpg" alt="7 Eden View Exterior">
+                    </div>
+                    <div class="residence-gallery__item">
+                        <img src="../images/7 Eden View/7 Eden View 3.jpg" alt="7 Eden View Living Room">
+                    </div>
+                    <div class="residence-gallery__item">
+                        <img src="../images/7 Eden View/7 Eden View 4.jpg" alt="7 Eden View Kitchen">
+                    </div>
+                    <div class="residence-gallery__item">
+                        <img src="../images/7 Eden View/7 Eden View 13.jpg" alt="7 Eden View Bedroom">
+                    </div>
+                    <div class="residence-gallery__item">
+                        <img src="../images/7 Eden View/7 Eden View 14.jpg" alt="7 Eden View Bathroom">
+                    </div>
+                    <div class="residence-gallery__item residence-gallery__item--large">
+                        <img src="../images/7 Eden View/7 Eden View 15.jpg" alt="7 Eden View Exterior">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location -->
+        <section class="location-section">
+            <div class="location-section__container">
+                <div class="location-section__left">
+                    <h2 class="location-section__title">Location</h2>
+                    <p class="location-section__text">Located in a sought-after residential area of Edenbridge, 7 Eden View offers the perfect setting for family life. The property enjoys a quiet location while being within easy reach of local amenities, schools, and excellent transport connections.</p>
+                    <div class="location-section__address">
+                        <span>7 Eden View, Edenbridge, Kent</span>
+                    </div>
+                </div>
+                <div class="location-section__right">
+                    <div class="location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25084.834035542324!2d0.0615!3d51.1945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df5e18279dcb83%3A0x1234567890abcdef!2sEdenbridge%2C%20Kent!5e0!3m2!1sen!2suk!4v1635959564000!5m2!1sen!2suk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Developments -->
+        <section class="other-residences">
+            <div class="other-residences__container">
+                <h2 class="other-residences__title">Explore Other Developments</h2>
+                <div class="other-residences__grid">
+                    <a href="130-high-street.html" class="residence-card">
+                        <div class="residence-card__bg" style="background-image: url('../images/130HighStreet/130 High Street, TN8 5AY 001.jpg')"></div>
+                        <span class="residence-card__name">130 High Street</span>
+                        <span class="residence-card__arrow">→</span>
+                    </a>
+                    <a href="130a-high-street.html" class="residence-card">
+                        <div class="residence-card__bg" style="background-image: url('../images/130HighStreet/130 High Street, TN8 5AY 004.jpg')"></div>
+                        <span class="residence-card__name">130a High Street</span>
+                        <span class="residence-card__arrow">→</span>
+                    </a>
+                    <a href="6-eden-view.html" class="residence-card">
+                        <div class="residence-card__bg" style="background-image: url('../images/6 Eden View/6 Eden View 1.jpg')"></div>
+                        <span class="residence-card__name">6 Eden View</span>
+                        <span class="residence-card__arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spacer for sticky footer -->
+        <div class="footer-spacer"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <!-- Scrolling Marquee Text -->
+        <div class="footer-marquee">
+            <div class="footer-marquee__track">
+                <span class="footer-marquee__text">crisp construction</span>
+                <span class="footer-marquee__text">crisp construction</span>
+                <span class="footer-marquee__text">crisp construction</span>
+                <span class="footer-marquee__text">crisp construction</span>
+                <span class="footer-marquee__text">crisp construction</span>
+                <span class="footer-marquee__text">crisp construction</span>
+            </div>
+        </div>
+        
+        <div class="footer__container">
+            <div class="footer__top">
+                <div class="footer__contact">
+                    <div class="footer__contact-item">
+                        <span class="footer__contact-label">mail</span>
+                        <a href="mailto:info@crispconstruction.co.uk" class="footer__contact-value">info@crispconstruction.co.uk</a>
+                    </div>
+                    <div class="footer__contact-item">
+                        <span class="footer__contact-label">phone</span>
+                        <a href="tel:01732300018" class="footer__contact-value">01732 300018</a>
+                    </div>
+                    <div class="footer__contact-item">
+                        <span class="footer__contact-label">location</span>
+                        <span class="footer__contact-value">126 High Street, Edenbridge, Kent TN8 5AY</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <div class="footer__links">
+                    <a href="contact.html" class="footer-link swap-hover" data-text="get a quote">
+                        <span class="swap-hover__wrapper">
+                            <span class="swap-hover__text">get a quote</span>
+                        </span>
+                    </a>
+                    <a href="contact.html" class="footer-link swap-hover" data-text="contact">
+                        <span class="swap-hover__wrapper">
+                            <span class="swap-hover__text">contact</span>
+                        </span>
+                    </a>
+                    <a href="#" class="footer-link swap-hover" data-text="instagram">
+                        <span class="swap-hover__wrapper">
+                            <span class="swap-hover__text">instagram</span>
+                        </span>
+                    </a>
+                    <a href="#" class="footer-link swap-hover" data-text="facebook">
+                        <span class="swap-hover__wrapper">
+                            <span class="swap-hover__text">facebook</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="footer__copyright">
+                    <span>© 2026 Crisp Construction Ltd. All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
