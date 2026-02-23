@@ -135,7 +135,7 @@ img {
     font-family: var(--font-heading);
     font-size: 120px;
     font-weight: 300;
-    color: blue;
+    color: var(--color-accent);
     line-height: 1;
 }
 
@@ -569,6 +569,7 @@ img {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    margin-bottom:0;
 }
 
 .hero__container {
@@ -812,7 +813,7 @@ img {
    RESIDENCES SECTION
    ======================================== */
 .residences-section {
-    padding: 100px 50px;
+    padding: 10px 50px;
 }
 
 .residences-section__header {

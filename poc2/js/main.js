@@ -279,15 +279,6 @@ function updateHeader() {
  * Parallax Effect
  * Subtle parallax for background images
  */
-window.addEventListener('scroll', () => {
-    const parallaxElements = document.querySelectorAll('.fullscreen-image__bg');
-    
-    parallaxElements.forEach(el => {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * 0.3;
-        el.style.transform = `translateY(${rate}px)`;
-    });
-}, { passive: true });
 
 /**
  * Scroll-triggered Background Color Transition
