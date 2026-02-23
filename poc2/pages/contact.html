@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact • Nueve Residences</title>
+    <title>Contact • Crisp Construction</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -107,11 +107,11 @@
         }
 
         .contact-detail__value a {
-            transition: opacity 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .contact-detail__value a:hover {
-            opacity: 0.7;
+            color: var(--color-accent);
         }
 
         .contact-social {
@@ -134,6 +134,8 @@
 
         .contact-social__link:hover {
             padding-bottom: 6px;
+            border-color: var(--color-accent);
+            color: var(--color-accent);
         }
 
         /* Contact Form */
@@ -189,7 +191,7 @@
 
         .form-group input:focus,
         .form-group textarea:focus {
-            border-bottom-color: var(--color-text-light);
+            border-bottom-color: var(--color-accent);
         }
 
         .form-group textarea {
@@ -204,48 +206,6 @@
         .form-submit .anyside-button {
             width: 100%;
             justify-content: center;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            padding: 120px 40px;
-            background: var(--color-bg-primary);
-        }
-
-        .faq-section__container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-section__title {
-            font-family: var(--font-heading);
-            font-size: 48px;
-            font-weight: 600;
-            margin-bottom: 60px;
-            text-align: center;
-            color: var(--color-text-dark);
-        }
-
-        .faq-item {
-            border-bottom: 1px solid rgba(18, 18, 18, 0.1);
-            padding: 30px 0;
-        }
-
-        .faq-item__question {
-            font-family: var(--font-heading);
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--color-text-dark);
-            margin-bottom: 15px;
-        }
-
-        .faq-item__answer {
-            font-family: var(--font-body);
-            font-size: 16px;
-            font-weight: 300;
-            line-height: 1.8;
-            color: var(--color-text-dark);
-            opacity: 0.8;
         }
 
         /* Map Section */
@@ -283,21 +243,12 @@
                 min-height: 50vh;
             }
 
-            .contact-section,
-            .faq-section {
+            .contact-section {
                 padding: 80px 20px;
             }
 
             .contact-form-wrapper {
                 padding: 30px;
-            }
-
-            .faq-section__title {
-                font-size: 36px;
-            }
-
-            .faq-item__question {
-                font-size: 20px;
             }
 
             .map-section {
@@ -329,23 +280,17 @@
                         </a>
                     </div>
                     <div class="menu-item menu-item--has-dropdown">
-                        <a href="#" class="menu-title swap-hover" data-text="RESIDENCES" id="residencesToggle">
+                        <a href="#" class="menu-title swap-hover" data-text="DEVELOPMENTS" id="residencesToggle">
                             <span class="swap-hover__wrapper">
-                                <span class="swap-hover__text">RESIDENCES</span>
+                                <span class="swap-hover__text">DEVELOPMENTS</span>
                             </span>
                         </a>
                         <div class="submenu" id="residencesSubmenu">
-                            <a href="classic.html" class="submenu-item">CLASSIC.</a>
-                            <a href="mini.html" class="submenu-item">mini.</a>
-                            <a href="village.html" class="submenu-item">VILLAGE.</a>
+                            <a href="130-high-street.html" class="submenu-item">130 High Street</a>
+                            <a href="130a-high-street.html" class="submenu-item">130a High Street</a>
+                            <a href="6-eden-view.html" class="submenu-item">6 Eden View</a>
+                            <a href="7-eden-view.html" class="submenu-item">7 Eden View</a>
                         </div>
-                    </div>
-                    <div class="menu-item">
-                        <a href="experiences.html" class="menu-title swap-hover" data-text="EXPERIENCES">
-                            <span class="swap-hover__wrapper">
-                                <span class="swap-hover__text">EXPERIENCES</span>
-                            </span>
-                        </a>
                     </div>
                     <div class="menu-item">
                         <a href="contact.html" class="menu-title swap-hover active" data-text="CONTACT">
@@ -360,11 +305,11 @@
             <div class="offcanvas-menu__center">
                 <div class="infinite-scroll-images">
                     <div class="infinite-scroll-images__wrapper">
-                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=240&h=300&fit=crop" alt="Interior">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=240&h=300&fit=crop" alt="Interior">
-                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=240&h=300&fit=crop" alt="Interior">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=240&h=300&fit=crop" alt="Interior">
-                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=240&h=300&fit=crop" alt="Interior">
+                        <img src="../images/130HighStreet/130 High Street, TN8 5AY 001.jpg" alt="130 High Street">
+                        <img src="../images/6 Eden View/6 Eden View 1.jpg" alt="6 Eden View">
+                        <img src="../images/7 Eden View/7 Eden View 1.jpg" alt="7 Eden View">
+                        <img src="../images/130HighStreet/130 High Street, TN8 5AY 004.jpg" alt="130 High Street">
+                        <img src="../images/6 Eden View/6 Eden View 4.jpg" alt="6 Eden View">
                     </div>
                 </div>
             </div>
@@ -372,11 +317,11 @@
                 <div class="contact-info">
                     <div class="contact-info__item">
                         <span class="contact-info__label">mail</span>
-                        <span class="contact-info__value">info@nueve.gr</span>
+                        <span class="contact-info__value">info@crispconstruction.co.uk</span>
                     </div>
                     <div class="contact-info__item">
                         <span class="contact-info__label">phone</span>
-                        <span class="contact-info__value">+30 697 625 8608</span>
+                        <span class="contact-info__value">01732 300018</span>
                     </div>
                     <div class="contact-info__item">
                         <span class="contact-info__label">social</span>
@@ -384,11 +329,10 @@
                         <a href="#" class="contact-info__link">facebook</a>
                     </div>
                 </div>
-                <div class="offcanvas-number">( 9 )</div>
                 <div class="offcanvas-links">
-                    <a href="#" class="swap-hover offcanvas-link" data-text="book now">
+                    <a href="#" class="swap-hover offcanvas-link" data-text="get a quote">
                         <span class="swap-hover__wrapper">
-                            <span class="swap-hover__text">book now</span>
+                            <span class="swap-hover__text">get a quote</span>
                         </span>
                     </a>
                     <a href="#" class="swap-hover offcanvas-link" data-text="privacy">
@@ -410,21 +354,10 @@
     <header class="header" id="header">
         <div class="header__container">
             <a href="../index.html" class="header__logo">
-                <h1 class="header__logo-text">nueve.</h1>
-                <h1 class="header__logo-short">n.</h1>
-                <span class="header__logo-number">( 9 )</span>
+                <h1 class="header__logo-text">crisp.</h1>
+                <h1 class="header__logo-short">c.</h1>
             </a>
             <div class="header__menu">
-                <nav class="language-nav">
-                    <ul class="language-nav__list">
-                        <li class="language-nav__item language-nav__item--current">
-                            <a href="#" class="language-nav__link">EN</a>
-                        </li>
-                        <li class="language-nav__item">
-                            <a href="#" class="language-nav__link">EL</a>
-                        </li>
-                    </ul>
-                </nav>
                 <button class="burger" id="burgerMenu" aria-label="Menu">
                     <span class="burger__box">
                         <span class="burger__inner"></span>
@@ -440,7 +373,7 @@
         <section class="contact-hero">
             <div class="contact-hero__content">
                 <h1 class="contact-hero__title flicker-text">contact.</h1>
-                <p class="contact-hero__subtitle">We'd love to hear from you. Reach out for bookings, inquiries, or just to say hello.</p>
+                <p class="contact-hero__subtitle">We'd love to hear from you. Get in touch to discuss your project or request a quote.</p>
             </div>
         </section>
 
@@ -449,24 +382,28 @@
             <div class="contact-section__container">
                 <div class="contact-info-block">
                     <h2 class="contact-info-block__title">Get in Touch</h2>
-                    <p class="contact-info-block__text">Whether you're planning your stay or have questions about our residences, our team is here to help. We typically respond within 24 hours.</p>
+                    <p class="contact-info-block__text">Whether you're planning a new build, renovation, or conversion, our team is here to help. We offer free consultations and competitive quotes for all types of construction projects.</p>
                     
                     <div class="contact-details">
                         <div class="contact-detail">
                             <span class="contact-detail__label">Email</span>
                             <span class="contact-detail__value">
-                                <a href="mailto:info@nueve.gr">info@nueve.gr</a>
+                                <a href="mailto:info@crispconstruction.co.uk">info@crispconstruction.co.uk</a>
                             </span>
                         </div>
                         <div class="contact-detail">
                             <span class="contact-detail__label">Phone</span>
                             <span class="contact-detail__value">
-                                <a href="tel:+306976258608">+30 697 625 8608</a>
+                                <a href="tel:01732300018">01732 300018</a>
                             </span>
                         </div>
                         <div class="contact-detail">
-                            <span class="contact-detail__label">Residences</span>
-                            <span class="contact-detail__value">Patras & Vartholomio, Greece</span>
+                            <span class="contact-detail__label">Address</span>
+                            <span class="contact-detail__value">126 High Street, Edenbridge, Kent TN8 5AY</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail__label">Company Number</span>
+                            <span class="contact-detail__value">12037931</span>
                         </div>
                     </div>
 
@@ -488,8 +425,12 @@
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="project">Project Type</label>
+                            <input type="text" id="project" name="project" placeholder="e.g., New Build, Renovation, Extension">
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
@@ -505,36 +446,9 @@
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section class="faq-section">
-            <div class="faq-section__container">
-                <h2 class="faq-section__title">Frequently Asked Questions</h2>
-                
-                <div class="faq-item">
-                    <h3 class="faq-item__question">What are the check-in and check-out times?</h3>
-                    <p class="faq-item__answer">Check-in is available from 3:00 PM, and check-out is by 11:00 AM. Early check-in and late check-out can be arranged upon request, subject to availability.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3 class="faq-item__question">Is parking available?</h3>
-                    <p class="faq-item__answer">Yes, all our residences offer complimentary parking. The Classic and Mini residences have street parking available, while Village includes a private parking space.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3 class="faq-item__question">Are pets allowed?</h3>
-                    <p class="faq-item__answer">We welcome pets at our Village residence. Please contact us in advance to discuss arrangements. A small pet fee may apply.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3 class="faq-item__question">What is the cancellation policy?</h3>
-                    <p class="faq-item__answer">Cancellations made 14 days or more before arrival receive a full refund. Cancellations within 14 days are subject to a one-night charge. No-shows are charged the full amount.</p>
-                </div>
-            </div>
-        </section>
-
         <!-- Map Section -->
         <section class="map-section">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25084.834035542324!2d21.7357094!3d38.2466399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135e49e0c74f2b31%3A0x400bd2ce2b9b6f0!2sPatra%2C%20Greece!5e0!3m2!1sen!2sus!4v1635959564000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2491.601932897!2d0.0573!3d51.1945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df5e18279dcb83%3A0x1234567890abcdef!2s126%20High%20St%2C%20Edenbridge%20TN8%205AY!5e0!3m2!1sen!2suk!4v1635959564000!5m2!1sen!2suk" allowfullscreen="" loading="lazy"></iframe>
         </section>
 
         <!-- Spacer for sticky footer -->
@@ -546,12 +460,12 @@
         <!-- Scrolling Marquee Text -->
         <div class="footer-marquee">
             <div class="footer-marquee__track">
-                <span class="footer-marquee__text">nueve residences</span>
-                <span class="footer-marquee__text">nueve residences</span>
-                <span class="footer-marquee__text">nueve residences</span>
-                <span class="footer-marquee__text">nueve residences</span>
-                <span class="footer-marquee__text">nueve residences</span>
-                <span class="footer-marquee__text">nueve residences</span>
+                <span class="footer-marquee__text">crisp construction</span>
+                <span class="footer-marquee__text">crisp construction</span>
+                <span class="footer-marquee__text">crisp construction</span>
+                <span class="footer-marquee__text">crisp construction</span>
+                <span class="footer-marquee__text">crisp construction</span>
+                <span class="footer-marquee__text">crisp construction</span>
             </div>
         </div>
         
@@ -560,25 +474,24 @@
                 <div class="footer__contact">
                     <div class="footer__contact-item">
                         <span class="footer__contact-label">mail</span>
-                        <a href="mailto:info@nueve.gr" class="footer__contact-value">info@nueve.gr</a>
+                        <a href="mailto:info@crispconstruction.co.uk" class="footer__contact-value">info@crispconstruction.co.uk</a>
                     </div>
                     <div class="footer__contact-item">
                         <span class="footer__contact-label">phone</span>
-                        <a href="tel:+306976258608" class="footer__contact-value">+30 697 625 8608</a>
+                        <a href="tel:01732300018" class="footer__contact-value">01732 300018</a>
                     </div>
                     <div class="footer__contact-item">
                         <span class="footer__contact-label">location</span>
-                        <span class="footer__contact-value">Patras & Vartholomio, Greece</span>
+                        <span class="footer__contact-value">126 High Street, Edenbridge, Kent TN8 5AY</span>
                     </div>
                 </div>
-                <div class="footer__number">( 9 )</div>
             </div>
             
             <div class="footer__bottom">
                 <div class="footer__links">
-                    <a href="contact.html" class="footer-link swap-hover" data-text="book now">
+                    <a href="contact.html" class="footer-link swap-hover" data-text="get a quote">
                         <span class="swap-hover__wrapper">
-                            <span class="swap-hover__text">book now</span>
+                            <span class="swap-hover__text">get a quote</span>
                         </span>
                     </a>
                     <a href="contact.html" class="footer-link swap-hover" data-text="contact">
@@ -598,7 +511,7 @@
                     </a>
                 </div>
                 <div class="footer__copyright">
-                    <span>© 2026 Nueve Residences. All rights reserved.</span>
+                    <span>© 2026 Crisp Construction Ltd. All rights reserved.</span>
                 </div>
             </div>
         </div>

@@ -618,7 +618,10 @@ img {
     height: 400px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 80px;
+    width: 100%;
+    max-width: 1400px;
 }
 
 .hero-text-slide {
@@ -628,6 +631,7 @@ img {
     transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
     pointer-events: none;
+    left: 80px;
 }
 
 .hero-text-slide.active {
@@ -638,35 +642,34 @@ img {
 
 .hero-text-slide .hero__subtitle {
     font-family: var(--font-body);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     color: var(--color-accent);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     opacity: 1;
 }
 
 .hero-text-slide .hero__title {
     font-family: var(--font-heading);
-    font-size: 120px;
+    font-size: 90px;
     font-weight: 600;
     color: #ffffff;
     line-height: 1.1;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .hero-text-slide .hero__description {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     color: #ffffff;
     opacity: 0.9;
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
-    opacity: 0.8;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 450px;
+    line-height: 1.6;
 }
 
 /* ========================================
@@ -741,10 +744,15 @@ img {
 .hero__container {
     position: relative;
     z-index: 2;
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 0 80px;
+    box-sizing: border-box;
 }
 
 
@@ -1041,7 +1049,6 @@ img {
     font-weight: 300;
     color: var(--color-text-dark);
     line-height: 1.5;
-    mix-blend-mode: exclusion;
 }
 
 .experiences-grid {
@@ -1049,7 +1056,6 @@ img {
     grid-template-columns: repeat(4, 1fr);
     max-width: 1200px;
     margin: 0 auto;
-    mix-blend-mode: exclusion;
 }
 
 .experience-item {
@@ -1469,22 +1475,31 @@ img {
     
     .hero-rotating-text {
         height: 300px;
+        padding-left: 30px;
+    }
+    
+    .hero-text-slide {
+        left: 30px;
+    }
+    
+    .hero__container {
+        padding: 0 30px;
     }
     
     .hero-text-slide .hero__subtitle {
-        font-size: 16px;
+        font-size: 14px;
         letter-spacing: 2px;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
     
     .hero-text-slide .hero__title {
-        font-size: 48px;
-        margin-bottom: 20px;
+        font-size: 42px;
+        margin-bottom: 15px;
     }
     
     .hero-text-slide .hero__description {
-        font-size: 16px;
-        max-width: 300px;
+        font-size: 15px;
+        max-width: 280px;
     }
     
     .deco-section {
