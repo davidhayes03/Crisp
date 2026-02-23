@@ -36,15 +36,19 @@
 }
 
 .residence-hero__content {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     z-index: 2;
-    text-align: center;
-    color: var(--color-text-light);
+    text-align: left;
+    color: var(--color-text-dark);
+    background: var(--color-bg-primary);
+    padding: 20px;
 }
 
 .residence-hero__title {
     font-family: var(--font-heading);
-    font-size: clamp(80px, 15vw, 200px);
+    font-size: clamp(80px, 15vw, 20px);
     font-weight: 600;
     line-height: 1;
     margin-bottom: 20px;
@@ -272,7 +276,7 @@
     width: 100%;
     height: 100%;
     border: none;
-    filter: grayscale(100%);
+    
 }
 
 /* Booking CTA */
@@ -425,5 +429,169 @@
         min-width: 280px;
         max-width: 280px;
         height: 200px;
+    }
+}
+
+
+/* Residence Specs Section */
+.residence-specs-section {
+    padding: 80px 40px;
+    background: var(--color-bg-primary);
+}
+
+.residence-specs-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.residence-specs-grid {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.spec-number {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    line-height: 1;
+}
+
+.spec-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    color: var(--color-text-dark);
+    opacity: 0.6;
+}
+
+/* Photo Gallery Grid */
+.photo-gallery-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+}
+
+.gallery-main {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .gallery-main img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    .gallery-main:hover img {
+        transform: scale(1.05);
+    }
+
+.view-photos-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--color-text-dark);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .view-photos-btn:hover {
+        background: var(--color-bg-dark);
+        color: var(--color-text-light);
+    }
+
+    .view-photos-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+.gallery-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+    .gallery-sidebar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+        transition: transform 0.6s ease;
+        cursor: pointer;
+    }
+
+        .gallery-sidebar img:hover {
+            transform: scale(1.05);
+        }
+
+/* Responsive */
+@media (max-width: 991px) {
+    .residence-specs-grid {
+        gap: 40px;
+    }
+
+    .photo-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-main {
+        height: 400px;
+    }
+}
+
+@media (max-width: 767px) {
+    .residence-specs-section {
+        padding: 60px 20px;
+    }
+
+    .residence-specs-grid {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .spec-item {
+        flex: 0 0 calc(33.333% - 20px);
+    }
+
+    .spec-number {
+        font-size: 36px;
+    }
+
+    .gallery-main {
+        height: 300px;
+    }
+
+    .gallery-sidebar {
+        grid-template-columns: 1fr 1fr;
     }
 }

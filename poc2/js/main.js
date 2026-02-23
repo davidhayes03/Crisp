@@ -119,11 +119,7 @@ function initResidencesDropdown() {
     
     if (!toggle || !submenu) return;
     
-    toggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        submenu.classList.toggle('active');
-        toggle.parentElement.classList.toggle('menu-item--open');
-    });
+    
 }
 
 /**
