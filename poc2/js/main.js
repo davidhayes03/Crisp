@@ -13,7 +13,31 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initScrollAnimations();
     initHeroRotatingText();
+    initScrollChevron();
 });
+
+/**
+ * Scroll Chevron Button
+ * Handles click to scroll to next section
+ */
+function initScrollChevron() {
+    const chevrons = document.querySelectorAll('.scroll-chevron, .section-chevron');
+    
+    chevrons.forEach(chevron => {
+        chevron.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = chevron.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
 
 /**
  * Site Loader

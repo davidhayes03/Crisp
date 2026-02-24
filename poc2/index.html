@@ -129,7 +129,7 @@
     <!-- Main Content -->
     <main class="main-content" id="mainContent">
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero" id="hero">
             <div class="fullscreen-homeImage__bg"></div>
             <div class="hero-overlay"></div>
             <div class="hero__container">
@@ -151,16 +151,36 @@
                     </div>
                 </div>
             </div>
+            <a href="#legacy-section" class="scroll-chevron section-chevron">
+                <div class="chevron-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </div>
+            </a>
         </section>
 
         <!-- Full Screen Image Section with Legacy Text -->
-        <section class="fullscreen-image">
+        <section class="fullscreen-image" id="legacy-section">
             <div class="fullscreen-image__bg"></div>
-
+            <div class="fullscreen-image__content">
+                <h3 class="fullscreen-image__title">legacy.</h3>
+                <div class="about-box">
+                    <h4>About Us</h4>
+                    <p>With over 20 years of experience, Crisp Construction delivers exceptional residential developments across Edenbridge and Kent. We specialize in property conversions, new builds, and renovations with a focus on quality craftsmanship.</p>
+                </div>
+            </div>
+            <a href="#deco-section" class="scroll-chevron section-chevron">
+                <div class="chevron-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </div>
+            </a>
         </section>
 
         <!-- Deco Section -->
-        <section class="deco-section">
+        <section class="deco-section" id="deco-section">
             <div class="deco-section__content">
                 <div class="deco-section__left">
                     <div class="deco-section__text flicker-text">
@@ -173,10 +193,17 @@
                     </div>
                 </div>
             </div>
+            <a href="#developments" class="scroll-chevron section-chevron">
+                <div class="chevron-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </div>
+            </a>
         </section>
 
         <!-- Developments Section -->
-        <section class="residences-section">
+        <section class="residences-section" id="developments">
             <div class="residences-section__header">
                 <h3 class="residences-section__title residences-section__title--italic">our</h3>
                 <h3 class="residences-section__title">developments.</h3>
@@ -203,16 +230,23 @@
                     <span class="residence-card__arrow">→</span>
                 </a>
             </div>
+            <a href="#gallery-section" class="scroll-chevron section-chevron">
+                <div class="chevron-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </div>
+            </a>
         </section>
 
         <!-- Gallery Section -->
-        <section class="gallery-section">
+        <section class="gallery-section" id="gallery-section">
             <div class="gallery-tabs">
                 <div class="gallery-tabs__menu">
-                    <button class="gallery-tabs__tab gallery-tabs__tab--active" data-tab="classic">130 High Street.</button>
-                    <button class="gallery-tabs__tab" data-tab="mini">130a High Street.</button>
-                    <button class="gallery-tabs__tab" data-tab="village">6 Eden View.</button>
-                    <button class="gallery-tabs__tab" data-tab="village">7 Eden View.</button>
+                    <button class="gallery-tabs__tab gallery-tabs__tab--active" data-tab="130highstreet">130 High Street.</button>
+                    <button class="gallery-tabs__tab" data-tab="130ahighstreet">130a High Street.</button>
+                    <button class="gallery-tabs__tab" data-tab="edenview6">6 Eden View.</button>
+                    <button class="gallery-tabs__tab" data-tab="edenview7">7 Eden View.</button>
                 </div>
                 <div class="gallery-tabs__content">
                     <div class="gallery-tabs__pane gallery-tabs__pane--active" data-pane="130highstreet">
@@ -233,7 +267,29 @@
                                 <img src="images/130 High Street/130 High Street, TN8 5AY 015.jpg" alt="130 High Street Exterior">
                             </div>
                             <div class="gallery-grid__item">
-                                <img src="images/130 High Street/130 High StreetEdenbridgeTN85AY-High.jpg" alt="130 High Street Full View">
+                                <img src="images/130 High Street/130HighStreetEdenbridgeTN85AY-High.jpg" alt="130 High Street Full View">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-tabs__pane" data-pane="130ahighstreet">
+                        <div class="gallery-grid">
+                            <div class="gallery-grid__item">
+                                <img src="images/130a High Street/130 High Street, TN8 5AY 001.jpg" alt="130a High Street Exterior">
+                            </div>
+                            <div class="gallery-grid__item">
+                                <img src="images/130a High Street/130 High Street, TN8 5AY 002.jpg" alt="130a High Street Interior">
+                            </div>
+                            <div class="gallery-grid__item">
+                                <img src="images/130a High Street/130 High Street, TN8 5AY 004.jpg" alt="130a High Street Living Room">
+                            </div>
+                            <div class="gallery-grid__item">
+                                <img src="images/130a High Street/130 High Street, TN8 5AY 007.jpg" alt="130a High Street Bedroom">
+                            </div>
+                            <div class="gallery-grid__item">
+                                <img src="images/130a High Street/130 High Street, TN8 5AY 013.jpg" alt="130a High Street Detail">
+                            </div>
+                            <div class="gallery-grid__item">
+                                <img src="images/130a High Street/130HighStreetEdenbridgeTN85AY-High.jpg" alt="130a High Street Full View">
                             </div>
                         </div>
                     </div>
@@ -283,10 +339,17 @@
                     </div>
                 </div>
             </div>
+            <a href="#services-section" class="scroll-chevron section-chevron">
+                <div class="chevron-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </div>
+            </a>
         </section>
 
         <!-- Services Section -->
-        <section class="experiences-section">
+        <section class="experiences-section" id="services-section">
             <div class="experiences-section__header">
                 <h3 class="experiences-section__title experiences-section__title--italic">our</h3>
                 <h3 class="experiences-section__title">services.</h3>
@@ -374,6 +437,13 @@
                     <span class="anyside-button__text">get in touch</span>
                 </a>
             </div>
+            <a href="#footer" class="scroll-chevron section-chevron">
+                <div class="chevron-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </div>
+            </a>
         </section>
 
         <!-- Spacer for sticky footer -->
