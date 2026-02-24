@@ -209,6 +209,37 @@ img {
     color: var(--color-accent);
 }
 
+/* Back Button in Header */
+.header__back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+
+.header__back-btn svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-text-light);
+    transition: transform 0.3s ease;
+}
+
+.header__back-btn:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: translateX(-3px);
+}
+
+.header__back-btn:hover svg {
+    color: #ffffff;
+}
+
 .header__menu {
     display: flex;
     align-items: center;

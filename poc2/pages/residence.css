@@ -1,5 +1,56 @@
 /* Residence Pages Specific Styles */
 
+/* Blue Accent Styles */
+.residence-hero__subtitle {
+    color: var(--color-accent);
+}
+
+.residence-info__title {
+    color: var(--color-accent);
+}
+
+.residence-spec__value {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.amenities-section__title {
+    color: var(--color-accent);
+}
+
+.residence-gallery__title {
+    color: var(--color-accent);
+}
+
+.location-section__title {
+    color: var(--color-accent);
+}
+
+.other-residences__title {
+    color: var(--color-accent);
+}
+
+.booking-cta__title {
+    color: var(--color-accent);
+}
+
+/* Blue accent for links and buttons */
+.residence-detail-card__link {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+}
+
+.experience-detail-card__link {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+}
+
+/* Active submenu item */
+.submenu-item--active {
+    color: var(--color-accent) !important;
+    opacity: 1 !important;
+}
+
 /* Residence Hero */
 .residence-hero {
     position: relative;
