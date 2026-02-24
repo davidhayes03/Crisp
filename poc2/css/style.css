@@ -360,20 +360,14 @@ img {
     display: flex;
     gap: 30px;
     padding: 20px 0 20px 20px;
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s ease;
-}
-
-.submenu.active {
     opacity: 1;
     max-height: 130px;
+    overflow: visible;
 }
 
 .submenu-item {
     font-family: var(--font-heading);
-    font-size: 2px;
+    font-size: 16px;
     font-weight: 400;
     color: var(--color-text-light);
     opacity: 0.6;
