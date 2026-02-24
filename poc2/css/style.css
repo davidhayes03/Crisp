@@ -354,6 +354,11 @@ img {
     color: var(--color-text-light);
     line-height: 1.1;
     display: inline-block;
+    transition: color var(--transition-fast);
+}
+
+.menu-title:hover {
+    color: var(--color-accent);
 }
 
 .submenu {
@@ -371,11 +376,12 @@ img {
     font-weight: 400;
     color: var(--color-text-light);
     opacity: 0.6;
-    transition: opacity var(--transition-fast);
+    transition: all var(--transition-fast);
 }
 
 .submenu-item:hover {
     opacity: 1;
+    color: var(--color-accent);
 }
 
 .offcanvas-copyright {
