@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCookiePopup();
     initGalleryFullscreen();
     initDevelopmentFilters();
+    initLazyMap();
 });
 
 /**
@@ -123,20 +124,16 @@ function initSiteLoader() {
     requestAnimationFrame(animate);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(hideLoader, 1000);
-});
-
 function hideLoader() {
     const loader = document.getElementById('siteLoader');
     if (!loader) return;
 
-    loader.style.transition = 'opacity 0.6s ease';
+    loader.style.transition = 'opacity 0.3s ease';
     loader.style.opacity = '0';
 
     setTimeout(() => {
         loader.style.display = 'none';
-    }, 600);
+    }, 300);
 }
 /**
  * Burger Menu Toggle
@@ -643,6 +640,43 @@ function initGalleryFullscreen() {
     viewer.addEventListener('click', (e) => {
         if (e.target === viewer) closeViewer();
     });
+}
+
+/**
+ * Lazy Load Google Map
+ * Only loads when footer scrolls into view
+ */
+function initLazyMap() {
+    const mapContainer = document.querySelector('.footer__map');
+    const placeholder = document.getElementById('mapPlaceholder');
+    
+    if (!mapContainer || !placeholder) return;
+    
+    const mapSrc = mapContainer.dataset.src;
+    if (!mapSrc) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Load the iframe
+                const iframe = document.createElement('iframe');
+                iframe.src = mapSrc;
+                iframe.width = '100%';
+                iframe.height = '100%';
+                iframe.style.border = '0';
+                iframe.allowFullscreen = '';
+                iframe.loading = 'lazy';
+                iframe.referrerPolicy = 'no-referrer-when-downgrade';
+                
+                mapContainer.innerHTML = '';
+                mapContainer.appendChild(iframe);
+                
+                observer.unobserve(mapContainer);
+            }
+        });
+    }, { rootMargin: '200px' });
+    
+    observer.observe(mapContainer);
 }
 
 /**

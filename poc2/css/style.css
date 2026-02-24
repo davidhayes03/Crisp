@@ -179,6 +179,19 @@ img {
     filter: grayscale(100%) invert(92%) contrast(83%);
 }
 
+.footer__map-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--color-bg-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+    font-size: 14px;
+    opacity: 0.5;
+}
+
 /* ========================================
    FULLSCREEN GALLERY VIEWER
    ======================================== */
@@ -2328,6 +2341,56 @@ img {
 /* Smooth scrolling for the whole page */
 html {
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+}
+
+/* Disable scroll snap on touch devices for smoother scrolling */
+@media (hover: none) and (pointer: coarse) {
+    html {
+        scroll-snap-type: none;
+    }
+    
+    section {
+        scroll-snap-align: none;
+    }
+}
+
+/* Section Snap Points */
+section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}
+
+body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+    /* Prevent pull-to-refresh on iOS */
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* iOS Safari fix for fixed elements */
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: -webkit-fill-available;
+    }
+    
+    .header, .footer {
+        position: -webkit-sticky;
+    }
+    
+    .floating-scroll-btn {
+        position: -webkit-sticky;
+        bottom: 30px;
+    }
+}
+
+/* Prevent scroll bounce on iOS */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* Custom scrollbar */
