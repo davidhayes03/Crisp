@@ -94,57 +94,26 @@ img {
    ======================================== */
 .site-loader {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: var(--color-bg-dark);
+    inset: 0;
+    background: #000;
     z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    overflow: hidden;
 }
 
-.site-loader.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.site-loader__progress-bar {
+.site-loader__swipe {
     position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 0%;
-    background-color: rgba(255, 255, 255, 0.05);
-    transition: width 0.1s linear;
+    inset: 0;
+    background: var(--color-accent, rgba(37, 162, 220, 0.1));
+    transform: translateX(-100%);
+    will-change: transform;
+    animation: loaderSwipe 1s linear forwards;
 }
 
-.site-loader__percentage-wrap {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@keyframes loaderSwipe {
+    to {
+        transform: translateX(0%);
+    }
 }
-
-.site-loader__percentage {
-    font-family: var(--font-heading);
-    font-size: 120px;
-    font-weight: 300;
-    color: var(--color-accent);
-    line-height: 1;
-}
-
-.site-loader__percentage--calc-100 {
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
-}
-
 /* ========================================
    HEADER
    ======================================== */

@@ -21,61 +21,53 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function initSiteLoader() {
     const loader = document.getElementById('siteLoader');
-    const percentage = document.getElementById('loaderPercentage');
     const progressBar = document.querySelector('.site-loader__progress-bar');
-    
-    if (!loader || !percentage) return;
-    
-    let progress = 0;
-    const duration = 800; // 3 seconds minimum
-    const interval = 30;
-    const increment = 100 / (duration / interval);
-    
-    const loadingInterval = setInterval(() => {
-        progress += increment;
-        
-        // Add some randomness for realistic loading
-        if (Math.random() > 0.7) {
-            progress += increment * 0.5;
-        }
-        
-        if (progress >= 100) {
-            progress = 100;
-            clearInterval(loadingInterval);
-            
-            // Small delay before hiding loader
-            setTimeout(() => {
-                hideLoader();
-            }, 400);
-        }
-        
-        percentage.textContent = Math.floor(progress);
+    const swipe = document.querySelector('.site-loader__swipe');
+
+    if (!loader) return;
+
+    const duration = 1000;
+    const start = performance.now();
+
+    function animate(now) {
+        const elapsed = now - start;
+        let progress = Math.min(elapsed / duration, 1);
+
+        progress = 1 - Math.pow(1 - progress, 3); // smooth ease
+
         if (progressBar) {
-            progressBar.style.width = progress + '%';
+            progressBar.style.width = (progress * 100) + '%';
         }
-    }, interval);
-    
-    function hideLoader() {
-        loader.style.opacity = '0';
-        loader.style.visibility = 'hidden';
-        loader.classList.add('hidden');
-        
-        // Reveal content with animation
-        document.body.style.overflow = 'auto';
-        
-        // Trigger entrance animations
-        setTimeout(() => {
-            document.querySelectorAll('.flicker-text').forEach(el => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            });
-        }, 200);
+
+        if (swipe) {
+            swipe.style.transform = `translateX(${(-100 + progress * 100)}%)`;
+        }
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            setTimeout(hideLoader, 300);
+        }
     }
-    
-    // Prevent scrolling while loader is active
-    document.body.style.overflow = 'hidden';
+
+    requestAnimationFrame(animate);
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(hideLoader, 1000);
+});
+
+function hideLoader() {
+    const loader = document.getElementById('siteLoader');
+    if (!loader) return;
+
+    loader.style.transition = 'opacity 0.6s ease';
+    loader.style.opacity = '0';
+
+    setTimeout(() => {
+        loader.style.display = 'none';
+    }, 600);
+}
 /**
  * Burger Menu Toggle
  * Handles the off-canvas menu open/close functionality
@@ -451,3 +443,4 @@ function preloadImages() {
 
 // Start preloading after initial load
 window.addEventListener('load', preloadImages);
+window.addEventListener('DOMContentLoaded', initSiteLoader);
