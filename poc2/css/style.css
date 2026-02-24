@@ -166,14 +166,16 @@ img {
    ======================================== */
 .footer__map {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 30%;
     z-index: 0;
 }
 
 .footer__map iframe {
+    width: 100%;
+    height: 100%;
     filter: grayscale(100%) invert(92%) contrast(83%);
 }
 
@@ -1676,7 +1678,7 @@ img {
    FOOTER SPACER
    ======================================== */
 .footer-spacer {
-    height: 10vh;
+    height: 35vh;
     background-color: var(--color-bg-primary);
 }
 
@@ -1684,17 +1686,17 @@ img {
    FOOTER
    ======================================== */
 .footer {
-    position: sticky;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    min-height: 70vh;
     background-color: var(--color-bg-dark);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 50px;
-    z-index: -1;
+    z-index: 1;
     overflow: hidden;
 }
 
