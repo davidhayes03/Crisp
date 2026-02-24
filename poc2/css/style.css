@@ -815,6 +815,59 @@ img {
     }
 }
 
+/* Floating Scroll Button */
+.floating-scroll-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-bg-dark);
+    border: 2px solid var(--color-text-dark);
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.floating-scroll-btn:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 162, 220, 0.4);
+}
+
+.floating-scroll-btn svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-text-light);
+    transition: transform 0.3s ease;
+}
+
+.floating-scroll-btn .chevron-up {
+    display: none;
+}
+
+.floating-scroll-btn .chevron-down {
+    display: block;
+}
+
+.floating-scroll-btn.at-bottom {
+    border-bottom: 3px solid var(--color-accent);
+}
+
+.floating-scroll-btn.at-bottom .chevron-down {
+    display: none;
+}
+
+.floating-scroll-btn.at-bottom .chevron-up {
+    display: block;
+}
+
 .fullscreen-homeImage__bg {
     position: absolute;
     top: 0;
