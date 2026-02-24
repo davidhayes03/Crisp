@@ -178,33 +178,58 @@ function hideLoader() {
  * Burger Menu Toggle
  * Handles the off-canvas menu open/close functionality
  */
+
+// Add this to the burger menu initialization
 function initBurgerMenu() {
     const burger = document.getElementById('burgerMenu');
     const offcanvas = document.getElementById('offcanvasMenu');
-    
+
     if (!burger || !offcanvas) return;
-    
-    burger.addEventListener('click', () => {
+
+    function toggleMenu() {
         burger.classList.toggle('active');
         offcanvas.classList.toggle('active');
-        
+
         // Toggle body scroll
         if (offcanvas.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed'; // Prevent iOS scroll
+            document.body.style.width = '100%';
         } else {
             document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
         }
+    }
+
+    // Support both click and touch events
+    burger.addEventListener('click', toggleMenu);
+    burger.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        toggleMenu();
     });
-    
+
     // Close menu when clicking on menu items
     const menuLinks = offcanvas.querySelectorAll('a');
     menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
+        const closeMenu = () => {
             burger.classList.remove('active');
             offcanvas.classList.remove('active');
             document.body.style.overflow = '';
-        });
+            document.body.style.position = '';
+            document.body.style.width = '';
+        };
+
+        link.addEventListener('click', closeMenu);
+        link.addEventListener('touchend', closeMenu);
     });
+
+    // Prevent background scroll on touch devices
+    offcanvas.addEventListener('touchmove', (e) => {
+        if (offcanvas.classList.contains('active')) {
+            e.stopPropagation();
+        }
+    }, { passive: false });
 }
 
 /**
