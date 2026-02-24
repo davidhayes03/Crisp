@@ -220,27 +220,57 @@
                 <h3 class="residences-section__title residences-section__title--italic">our</h3>
                 <h3 class="residences-section__title">developments.</h3>
             </div>
+            
+            <!-- Development Filters -->
+            <div class="development-filters">
+                <button class="development-filters__btn development-filters__btn--active" data-filter="all">All</button>
+                <button class="development-filters__btn" data-filter="completed">Completed</button>
+                <button class="development-filters__btn" data-filter="in-progress">In Progress</button>
+                <button class="development-filters__btn" data-filter="future">Future</button>
+            </div>
+            
             <div class="residences-section__cards">
-                <a href="pages/130-high-street.html" class="residence-card">
+                <!-- Completed -->
+                <a href="pages/130-high-street.html" class="residence-card" data-status="completed">
                     <div class="residence-card__bg" style="background-image: url('images/130 High Street/130 High Street, TN8 5AY 001.jpg')"></div>
                     <span class="residence-card__name">130 High Street</span>
                     <span class="residence-card__arrow">→</span>
                 </a>
-                <a href="pages/130a-high-street.html" class="residence-card">
+                <a href="pages/130a-high-street.html" class="residence-card" data-status="completed">
                     <div class="residence-card__bg" style="background-image: url('images/130 High Street/130 High Street, TN8 5AY 004.jpg')"></div>
                     <span class="residence-card__name">130a High Street</span>
                     <span class="residence-card__arrow">→</span>
                 </a>
-                <a href="pages/6-eden-view.html" class="residence-card">
+                <a href="pages/6-eden-view.html" class="residence-card" data-status="completed">
                     <div class="residence-card__bg" style="background-image: url('images/6 Eden View/6 Eden View 17.jpg')"></div>
                     <span class="residence-card__name">6 Eden View</span>
                     <span class="residence-card__arrow">→</span>
                 </a>
-                <a href="pages/7-eden-view.html" class="residence-card">
+                <a href="pages/7-eden-view.html" class="residence-card" data-status="completed">
                     <div class="residence-card__bg" style="background-image: url('images/7 Eden View/7 Eden View 17.jpg')"></div>
                     <span class="residence-card__name">7 Eden View</span>
                     <span class="residence-card__arrow">→</span>
                 </a>
+                
+                <!-- In Progress - Example (add your properties) -->
+                <!--
+                <a href="#" class="residence-card" data-status="in-progress">
+                    <div class="residence-card__bg" style="background-image: url('images/your-in-progress-property.jpg')"></div>
+                    <span class="residence-card__name">Your In Progress Property</span>
+                    <span class="residence-card__status">In Progress</span>
+                    <span class="residence-card__arrow">→</span>
+                </a>
+                -->
+                
+                <!-- Future - Example (add your properties) -->
+                <!--
+                <a href="#" class="residence-card" data-status="future">
+                    <div class="residence-card__bg" style="background-image: url('images/your-future-property.jpg')"></div>
+                    <span class="residence-card__name">Your Future Property</span>
+                    <span class="residence-card__status">Future</span>
+                    <span class="residence-card__arrow">→</span>
+                </a>
+                -->
             </div>
             <div class="chevron-circle">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

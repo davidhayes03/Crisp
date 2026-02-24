@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollChevron();
     initCookiePopup();
     initGalleryFullscreen();
+    initDevelopmentFilters();
 });
 
 /**
@@ -641,5 +642,45 @@ function initGalleryFullscreen() {
     // Click outside image to close
     viewer.addEventListener('click', (e) => {
         if (e.target === viewer) closeViewer();
+    });
+}
+
+/**
+ * Development Filters
+ * Filter developments by status: completed, in-progress, future
+ */
+function initDevelopmentFilters() {
+    const filterBtns = document.querySelectorAll('.development-filters__btn');
+    const cards = document.querySelectorAll('.residence-card[data-status]');
+    
+    if (filterBtns.length === 0 || cards.length === 0) return;
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+            
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('development-filters__btn--active'));
+            btn.classList.add('development-filters__btn--active');
+            
+            // Filter cards with animation
+            cards.forEach((card, index) => {
+                const status = card.dataset.status;
+                
+                if (filter === 'all' || status === filter) {
+                    card.style.display = 'flex';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
     });
 }

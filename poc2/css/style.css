@@ -2203,6 +2203,84 @@ img {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
+}
+
+/* ========================================
+   DEVELOPMENT FILTERS
+   ======================================== */
+.development-filters {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.development-filters__btn {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-text-dark);
+    background: transparent;
+    border: 1px solid rgba(18, 18, 18, 0.2);
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.development-filters__btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.development-filters__btn--active {
+    background: var(--color-text-dark);
+    color: var(--color-text-light);
+    border-color: var(--color-text-dark);
+}
+
+.development-filters__btn--active:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-text-light);
+}
+
+/* Residence Card Status Badge */
+.residence-card__status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--color-accent);
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    z-index: 3;
+}
+
+.residence-card[data-status="in-progress"] .residence-card__status {
+    background: #f59e0b;
+}
+
+.residence-card[data-status="future"] .residence-card__status {
+    background: #6b7280;
+}
+
+@media (max-width: 768px) {
+    .development-filters {
+        gap: 10px;
+    }
+    
+    .development-filters__btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
     
     .gallery-grid__item {
         border-radius: 15px;
