@@ -349,7 +349,7 @@ img {
 
 .menu-title {
     font-family: var(--font-heading);
-    font-size: 80px;
+    font-size: 40px;
     font-weight: 600;
     color: var(--color-text-light);
     line-height: 1.1;
@@ -484,6 +484,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom:50px;
 }
 
 .offcanvas-link {
@@ -713,13 +714,23 @@ img {
     margin: 0 0 40px 0;
 }
 
+.fullscreen-image__subtitle {
+    font-family: var(--font-heading);
+    font-size: 80px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    margin: 0 0 40px 0;
+}
+
 /* About Box in Fullscreen Image Section */
 .about-box {
-    background: linear-gradient(135deg, rgba(37, 162, 220, 0.15) 0%, rgba(0, 0, 0, 0.8) 100%);
+   
     padding: 50px 60px;
     border-radius: 16px;
     max-width: 800px;
-    text-align: center;
+    text-align: left;
     backdrop-filter: blur(15px);
     border: 2px solid rgba(37, 162, 220, 0.3);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(37, 162, 220, 0.1);
@@ -1659,7 +1670,7 @@ img {
     }
     
     .menu-title {
-        font-size: 60px;
+        font-size: 40px;
     }
     
     .hero__subtitle {
@@ -1708,7 +1719,7 @@ img {
     }
     
     .menu-title {
-        font-size: 50px;
+        font-size: 40px;
     }
     
     .hero__subtitle {
