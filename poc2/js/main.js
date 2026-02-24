@@ -13,7 +13,74 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initScrollAnimations();
     initHeroRotatingText();
+    initScrollChevron();
 });
+
+/**
+ * Floating Scroll Button
+ * Handles page-by-page scrolling and back-to-top functionality
+ */
+function initScrollChevron() {
+    const scrollBtn = document.getElementById('scrollBtn');
+    if (!scrollBtn) return;
+    
+    const sections = document.querySelectorAll('section');
+    let currentSectionIndex = 0;
+    let isAtBottom = false;
+    
+    // Update button state based on scroll position
+    function updateButtonState() {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Check if at bottom of page
+        if (scrollPosition >= documentHeight - 100) {
+            isAtBottom = true;
+            scrollBtn.classList.add('at-bottom');
+        } else {
+            isAtBottom = false;
+            scrollBtn.classList.remove('at-bottom');
+            
+            // Find current section
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom > 100) {
+                    currentSectionIndex = index;
+                }
+            });
+        }
+    }
+    
+    // Handle button click
+    scrollBtn.addEventListener('click', () => {
+        if (isAtBottom) {
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Scroll to next section
+            const nextSection = sections[currentSectionIndex + 1];
+            if (nextSection) {
+                nextSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            } else {
+                // If no next section, scroll to bottom
+                window.scrollTo({
+                    top: document.documentElement.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+    
+    // Update button on scroll
+    window.addEventListener('scroll', updateButtonState, { passive: true });
+    updateButtonState(); // Initial check
+}
 
 /**
  * Site Loader
@@ -21,61 +88,53 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function initSiteLoader() {
     const loader = document.getElementById('siteLoader');
-    const percentage = document.getElementById('loaderPercentage');
     const progressBar = document.querySelector('.site-loader__progress-bar');
-    
-    if (!loader || !percentage) return;
-    
-    let progress = 0;
-    const duration = 800; // 3 seconds minimum
-    const interval = 30;
-    const increment = 100 / (duration / interval);
-    
-    const loadingInterval = setInterval(() => {
-        progress += increment;
-        
-        // Add some randomness for realistic loading
-        if (Math.random() > 0.7) {
-            progress += increment * 0.5;
-        }
-        
-        if (progress >= 100) {
-            progress = 100;
-            clearInterval(loadingInterval);
-            
-            // Small delay before hiding loader
-            setTimeout(() => {
-                hideLoader();
-            }, 400);
-        }
-        
-        percentage.textContent = Math.floor(progress);
+    const swipe = document.querySelector('.site-loader__swipe');
+
+    if (!loader) return;
+
+    const duration = 1000;
+    const start = performance.now();
+
+    function animate(now) {
+        const elapsed = now - start;
+        let progress = Math.min(elapsed / duration, 1);
+
+        progress = 1 - Math.pow(1 - progress, 3); // smooth ease
+
         if (progressBar) {
-            progressBar.style.width = progress + '%';
+            progressBar.style.width = (progress * 100) + '%';
         }
-    }, interval);
-    
-    function hideLoader() {
-        loader.style.opacity = '0';
-        loader.style.visibility = 'hidden';
-        loader.classList.add('hidden');
-        
-        // Reveal content with animation
-        document.body.style.overflow = 'auto';
-        
-        // Trigger entrance animations
-        setTimeout(() => {
-            document.querySelectorAll('.flicker-text').forEach(el => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            });
-        }, 200);
+
+        if (swipe) {
+            swipe.style.transform = `translateX(${(-100 + progress * 100)}%)`;
+        }
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            setTimeout(hideLoader, 300);
+        }
     }
-    
-    // Prevent scrolling while loader is active
-    document.body.style.overflow = 'hidden';
+
+    requestAnimationFrame(animate);
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(hideLoader, 1000);
+});
+
+function hideLoader() {
+    const loader = document.getElementById('siteLoader');
+    if (!loader) return;
+
+    loader.style.transition = 'opacity 0.6s ease';
+    loader.style.opacity = '0';
+
+    setTimeout(() => {
+        loader.style.display = 'none';
+    }, 600);
+}
 /**
  * Burger Menu Toggle
  * Handles the off-canvas menu open/close functionality
@@ -451,3 +510,4 @@ function preloadImages() {
 
 // Start preloading after initial load
 window.addEventListener('load', preloadImages);
+window.addEventListener('DOMContentLoaded', initSiteLoader);

@@ -12,11 +12,7 @@
 <body>
     <!-- Site Loader -->
     <div class="site-loader" id="siteLoader">
-        <div class="site-loader__progress-bar"></div>
-        <div class="site-loader__percentage-wrap">
-            <div class="site-loader__percentage" id="loaderPercentage">0</div>
-            <div class="site-loader__percentage site-loader__percentage--calc-100">100</div>
-        </div>
+        <div class="site-loader__swipe"></div>
     </div>
 
     <!-- Off-canvas Menu -->
@@ -133,7 +129,7 @@
     <!-- Main Content -->
     <main class="main-content" id="mainContent">
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero" id="hero">
             <div class="fullscreen-homeImage__bg"></div>
             <div class="hero-overlay"></div>
             <div class="hero__container">
@@ -158,29 +154,27 @@
         </section>
 
         <!-- Full Screen Image Section with Legacy Text -->
-        <section class="fullscreen-image">
+        <section class="fullscreen-image" id="legacy-section">
             <div class="fullscreen-image__bg"></div>
-           
-        </section>
+            <div class="fullscreen-image__content">
 
-        <!-- Deco Section -->
-        <section class="deco-section">
-            <div class="deco-section__content">
-                <div class="deco-section__left">
-                    <div class="deco-section__text flicker-text">
-                        
-                    </div>
-                </div>
-                <div class="deco-section__right">
-                    <div class="deco-section__text flicker-text">
-                        
-                    </div>
+                <div class="about-box">
+                    <h4 class="fullscreen-image__title">about us.</h4>
+                    <p>
+                        We are a forward-thinking property development company based in Edenbridge, delivering high-quality residential developments across Kent and the surrounding areas.
+                    </p>
+                    <br />
+                    <p>
+                        Our focus is simple: to create thoughtfully designed, well-built homes that combine strong investment value with exceptional living standards. From land acquisition and planning through to construction and final sale, we manage every stage of the development process with professionalism, transparency, and attention to detail.
+                    </p>
                 </div>
             </div>
         </section>
 
+
+
         <!-- Developments Section -->
-        <section class="residences-section">
+        <section class="residences-section" id="developments">
             <div class="residences-section__header">
                 <h3 class="residences-section__title residences-section__title--italic">our</h3>
                 <h3 class="residences-section__title">developments.</h3>
@@ -207,16 +201,22 @@
                     <span class="residence-card__arrow">→</span>
                 </a>
             </div>
+            <div class="chevron-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
+            </div>
+            </a>
         </section>
 
         <!-- Gallery Section -->
-        <section class="gallery-section">
+        <section class="gallery-section" id="gallery-section">
             <div class="gallery-tabs">
                 <div class="gallery-tabs__menu">
-                    <button class="gallery-tabs__tab gallery-tabs__tab--active" data-tab="classic">130 High Street.</button>
-                    <button class="gallery-tabs__tab" data-tab="mini">130a High Street.</button>
-                    <button class="gallery-tabs__tab" data-tab="village">6 Eden View.</button>
-                    <button class="gallery-tabs__tab" data-tab="village">7 Eden View.</button>
+                    <button class="gallery-tabs__tab gallery-tabs__tab--active" data-tab="130highstreet">130 High Street.</button>
+                    <button class="gallery-tabs__tab" data-tab="130ahighstreet">130a High Street.</button>
+                    <button class="gallery-tabs__tab" data-tab="edenview6">6 Eden View.</button>
+                    <button class="gallery-tabs__tab" data-tab="edenview7">7 Eden View.</button>
                 </div>
                 <div class="gallery-tabs__content">
                     <div class="gallery-tabs__pane gallery-tabs__pane--active" data-pane="130highstreet">
@@ -237,7 +237,29 @@
                                 <img src="images/130 High Street/130 High Street, TN8 5AY 015.jpg" alt="130 High Street Exterior">
                             </div>
                             <div class="gallery-grid__item">
-                                <img src="images/130 High Street/130 High StreetEdenbridgeTN85AY-High.jpg" alt="130 High Street Full View">
+                                <img src="images/130 High Street/130HighStreetEdenbridgeTN85AY-High.jpg" alt="130 High Street Full View">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-tabs__pane" data-pane="130ahighstreet">
+                        <div class="gallery-grid">
+                            <div class="gallery-grid__item">
+                                <img src="images/130a High Street/130 High Street, TN8 5AY 001.jpg" alt="130a High Street Exterior">
+                            </div>
+                            <div class="gallery-grid__item">
+                                <img src="images/130a High Street/130 High Street, TN8 5AY 002.jpg" alt="130a High Street Interior">
+                            </div>
+                            <div class="gallery-grid__item">
+                                <img src="images/130a High Street/130 High Street, TN8 5AY 004.jpg" alt="130a High Street Living Room">
+                            </div>
+                            <div class="gallery-grid__item">
+                                <img src="images/130a High Street/130 High Street, TN8 5AY 007.jpg" alt="130a High Street Bedroom">
+                            </div>
+                            <div class="gallery-grid__item">
+                                <img src="images/130a High Street/130 High Street, TN8 5AY 013.jpg" alt="130a High Street Detail">
+                            </div>
+                            <div class="gallery-grid__item">
+                                <img src="images/130a High Street/130HighStreetEdenbridgeTN85AY-High.jpg" alt="130a High Street Full View">
                             </div>
                         </div>
                     </div>
@@ -287,20 +309,45 @@
                     </div>
                 </div>
             </div>
+            <div class="chevron-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
+            </div>
+            </a>
         </section>
 
         <!-- Services Section -->
-        <section class="experiences-section">
+        <section class="experiences-section" id="services-section">
             <div class="experiences-section__header">
                 <h3 class="experiences-section__title experiences-section__title--italic">our</h3>
                 <h3 class="experiences-section__title">services.</h3>
             </div>
             <div class="experiences-section__content">
                 <p class="experiences-section__text">
-                    With over 20 years of experience in construction and property development, we bring expertise and dedication to every project. From initial planning to final completion, we ensure quality at every stage.
+                    We work closely with architects, planning consultants, engineers, and local authorities to ensure each project meets planning requirements, building regulations, and modern sustainability standards.
                 </p>
             </div>
-            <div class="experiences-grid">
+            <div class="experiences-grid experiences-grid--three-cols">
+                <div class="experience-item">
+                    <div class="experience-item__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <span class="experience-item__label">Land sourcing and site appraisal</span>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-item__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                            <path d="M8 21h8"></path>
+                            <path d="M12 17v4"></path>
+                        </svg>
+                    </div>
+                    <span class="experience-item__label">Planning and design coordination</span>
+                </div>
                 <div class="experience-item">
                     <div class="experience-item__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -308,7 +355,15 @@
                             <polyline points="9 22 9 12 15 12 15 22"></polyline>
                         </svg>
                     </div>
-                    <span class="experience-item__label">New Builds</span>
+                    <span class="experience-item__label">Residential developments (single plots to multi-unit schemes)</span>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-item__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                    </div>
+                    <span class="experience-item__label">New build construction</span>
                 </div>
                 <div class="experience-item">
                     <div class="experience-item__icon">
@@ -317,66 +372,27 @@
                             <path d="M12 6v6l4 2"></path>
                         </svg>
                     </div>
-                    <span class="experience-item__label">Renovations</span>
+                    <span class="experience-item__label">Refurbishment and conversion projects</span>
                 </div>
                 <div class="experience-item">
                     <div class="experience-item__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
+                            <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+                            <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"></path>
                         </svg>
                     </div>
-                    <span class="experience-item__label">Conversions</span>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-item__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"></path>
-                        </svg>
-                    </div>
-                    <span class="experience-item__label">Extensions</span>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-item__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="1" y="4" width="22" height="16" rx="2"></rect>
-                            <line x1="1" y1="10" x2="23" y2="10"></line>
-                        </svg>
-                    </div>
-                    <span class="experience-item__label">Project Management</span>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-item__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </div>
-                    <span class="experience-item__label">Consultation</span>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-item__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <span class="experience-item__label">Quality Assurance</span>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-item__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
-                            <path d="M2 12h20"></path>
-                            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
-                        </svg>
-                    </div>
-                    <span class="experience-item__label">Aftercare</span>
+                    <span class="experience-item__label">Project management and delivery</span>
                 </div>
             </div>
             <div class="experiences-section__cta">
                 <a href="pages/contact.html" class="anyside-button">
                     <span class="anyside-button__text">get in touch</span>
                 </a>
+            </div>
+            <div class="chevron-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
             </div>
         </section>
 
@@ -402,9 +418,9 @@
                         <span class="footer__contact-value">126 High Street, Edenbridge, Kent TN8 5AY</span>
                     </div>
                 </div>
-               
+
             </div>
-            
+
             <div class="footer__bottom">
                 <div class="footer__links">
                     <a href="pages/contact.html" class="footer-link swap-hover" data-text="get a quote">
@@ -436,5 +452,15 @@
     </footer>
 
     <script src="js/main.js"></script>
+    
+    <!-- Floating Scroll Button -->
+    <button id="scrollBtn" class="floating-scroll-btn" aria-label="Scroll down">
+        <svg class="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+        </svg>
+        <svg class="chevron-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 15l6-6 6 6"/>
+        </svg>
+    </button>
 </body>
 </html>
