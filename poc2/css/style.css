@@ -754,17 +754,36 @@ img {
     text-decoration: none;
 }
 
+.section-chevron {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .chevron-circle {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
     animation: bounce 2s infinite;
+}
+
+.section-chevron .chevron-circle {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.section-chevron .chevron-circle svg {
+    color: var(--color-text-dark);
 }
 
 .chevron-circle:hover {
@@ -773,9 +792,14 @@ img {
     transform: scale(1.1);
 }
 
+.section-chevron .chevron-circle:hover {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
 .chevron-circle svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     color: #ffffff;
 }
 
@@ -838,6 +862,8 @@ img {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    position: relative;
+    min-height: 100vh;
 }
 
 .deco-section__container {
@@ -899,6 +925,7 @@ img {
    ======================================== */
 .residences-section {
     padding: 10px 50px;
+    position: relative;
 }
 
 .residences-section__header {
@@ -1005,6 +1032,7 @@ img {
    ======================================== */
 .gallery-section {
     padding: 100px 50px;
+    position: relative;
 }
 
 .gallery-tabs__menu {
@@ -1092,6 +1120,7 @@ img {
    ======================================== */
 .experiences-section {
     padding: 60px 50px;
+    position: relative;
 }
 
 .experiences-section__header {

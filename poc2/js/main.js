@@ -21,20 +21,21 @@ document.addEventListener('DOMContentLoaded', function() {
  * Handles click to scroll to next section
  */
 function initScrollChevron() {
-    const chevron = document.querySelector('.scroll-chevron');
-    if (!chevron) return;
+    const chevrons = document.querySelectorAll('.scroll-chevron, .section-chevron');
     
-    chevron.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = chevron.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+    chevrons.forEach(chevron => {
+        chevron.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = chevron.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
 }
 
