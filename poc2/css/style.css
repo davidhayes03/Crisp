@@ -1006,6 +1006,21 @@ img {
     justify-content: center;
     transition: all 0.3s ease;
     animation: bounce 2s infinite;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+.chevron-circle:active {
+    transform: scale(0.9);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Disable bounce animation on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .chevron-circle {
+        animation: none;
+    }
 }
 
 .section-chevron .chevron-circle {
@@ -1051,8 +1066,8 @@ img {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     background: var(--color-bg-dark);
     border: 2px solid var(--color-text-dark);
@@ -1063,13 +1078,14 @@ img {
     justify-content: center;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
-.floating-scroll-btn:hover {
+.floating-scroll-btn:active {
+    transform: scale(0.95);
     background: var(--color-accent);
     border-color: var(--color-accent);
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(37, 162, 220, 0.4);
 }
 
 .floating-scroll-btn svg {
@@ -2295,7 +2311,39 @@ img {
         font-size: 14px;
         padding: 10px 20px;
     }
-}
+    
+    /* Footer - smaller on mobile */
+    .footer {
+        padding: 30px 20px;
+        min-height: auto;
+        height: auto;
+        display: block;
+    }
+    
+    .footer__map {
+        position: relative;
+        height: 200px;
+        margin-bottom: 30px;
+    }
+    
+    .footer__container {
+        position: relative;
+        top: 0;
+    }
+    
+    .footer__contact {
+        margin-top: 0 !important;
+    }
+    
+    .footer__contact-item {
+        margin-bottom: 15px;
+    }
+    
+    .footer__links {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+    }
     
     .gallery-grid__item {
         border-radius: 15px;
@@ -2307,11 +2355,6 @@ img {
     
     .experience-item {
         height: 180px;
-    }
-    
-    .footer__links {
-        flex-direction: column;
-        gap: 20px;
     }
 }
 

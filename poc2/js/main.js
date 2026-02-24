@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initHeroRotatingText();
     initScrollChevron();
+    initChevronClicks();
     initCookiePopup();
     initGalleryFullscreen();
     initDevelopmentFilters();
@@ -84,6 +85,44 @@ function initScrollChevron() {
     // Update button on scroll
     window.addEventListener('scroll', updateButtonState, { passive: true });
     updateButtonState(); // Initial check
+}
+
+/**
+ * Chevron Circle Click Handler
+ * Makes chevron circles scroll to next section
+ */
+function initChevronClicks() {
+    const chevrons = document.querySelectorAll('.chevron-circle');
+    if (chevrons.length === 0) return;
+    
+    const sections = document.querySelectorAll('section');
+    
+    chevrons.forEach(chevron => {
+        chevron.addEventListener('click', () => {
+            const currentScroll = window.scrollY;
+            const windowHeight = window.innerHeight;
+            
+            // Find next section
+            for (let i = 0; i < sections.length; i++) {
+                const section = sections[i];
+                const sectionTop = section.offsetTop;
+                
+                if (sectionTop > currentScroll + 100) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    return;
+                }
+            }
+            
+            // If no next section, scroll to bottom
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+        });
+        
+        // Make it work on touch devices
+        chevron.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            chevron.click();
+        });
+    });
 }
 
 /**
