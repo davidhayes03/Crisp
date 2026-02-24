@@ -17,26 +17,69 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Scroll Chevron Button
- * Handles click to scroll to next section
+ * Floating Scroll Button
+ * Handles page-by-page scrolling and back-to-top functionality
  */
 function initScrollChevron() {
-    const chevrons = document.querySelectorAll('.scroll-chevron, .section-chevron');
+    const scrollBtn = document.getElementById('scrollBtn');
+    if (!scrollBtn) return;
     
-    chevrons.forEach(chevron => {
-        chevron.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = chevron.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+    const sections = document.querySelectorAll('section');
+    let currentSectionIndex = 0;
+    let isAtBottom = false;
+    
+    // Update button state based on scroll position
+    function updateButtonState() {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Check if at bottom of page
+        if (scrollPosition >= documentHeight - 100) {
+            isAtBottom = true;
+            scrollBtn.classList.add('at-bottom');
+        } else {
+            isAtBottom = false;
+            scrollBtn.classList.remove('at-bottom');
             
-            if (targetSection) {
-                targetSection.scrollIntoView({
+            // Find current section
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom > 100) {
+                    currentSectionIndex = index;
+                }
+            });
+        }
+    }
+    
+    // Handle button click
+    scrollBtn.addEventListener('click', () => {
+        if (isAtBottom) {
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Scroll to next section
+            const nextSection = sections[currentSectionIndex + 1];
+            if (nextSection) {
+                nextSection.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
+            } else {
+                // If no next section, scroll to bottom
+                window.scrollTo({
+                    top: document.documentElement.scrollHeight,
+                    behavior: 'smooth'
+                });
             }
-        });
+        }
     });
+    
+    // Update button on scroll
+    window.addEventListener('scroll', updateButtonState, { passive: true });
+    updateButtonState(); // Initial check
 }
 
 /**
