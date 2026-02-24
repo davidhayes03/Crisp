@@ -3,103 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDPR Compliance | Crisp Interiors</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>GDPR Compliance | Crisp Construction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
-        body {
-            font-family: 'Calibri', 'Segoe UI', sans-serif;
-            color: #1a1a1a;
+        .page-content {
+            min-height: 100vh;
+            padding: 120px 50px 50px;
+            background-color: var(--color-bg-primary);
+        }
+        
+        .page-header {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .page-header__title {
+            font-family: var(--font-heading);
+            font-size: 60px;
+            font-weight: 600;
+            color: var(--color-text-dark);
+            margin-bottom: 20px;
+        }
+        
+        .page-header__subtitle {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--color-text-dark);
+            opacity: 0.7;
+        }
+        
+        .policy-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .policy-section {
+            margin-bottom: 50px;
+        }
+        
+        .policy-section__title {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(37, 162, 220, 0.3);
+        }
+        
+        .policy-section__text {
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--color-text-dark);
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+        
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .right-item {
+            background: linear-gradient(135deg, rgba(37, 162, 220, 0.05) 0%, rgba(255, 255, 255, 0.5) 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(37, 162, 220, 0.15);
+        }
+        
+        .right-item__title {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-text-dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .right-item__title::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+        }
+        
+        .right-item__text {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--color-text-dark);
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+        
+        .policy-contact {
+            background: linear-gradient(135deg, rgba(37, 162, 220, 0.05) 0%, rgba(255, 255, 255, 0.5) 100%);
+            padding: 30px 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(37, 162, 220, 0.2);
+            margin-top: 40px;
+        }
+        
+        .policy-contact__title {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .policy-contact__text {
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--color-text-dark);
             line-height: 1.8;
         }
-        .policy-header {
-            background: #f8f9fa;
-            padding: 4rem 0;
-            border-bottom: 3px solid #003d82;
+        
+        .page-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 60px;
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--color-text-dark);
+            transition: color 0.3s ease;
         }
-        .policy-content {
-            padding: 4rem 0;
+        
+        .page-back:hover {
+            color: var(--color-accent);
         }
-        .policy-content h2 {
-            color: #003d82;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+        
+        .page-back svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .page-back:hover svg {
+            transform: translateX(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .page-content {
+                padding: 100px 20px 40px;
+            }
+            
+            .page-header__title {
+                font-size: 36px;
+            }
+            
+            .rights-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="policy-header">
-        <div class="container">
-            <h1>GDPR Compliance</h1>
-            <p class="lead mb-0">Our commitment to data protection and your rights under GDPR</p>
-        </div>
+    <!-- Site Loader -->
+    <div class="site-loader" id="siteLoader">
+        <div class="site-loader__swipe"></div>
     </div>
-    
-    <div class="policy-content">
-        <div class="container">
-            <p><strong>Last Updated:</strong> February 2024</p>
-            
-            <h2>Our GDPR Commitment</h2>
-            <p>Crisp Interiors is fully committed to complying with the General Data Protection Regulation (GDPR). This regulation gives you greater control over your personal data and how it is used.</p>
-            
-            <h2>Your Rights Under GDPR</h2>
-            <div class="row mt-4">
-                <div class="col-md-6 mb-4">
-                    <h5><i class="fas fa-eye text-danger me-2"></i>Right to Access</h5>
-                    <p>You have the right to request copies of your personal data that we hold.</p>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <h5><i class="fas fa-edit text-danger me-2"></i>Right to Rectification</h5>
-                    <p>You can request that we correct any information you believe is inaccurate or incomplete.</p>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <h5><i class="fas fa-trash text-danger me-2"></i>Right to Erasure</h5>
-                    <p>You can request that we erase your personal data, under certain conditions.</p>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <h5><i class="fas fa-ban text-danger me-2"></i>Right to Restrict Processing</h5>
-                    <p>You can request that we restrict the processing of your personal data.</p>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <h5><i class="fas fa-exchange-alt text-danger me-2"></i>Right to Data Portability</h5>
-                    <p>You can request that we transfer your data to another organization or directly to you.</p>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <h5><i class="fas fa-hand-paper text-danger me-2"></i>Right to Object</h5>
-                    <p>You can object to our processing of your personal data for legitimate interests or direct marketing.</p>
-                </div>
-            </div>
-            
-            <h2>How to Exercise Your Rights</h2>
-            <p>To exercise any of your GDPR rights, please contact our Data Protection Officer:</p>
-            <div class="bg-light p-4 my-4">
-                <strong>Data Protection Officer</strong><br>
-                Crisp Interiors<br>
-                126 High Street, Edenbridge, Kent TN8 5AY<br>
-                Email: dpo@crispint.co.uk<br>
-                Phone: 01732 300018
-            </div>
-            <p>We will respond to all requests within 30 days.</p>
-            
-            <h2>Data Protection Officer</h2>
-            <p>We have appointed a Data Protection Officer (DPO) who is responsible for overseeing questions in relation to this privacy notice. If you have any questions about this privacy notice, including any requests to exercise your legal rights, please contact the DPO using the details set out above.</p>
-            
-            <h2>Data Breach Notification</h2>
-            <p>In the unlikely event of a data breach, we will notify the relevant supervisory authority within 72 hours of becoming aware of the breach, where feasible. If the breach is likely to result in a high risk of adversely affecting your rights and freedoms, we will also notify you directly.</p>
-            
-            <h2>International Transfers</h2>
-            <p>We do not transfer your personal data outside the European Economic Area (EEA). All data is stored and processed within the UK.</p>
-            
-            <h2>Complaints</h2>
-            <p>You have the right to make a complaint at any time to the Information Commissioner's Office (ICO), the UK supervisory authority for data protection issues (www.ico.org.uk). We would, however, appreciate the chance to deal with your concerns before you approach the ICO, so please contact us in the first instance.</p>
-            
-            <div class="mt-5 pt-4 border-top">
-                <a href="interior.html" class="btn btn-outline-dark">
-                    <i class="fas fa-arrow-left me-2"></i>Back to Website
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header__container">
+            <a href="../index.html" class="header__logo">
+                <img src="../images/Crisp-interiors-logo-trans.png" alt="Crisp Construction" class="header__logo-img">
+                <img src="../images/Crisp-interiors-logo-trans.png" alt="C" class="header__logo-short">
+            </a>
+            <div class="header__menu">
+                <a href="../index.html" class="page-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back
                 </a>
             </div>
         </div>
-    </div>
+    </header>
+
+    <main class="page-content">
+        <div class="page-header">
+            <h1 class="page-header__title">GDPR Compliance</h1>
+            <p class="page-header__subtitle">Our commitment to data protection and your rights under GDPR</p>
+        </div>
+        
+        <div class="policy-container">
+            <p style="font-family: var(--font-body); font-size: 14px; opacity: 0.6; margin-bottom: 40px;">Last Updated: February 2024</p>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">Our GDPR Commitment</h2>
+                <p class="policy-section__text">Crisp Construction is fully committed to complying with the General Data Protection Regulation (GDPR). This regulation gives you greater control over your personal data and how it is used.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">Your Rights Under GDPR</h2>
+                
+                <div class="rights-grid">
+                    <div class="right-item">
+                        <div class="right-item__title">Right to Access</div>
+                        <div class="right-item__text">You have the right to request copies of your personal data that we hold.</div>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-item__title">Right to Rectification</div>
+                        <div class="right-item__text">You can request that we correct any information you believe is inaccurate or incomplete.</div>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-item__title">Right to Erasure</div>
+                        <div class="right-item__text">You can request that we erase your personal data, under certain conditions.</div>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-item__title">Right to Restrict Processing</div>
+                        <div class="right-item__text">You can request that we restrict the processing of your personal data.</div>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-item__title">Right to Data Portability</div>
+                        <div class="right-item__text">You can request that we transfer your data to another organization or directly to you.</div>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-item__title">Right to Object</div>
+                        <div class="right-item__text">You can object to our processing of your personal data for legitimate interests or direct marketing.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">How to Exercise Your Rights</h2>
+                <p class="policy-section__text">To exercise any of your GDPR rights, please contact our Data Protection Officer. We will respond to all requests within 30 days.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">Data Protection Officer</h2>
+                <p class="policy-section__text">We have appointed a Data Protection Officer (DPO) who is responsible for overseeing questions in relation to this privacy notice. If you have any questions about this privacy notice, including any requests to exercise your legal rights, please contact the DPO.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">Data Breach Notification</h2>
+                <p class="policy-section__text">In the unlikely event of a data breach, we will notify the relevant supervisory authority within 72 hours of becoming aware of the breach, where feasible. If the breach is likely to result in a high risk of adversely affecting your rights and freedoms, we will also notify you directly.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">International Transfers</h2>
+                <p class="policy-section__text">We do not transfer your personal data outside the European Economic Area (EEA). All data is stored and processed within the UK.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">Complaints</h2>
+                <p class="policy-section__text">You have the right to make a complaint at any time to the Information Commissioner's Office (ICO), the UK supervisory authority for data protection issues (www.ico.org.uk). We would, however, appreciate the chance to deal with your concerns before you approach the ICO, so please contact us in the first instance.</p>
+            </div>
+            
+            <div class="policy-contact">
+                <div class="policy-contact__title">Contact</div>
+                <div class="policy-contact__text">
+                    <strong>Data Protection Officer</strong><br>
+                    Crisp Construction Ltd<br>
+                    126 High Street, Edenbridge, Kent TN8 5AY<br>
+                    Email: info@crispconstruction.co.uk<br>
+                    Phone: 01732 300018
+                </div>
+            </div>
+            
+            <a href="../index.html" class="page-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Website
+            </a>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
 </body>
 </html>

@@ -3,154 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Environmental Policy | Crisp Interiors</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Environmental Policy | Crisp Construction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
-        body {
-            font-family: 'Calibri', 'Segoe UI', sans-serif;
-            color: #1a1a1a;
+        .page-content {
+            min-height: 100vh;
+            padding: 120px 50px 50px;
+            background-color: var(--color-bg-primary);
+        }
+        
+        .page-header {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        
+        .page-header__title {
+            font-family: var(--font-heading);
+            font-size: 60px;
+            font-weight: 600;
+            color: var(--color-text-dark);
+            margin-bottom: 20px;
+        }
+        
+        .page-header__subtitle {
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--color-text-dark);
+            opacity: 0.7;
+        }
+        
+        .policy-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .policy-section {
+            margin-bottom: 50px;
+        }
+        
+        .policy-section__title {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(37, 162, 220, 0.3);
+        }
+        
+        .policy-section__text {
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--color-text-dark);
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+        
+        .policy-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .policy-section li {
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--color-text-dark);
+            line-height: 1.8;
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .policy-section li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--color-accent);
+            border-radius: 50%;
+        }
+        
+        .policy-section h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text-dark);
+            margin: 25px 0 15px;
+        }
+        
+        .policy-contact {
+            background: linear-gradient(135deg, rgba(37, 162, 220, 0.05) 0%, rgba(255, 255, 255, 0.5) 100%);
+            padding: 30px 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(37, 162, 220, 0.2);
+            margin-top: 40px;
+        }
+        
+        .policy-contact__title {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .policy-contact__text {
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--color-text-dark);
             line-height: 1.8;
         }
-        .policy-header {
-            background: #f8f9fa;
-            padding: 4rem 0;
-            border-bottom: 3px solid #003d82;
+        
+        .page-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 60px;
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--color-text-dark);
+            transition: color 0.3s ease;
         }
-        .policy-content {
-            padding: 4rem 0;
+        
+        .page-back:hover {
+            color: var(--color-accent);
         }
-        .policy-content h2 {
-            color: #003d82;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+        
+        .page-back svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .page-back:hover svg {
+            transform: translateX(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .page-content {
+                padding: 100px 20px 40px;
+            }
+            
+            .page-header__title {
+                font-size: 36px;
+            }
+            
+            .policy-section__title {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="policy-header">
-        <div class="container">
-            <h1>Environmental Policy</h1>
-            <p class="lead mb-0">Our commitment to sustainable practices and environmental responsibility</p>
-        </div>
+    <!-- Site Loader -->
+    <div class="site-loader" id="siteLoader">
+        <div class="site-loader__swipe"></div>
     </div>
-    
-    <div class="policy-content">
-        <div class="container">
-            <p><strong>Last Updated:</strong> February 2024</p>
-            
-            <h2>1. Our Commitment</h2>
-            <p>Crisp Interiors is committed to minimizing the environmental impact of our operations. We recognize our responsibility to protect the environment and strive to integrate sustainable practices into all aspects of our business.</p>
-            
-            <h2>2. Legal Compliance</h2>
-            <p>We are committed to complying with all applicable environmental legislation, regulations, and best practice guidelines. We regularly review our compliance and update our practices as necessary.</p>
-            
-            <h2>3. Environmental Objectives</h2>
-            
-            <h3>3.1 Waste Management</h3>
-            <ul>
-                <li>Minimize waste generation through efficient planning and materials management</li>
-                <li>Implement the waste hierarchy: reduce, reuse, recycle</li>
-                <li>Segregate waste streams on all projects</li>
-                <li>Use licensed waste carriers for disposal</li>
-                <li>Maintain accurate waste transfer documentation</li>
-            </ul>
-            
-            <h3>3.2 Materials and Resources</h3>
-            <ul>
-                <li>Source materials from sustainable and responsible suppliers where possible</li>
-                <li>Consider environmental impact in material selection</li>
-                <li>Use FSC-certified timber products</li>
-                <li>Specify low-VOC paints and finishes</li>
-                <li>Choose products with environmental certifications</li>
-            </ul>
-            
-            <h3>3.3 Energy and Carbon</h3>
-            <ul>
-                <li>Minimize energy consumption in our office operations</li>
-                <li>Use energy-efficient equipment and lighting</li>
-                <li>Plan logistics to minimize transport emissions</li>
-                <li>Consider carbon impact in project planning</li>
-                <li>Explore opportunities for renewable energy</li>
-            </ul>
-            
-            <h3>3.4 Water Management</h3>
-            <ul>
-                <li>Use water-efficient practices on sites</li>
-                <li>Prevent water pollution through proper controls</li>
-                <li>Manage surface water runoff effectively</li>
-            </ul>
-            
-            <h2>4. Healthcare-Specific Considerations</h2>
-            <p>Given our specialization in healthcare interiors, we pay particular attention to:</p>
-            <ul>
-                <li>Infection control and preventing environmental contamination</li>
-                <li>Safe disposal of medical and healthcare waste</li>
-                <li>Using non-toxic, low-emission materials suitable for healthcare environments</li>
-                <li>Maintaining air quality during and after works</li>
-                <li>Minimizing disruption to patient care through efficient working practices</li>
-            </ul>
-            
-            <h2>5. Supply Chain</h2>
-            <p>We work with our suppliers and contractors to promote environmental responsibility:</p>
-            <ul>
-                <li>Prefer suppliers with environmental credentials</li>
-                <li>Consider environmental factors in procurement decisions</li>
-                <li>Encourage suppliers to reduce packaging</li>
-                <li>Share best practices with our supply chain</li>
-            </ul>
-            
-            <h2>6. Training and Awareness</h2>
-            <p>We ensure all employees are aware of their environmental responsibilities through:</p>
-            <ul>
-                <li>Environmental induction training</li>
-                <li>Regular toolbox talks on environmental issues</li>
-                <li>Site-specific environmental briefings</li>
-                <li>Sharing of best practices</li>
-            </ul>
-            
-            <h2>7. Continuous Improvement</h2>
-            <p>We are committed to continuous improvement in our environmental performance by:</p>
-            <ul>
-                <li>Setting and reviewing environmental objectives and targets</li>
-                <li>Monitoring and measuring our environmental performance</li>
-                <li>Investing in new technologies and practices</li>
-                <li>Learning from best practice in the industry</li>
-            </ul>
-            
-            <h2>8. Communication</h2>
-            <p>We communicate our environmental policy to all employees, contractors, and relevant stakeholders. We welcome feedback and suggestions for improvement.</p>
-            
-            <h2>9. CSR Questionnaires</h2>
-            <p>We take our environmental commitments seriously and provide detailed responses to Corporate Social Responsibility (CSR) questionnaires as required by our clients. These cover:</p>
-            <ul>
-                <li>Environmental management systems</li>
-                <li>Waste management practices</li>
-                <li>Carbon footprint and reduction measures</li>
-                <li>Sustainable procurement</li>
-                <li>Environmental training and awareness</li>
-            </ul>
-            
-            <h2>10. Policy Review</h2>
-            <p>This environmental policy is reviewed annually to ensure it remains relevant and effective. The review considers changes in legislation, best practice, and our business activities.</p>
-            
-            <h2>11. Contact</h2>
-            <p>For any environmental queries or suggestions, please contact:</p>
-            <div class="bg-light p-4 my-4">
-                <strong>Environmental Officer</strong><br>
-                Crisp Interiors<br>
-                126 High Street, Edenbridge, Kent TN8 5AY<br>
-                Email: environmental@crispint.co.uk<br>
-                Phone: 01732 300018
-            </div>
-            
-            <div class="mt-5 pt-4 border-top">
-                <a href="../index.html" class="btn btn-outline-dark">
-                    <i class="fas fa-arrow-left me-2"></i>Back to Website
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header__container">
+            <a href="../index.html" class="header__logo">
+                <img src="../images/Crisp-interiors-logo-trans.png" alt="Crisp Construction" class="header__logo-img">
+                <img src="../images/Crisp-interiors-logo-trans.png" alt="C" class="header__logo-short">
+            </a>
+            <div class="header__menu">
+                <a href="../index.html" class="page-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back
                 </a>
             </div>
         </div>
-    </div>
+    </header>
+
+    <main class="page-content">
+        <div class="page-header">
+            <h1 class="page-header__title">Environmental Policy</h1>
+            <p class="page-header__subtitle">Our commitment to sustainable practices and environmental responsibility</p>
+        </div>
+        
+        <div class="policy-container">
+            <p style="font-family: var(--font-body); font-size: 14px; opacity: 0.6; margin-bottom: 40px;">Last Updated: February 2024</p>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">1. Our Commitment</h2>
+                <p class="policy-section__text">Crisp Construction is committed to minimizing the environmental impact of our operations. We recognize our responsibility to protect the environment and strive to integrate sustainable practices into all aspects of our business.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">2. Legal Compliance</h2>
+                <p class="policy-section__text">We are committed to complying with all applicable environmental legislation, regulations, and best practice guidelines. We regularly review our compliance and update our practices as necessary.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">3. Environmental Objectives</h2>
+                
+                <h3>3.1 Waste Management</h3>
+                <ul>
+                    <li>Minimize waste generation through efficient planning and materials management</li>
+                    <li>Implement the waste hierarchy: reduce, reuse, recycle</li>
+                    <li>Segregate waste streams on all projects</li>
+                    <li>Use licensed waste carriers for disposal</li>
+                    <li>Maintain accurate waste transfer documentation</li>
+                </ul>
+                
+                <h3>3.2 Materials and Resources</h3>
+                <ul>
+                    <li>Source materials from sustainable and responsible suppliers where possible</li>
+                    <li>Consider environmental impact in material selection</li>
+                    <li>Use FSC-certified timber products</li>
+                    <li>Specify low-VOC paints and finishes</li>
+                    <li>Choose products with environmental certifications</li>
+                </ul>
+                
+                <h3>3.3 Energy and Carbon</h3>
+                <ul>
+                    <li>Minimize energy consumption in our office operations</li>
+                    <li>Use energy-efficient equipment and lighting</li>
+                    <li>Plan logistics to minimize transport emissions</li>
+                    <li>Consider carbon impact in project planning</li>
+                    <li>Explore opportunities for renewable energy</li>
+                </ul>
+                
+                <h3>3.4 Water Management</h3>
+                <ul>
+                    <li>Use water-efficient practices on sites</li>
+                    <li>Prevent water pollution through proper controls</li>
+                    <li>Manage surface water runoff effectively</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">4. Supply Chain</h2>
+                <p class="policy-section__text">We work with our suppliers and contractors to promote environmental responsibility. We prefer suppliers with environmental credentials, consider environmental factors in procurement decisions, and encourage suppliers to reduce packaging.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">5. Training and Awareness</h2>
+                <p class="policy-section__text">We ensure all employees are aware of their environmental responsibilities through environmental induction training, regular toolbox talks on environmental issues, site-specific environmental briefings, and sharing of best practices.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2 class="policy-section__title">6. Continuous Improvement</h2>
+                <p class="policy-section__text">We are committed to continuous improvement in our environmental performance by setting and reviewing environmental objectives and targets, monitoring and measuring our environmental performance, investing in new technologies and practices, and learning from best practice in the industry.</p>
+            </div>
+            
+            <div class="policy-contact">
+                <div class="policy-contact__title">Contact</div>
+                <div class="policy-contact__text">
+                    <strong>Environmental Officer</strong><br>
+                    Crisp Construction Ltd<br>
+                    126 High Street, Edenbridge, Kent TN8 5AY<br>
+                    Email: info@crispconstruction.co.uk<br>
+                    Phone: 01732 300018
+                </div>
+            </div>
+            
+            <a href="../index.html" class="page-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Website
+            </a>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
 </body>
 </html>

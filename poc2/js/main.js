@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initHeroRotatingText();
     initScrollChevron();
+    initCookiePopup();
+    initGalleryFullscreen();
 });
 
 /**
@@ -511,3 +513,133 @@ function preloadImages() {
 // Start preloading after initial load
 window.addEventListener('load', preloadImages);
 window.addEventListener('DOMContentLoaded', initSiteLoader);
+
+/**
+ * Cookie Popup
+ * Shows a non-intrusive cookie notice on page load
+ */
+function initCookiePopup() {
+    const popup = document.getElementById('cookiePopup');
+    const acceptBtn = document.getElementById('acceptCookies');
+    
+    if (!popup || !acceptBtn) return;
+    
+    // Check if user already accepted
+    const cookieAccepted = localStorage.getItem('cookieAccepted');
+    
+    if (!cookieAccepted) {
+        // Show popup after a short delay
+        setTimeout(() => {
+            popup.classList.add('active');
+        }, 500);
+    }
+    
+    // Handle accept button click
+    acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieAccepted', 'true');
+        popup.classList.remove('active');
+    });
+}
+
+/**
+ * Fullscreen Gallery Viewer
+ * Click on gallery images to view fullscreen with navigation
+ */
+function initGalleryFullscreen() {
+    const galleryItems = document.querySelectorAll('.gallery-grid__item img');
+    if (galleryItems.length === 0) return;
+    
+    // Create fullscreen viewer elements
+    const viewer = document.createElement('div');
+    viewer.className = 'gallery-fullscreen';
+    viewer.innerHTML = `
+        <button class="gallery-fullscreen__close" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <button class="gallery-fullscreen__nav gallery-fullscreen__nav--prev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+        <img class="gallery-fullscreen__image" src="" alt="">
+        <button class="gallery-fullscreen__nav gallery-fullscreen__nav--next" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+        <span class="gallery-fullscreen__counter"></span>
+    `;
+    document.body.appendChild(viewer);
+    
+    const closeBtn = viewer.querySelector('.gallery-fullscreen__close');
+    const prevBtn = viewer.querySelector('.gallery-fullscreen__nav--prev');
+    const nextBtn = viewer.querySelector('.gallery-fullscreen__nav--next');
+    const imageEl = viewer.querySelector('.gallery-fullscreen__image');
+    const counterEl = viewer.querySelector('.gallery-fullscreen__counter');
+    
+    let currentIndex = 0;
+    const images = Array.from(galleryItems).map(img => ({
+        src: img.src,
+        alt: img.alt
+    }));
+    
+    function showImage(index) {
+        currentIndex = index;
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        if (currentIndex >= images.length) currentIndex = 0;
+        
+        imageEl.src = images[currentIndex].src;
+        imageEl.alt = images[currentIndex].alt;
+        counterEl.textContent = `${currentIndex + 1} / ${images.length}`;
+    }
+    
+    function openViewer() {
+        viewer.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeViewer() {
+        viewer.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Add click listeners to gallery images
+    galleryItems.forEach((img, index) => {
+        img.parentElement.style.cursor = 'pointer';
+        img.parentElement.addEventListener('click', () => {
+            currentIndex = index;
+            showImage(currentIndex);
+            openViewer();
+        });
+    });
+    
+    // Close button
+    closeBtn.addEventListener('click', closeViewer);
+    
+    // Navigation buttons
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showImage(currentIndex - 1);
+    });
+    
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showImage(currentIndex + 1);
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!viewer.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') closeViewer();
+        if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+        if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    });
+    
+    // Click outside image to close
+    viewer.addEventListener('click', (e) => {
+        if (e.target === viewer) closeViewer();
+    });
+}
