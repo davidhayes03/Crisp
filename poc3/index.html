@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisp Construction - Quality Developments</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --color-primary: #1a1a1a;
+            --color-secondary: #333333;
+            --color-accent: #2563eb;
+            --color-light: #f8f9fa;
+            --color-white: #ffffff;
+            --color-gray: #6b7280;
+            --font-heading: 'DM Sans', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        
+        .header__logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header__logo-img {
+            height: 50px;
+        }
+        
+        .header__logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--color-primary);
+        }
+        
+        .header__nav {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .header__nav a {
+            text-decoration: none;
+            color: var(--color-primary);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+        
+        .header__nav a:hover {
+            color: var(--color-accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: url('images/130 High Street/130 High Street, TN8 5AY 001.jpg') center/cover no-repeat;
+        }
+        
+        .hero__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+        }
+        
+        .hero__content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .hero__title {
+            font-size: 72px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .hero__subtitle {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .hero__cta {
+            display: inline-block;
+            padding: 18px 50px;
+            background: white;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .hero__cta:hover {
+            background: var(--color-accent);
+            color: white;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 100px 50px;
+        }
+        
+        .section--gray {
+            background: var(--color-light);
+        }
+        
+        .section__container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section__header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section__title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .section__text {
+            font-size: 18px;
+            color: var(--color-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* What We Do */
+        .what-we-do__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .what-we-do__card {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .what-we-do__card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .what-we-do__icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .what-we-do__icon svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+        
+        .what-we-do__title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .what-we-do__desc {
+            font-size: 15px;
+            color: var(--color-gray);
+        }
+        
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+        
+        .features__item {
+            padding: 60px 30px;
+            text-align: center;
+            border-right: 1px solid #eee;
+        }
+        
+        .features__item:last-child {
+            border-right: none;
+        }
+        
+        .features__icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .features__title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .features__desc {
+            font-size: 14px;
+            color: var(--color-gray);
+        }
+        
+        /* Developments */
+        .developments__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .development-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .development-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .development-card__image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .development-card__content {
+            padding: 30px;
+        }
+        
+        .development-card__title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .development-card__desc {
+            font-size: 14px;
+            color: var(--color-gray);
+            margin-bottom: 20px;
+        }
+        
+        .development-card__link {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--color-primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact__title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .contact__text {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+        
+        .contact__cta {
+            display: inline-block;
+            padding: 18px 50px;
+            background: var(--color-accent);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+        
+        .contact__cta:hover {
+            background: #1d4ed8;
+        }
+        
+        /* Testimonials */
+        .testimonials__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-card__text {
+            font-size: 15px;
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        .testimonial-card__author {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-card__role {
+            font-size: 13px;
+            color: var(--color-gray);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0f0f0f;
+            color: white;
+            padding: 80px 50px 40px;
+        }
+        
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer__logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        .footer__about {
+            font-size: 14px;
+            opacity: 0.7;
+            line-height: 1.8;
+        }
+        
+        .footer__title {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+        
+        .footer__links {
+            list-style: none;
+        }
+        
+        .footer__links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer__links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .footer__links a:hover {
+            opacity: 1;
+        }
+        
+        .footer__contact-item {
+            font-size: 14px;
+            margin-bottom: 12px;
+            opacity: 0.7;
+        }
+        
+        .footer__bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.5;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .mobile-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--color-primary);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        
+        @media (max-width: 968px) {
+            .header {
+                padding: 15px 20px;
+            }
+            
+            .header__nav {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero__title {
+                font-size: 36px;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .what-we-do__grid,
+            .developments__grid,
+            .testimonials__grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .features__item {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .footer__grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__logo">
+            <img src="images/Crisp-interiors-logo-trans.png" alt="Crisp Construction" class="header__logo-img">
+        </div>
+        <nav class="header__nav">
+            <a href="#about">About Us</a>
+            <a href="#developments">Current Developments</a>
+            <a href="#future">Future Developments</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#land">Land</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+        <button class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+            <h1 class="hero__title">Crisp Construction</h1>
+            <p class="hero__subtitle">Quality Developments & Expert Craftsmanship</p>
+            <a href="#contact" class="hero__cta">REGISTER YOUR INTEREST</a>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="section" id="about">
+        <div class="section__container">
+            <div class="section__header">
+                <h2 class="section__title">What We Do</h2>
+                <p class="section__text">We buy properties and land both conditionally and unconditionally, gain planning permission and build out the projects we've designed ready for resale. So we are a property development company...but not like you've known one before.</p>
+            </div>
+            
+            <div class="what-we-do__grid">
+                <div class="what-we-do__card">
+                    <div class="what-we-do__icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3 class="what-we-do__title">Our Approach</h3>
+                    <p class="what-we-do__desc">What is the best answer to the question posed. Then how can we make that better.</p>
+                </div>
+                <div class="what-we-do__card">
+                    <div class="what-we-do__icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                    </div>
+                    <h3 class="what-we-do__title">Our Product</h3>
+                    <p class="what-we-do__desc">We strive to have the most aesthetically pleasing, design led properties that are places people aspire to live in.</p>
+                </div>
+                <div class="what-we-do__card">
+                    <div class="what-we-do__icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/></svg>
+                    </div>
+                    <h3 class="what-we-do__title">Our Aims</h3>
+                    <p class="what-we-do__desc">To never settle for mediocrity. We love property and always strive to make sure that is evident in what we do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="features__item">
+            <div class="features__icon">📍</div>
+            <h3 class="features__title">Desirable Locations</h3>
+            <p class="features__desc">We always have a product in an area people want to be in.</p>
+        </div>
+        <div class="features__item">
+            <div class="features__icon">🎨</div>
+            <h3 class="features__title">Beautiful Design</h3>
+            <p class="features__desc">We control every aspect of the design process.</p>
+        </div>
+        <div class="features__item">
+            <div class="features__icon">✧</div>
+            <h3 class="features__title">Attention to Detail</h3>
+            <p class="features__desc">We pay close attention to detail at every step.</p>
+        </div>
+        <div class="features__item">
+            <div class="features__icon">💎</div>
+            <h3 class="features__title">Luxurious Materials</h3>
+            <p class="features__desc">We use the best quality materials for the best finish.</p>
+        </div>
+        <div class="features__item">
+            <div class="features__icon">🏆</div>
+            <h3 class="features__title">Quality Guaranteed</h3>
+            <p class="features__desc">Every property is built to the highest standards.</p>
+        </div>
+    </section>
+
+    <!-- Current Developments -->
+    <section class="section section--gray" id="developments">
+        <div class="section__container">
+            <div class="section__header">
+                <h2 class="section__title">Current Developments</h2>
+            </div>
+            
+            <div class="developments__grid">
+                <div class="development-card">
+                    <div class="development-card__image" style="background-image: url('images/130 High Street/130 High Street, TN8 5AY 001.jpg')"></div>
+                    <div class="development-card__content">
+                        <h3 class="development-card__title">130 High Street, Edenbridge</h3>
+                        <p class="development-card__desc">A stunning conversion project in the heart of Edenbridge, Kent.</p>
+                        <a href="#" class="development-card__link">View Details →</a>
+                    </div>
+                </div>
+                <div class="development-card">
+                    <div class="development-card__image" style="background-image: url('images/130a High Street/130 High Street, TN8 5AY 001.jpg')"></div>
+                    <div class="development-card__content">
+                        <h3 class="development-card__title">130a High Street, Edenbridge</h3>
+                        <p class="development-card__desc">Modern living in a prime location with high-end finishes.</p>
+                        <a href="#" class="development-card__link">View Details →</a>
+                    </div>
+                </div>
+                <div class="development-card">
+                    <div class="development-card__image" style="background-image: url('images/6 Eden View/6 Eden View 1.jpg')"></div>
+                    <div class="development-card__content">
+                        <h3 class="development-card__title">6 Eden View, Edenbridge</h3>
+                        <p class="development-card__desc">Beautiful new build with stunning views and garden.</p>
+                        <a href="#" class="development-card__link">View Details →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="section__container">
+            <div class="section__header">
+                <h2 class="section__title">From Our Clients</h2>
+            </div>
+            
+            <div class="testimonials__grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-card__text">"Crisp Construction were fantastic. They met the deadline and their communication was first class. Nothing was too much trouble and they did exactly what they said they would."</p>
+                    <p class="testimonial-card__author">Mr Stone</p>
+                    <p class="testimonial-card__role">Managing Director</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-card__text">"They were incredibly efficient, talked us through the entire process and did everything they said they would, when they said they would. The process was so easy."</p>
+                    <p class="testimonial-card__author">Mrs Campbell</p>
+                    <p class="testimonial-card__role">Property Seller</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-card__text">"The quality, design and finish was simply on another level to anything else we viewed. We would highly recommend."</p>
+                    <p class="testimonial-card__author">Mr & Mrs Spencer</p>
+                    <p class="testimonial-card__role">First Time Buyers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+        <div class="section__container">
+            <h2 class="contact__title">Contact Crisp Construction</h2>
+            <p class="contact__text">Contact Us Today To See If We Can Maximise The Value Of Your Property!</p>
+            <a href="mailto:info@crispconstruction.co.uk" class="contact__cta">CONTACT US</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__grid">
+            <div>
+                <div class="footer__logo">CRISP</div>
+                <p class="footer__about">Quality property development company based in Edenbridge, Kent. We create beautiful homes that people aspire to live in.</p>
+            </div>
+            <div>
+                <h4 class="footer__title">QUICK LINKS</h4>
+                <ul class="footer__links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Current Developments</a></li>
+                    <li><a href="#">Future Developments</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Land</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer__title">POLICIES</h4>
+                <ul class="footer__links">
+                    <li><a href="pages/privacy.html">Privacy Policy</a></li>
+                    <li><a href="pages/environmental.html">Environmental Policy</a></li>
+                    <li><a href="pages/health-safety.html">Health & Safety</a></li>
+                    <li><a href="pages/gdpr.html">GDPR</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer__title">CONTACT</h4>
+                <p class="footer__contact-item">Crisp Construction Ltd</p>
+                <p class="footer__contact-item">126 High Street</p>
+                <p class="footer__contact-item">Edenbridge, Kent TN8 5AY</p>
+                <p class="footer__contact-item">01883 621121</p>
+                <p class="footer__contact-item">info@crispconstruction.co.uk</p>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© 2026 Crisp Construction Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
