@@ -203,15 +203,33 @@ function initBurgerMenu() {
     // Use click only - works on mobile
     burger.addEventListener('click', toggleMenu);
 
-    // Close menu when clicking on menu items
+    // Close menu when clicking on menu items - with Safari touch support
     const menuLinks = offcanvas.querySelectorAll('a');
     menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            burger.classList.remove('active');
-            offcanvas.classList.remove('active');
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.width = '';
+        function handleLinkClick(e) {
+            // Let the link navigate naturally
+            const href = link.getAttribute('href');
+            if (href && href !== '#') {
+                // Close menu and navigate
+                burger.classList.remove('active');
+                offcanvas.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+        
+        link.addEventListener('click', handleLinkClick);
+        
+        // Safari touch support
+        link.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            handleLinkClick();
+            // Navigate after a small delay
+            setTimeout(() => {
+                const href = link.getAttribute('href');
+                if (href && href !== '#') {
+                    window.location.href = href;
+                }
+            }, 50);
         });
     });
 
