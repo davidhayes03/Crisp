@@ -2379,6 +2379,10 @@ img {
     z-index: 3;
 }
 
+.residence-card[data-status="completed"] .residence-card__status {
+    background: #10b981;
+}
+
 .residence-card[data-status="in-progress"] .residence-card__status {
     background: #f59e0b;
 }
