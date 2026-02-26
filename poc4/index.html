@@ -447,6 +447,148 @@
             margin-top: 5px;
         }
 
+        /* Developments Section */
+        .developments-section {
+            padding: 80px 0;
+        }
+        
+        .developments-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 0 3%;
+        }
+        
+        .developments-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 600;
+            display: inline;
+        }
+        
+        .developments-title--italic {
+            font-style: italic;
+        }
+        
+        .development-filters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            padding: 0 3%;
+        }
+        
+        .development-filters__btn {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--color-black);
+            background: transparent;
+            border: 1px solid rgba(18, 18, 18, 0.2);
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .development-filters__btn:hover {
+            border-color: var(--color-black);
+        }
+        
+        .development-filters__btn--active {
+            background: var(--color-black);
+            color: white;
+            border-color: var(--color-black);
+        }
+        
+        .development-cards {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding: 0 3%;
+        }
+        
+        .development-card {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 3/4;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px;
+            text-decoration: none;
+            transition: transform 0.4s ease;
+        }
+        
+        .development-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .development-card__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+        
+        .development-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58));
+            z-index: 1;
+        }
+        
+        .development-card__name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .development-card__status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--color-black);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            z-index: 2;
+        }
+        
+        .development-card__status--completed {
+            background: #22c55e;
+        }
+        
+        .development-card__status--inprogress {
+            background: #f97316;
+        }
+        
+        .development-card__status--future {
+            background: #6b7280;
+        }
+        
+        .development-card__arrow {
+            font-size: 1.5rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+            align-self: flex-end;
+        }
+
         /* About Section */
         .about-section {
             padding: 120px 0;
@@ -1015,6 +1157,61 @@
         </div>
     </section>
 
+    <!-- Developments Section -->
+    <section class="developments-section" id="developments">
+        <div class="developments-header">
+            <h2 class="developments-title">
+                <span class="developments-title--italic">our </span>
+                developments.
+            </h2>
+        </div>
+        
+        <div class="development-filters">
+            <button class="development-filters__btn development-filters__btn--active" data-filter="all">All</button>
+            <button class="development-filters__btn" data-filter="completed">Completed</button>
+            <button class="development-filters__btn" data-filter="inprogress">In Progress</button>
+            <button class="development-filters__btn" data-filter="future">Future</button>
+        </div>
+        
+        <div class="development-cards">
+            <!-- Completed -->
+            <a href="#" class="development-card" data-status="completed">
+                <span class="development-card__status development-card__status--completed">Completed</span>
+                <div class="development-card__bg" style="background-image: url('images/Completed/130 High Street/130 High Street, TN8 5AY 001.jpg')"></div>
+                <span class="development-card__name">130 High Street</span>
+                <span class="development-card__arrow">→</span>
+            </a>
+            <a href="#" class="development-card" data-status="completed">
+                <span class="development-card__status development-card__status--completed">Completed</span>
+                <div class="development-card__bg" style="background-image: url('images/Completed/6 Eden View/6 Eden View 1.jpg')"></div>
+                <span class="development-card__name">6 Eden View</span>
+                <span class="development-card__arrow">→</span>
+            </a>
+            <a href="#" class="development-card" data-status="completed">
+                <span class="development-card__status development-card__status--completed">Completed</span>
+                <div class="development-card__bg" style="background-image: url('images/Completed/7 Eden View/7 Eden View 1.jpg')"></div>
+                <span class="development-card__name">7 Eden View</span>
+                <span class="development-card__arrow">→</span>
+            </a>
+            
+            <!-- In Progress -->
+            <a href="#" class="development-card" data-status="inprogress">
+                <span class="development-card__status development-card__status--inprogress">In Progress</span>
+                <div class="development-card__bg" style="background-image: url('images/InProgress/IMG_6775.jpeg')"></div>
+                <span class="development-card__name">Cherry Bryn</span>
+                <span class="development-card__arrow">→</span>
+            </a>
+            
+            <!-- Future -->
+            <a href="#" class="development-card" data-status="future">
+                <span class="development-card__status development-card__status--future">Future</span>
+                <div class="development-card__bg" style="background-image: url('images/Future/MG-1303-Crisp-Construction-High-Street-Exteriors-Draft-V01-02.jpg')"></div>
+                <span class="development-card__name">High Street Development</span>
+                <span class="development-card__arrow">→</span>
+            </a>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services-section" id="services">
         <div class="container">
@@ -1324,6 +1521,29 @@
                 // Update Swiper
                 projectsSwiper.update();
                 projectsSwiper.slideTo(0, 0);
+            });
+        });
+
+        // Development cards filter
+        const devFilterBtns = document.querySelectorAll('.development-filters__btn');
+        const devCards = document.querySelectorAll('.development-card');
+
+        devFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                
+                devFilterBtns.forEach(b => b.classList.remove('development-filters__btn--active'));
+                btn.classList.add('development-filters__btn--active');
+                
+                devCards.forEach(card => {
+                    const status = card.dataset.status;
+                    
+                    if (filter === 'all' || status === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
     </script>
