@@ -1574,36 +1574,30 @@
             });
         });
 
-        // Hero title gradient animation
+        // Hero title gradient animation - hover only
         const titleSpans = document.querySelectorAll('.hero-title span');
         
         gsap.set(titleSpans, { '--stop-hover': '0%' });
         
         const customEase = CustomEase.create("custom", "M0,0 C0.548,0.032 0.63,1 1,1 ");
         
-        const titleTween = gsap.timeline({ repeat: -1 })
-            .to(titleSpans, {
-                "--stop-active": "100%",
-                stagger: {
-                    each: 0.15,
-                    ease: customEase
-                },
-                duration: 0.48
-            })
-            .to(titleSpans, {
-                "--stop-hover": "100%",
-                stagger: {
-                    each: 0.15
-                },
-                duration: 0.48
-            })
-            .to(titleSpans, {
-                "--stop-hover": "0%",
-                stagger: {
-                    each: -0.15
-                },
-                duration: 0.48
-            }, "-=0.1");
+        titleSpans.forEach(span => {
+            span.addEventListener('mouseenter', function() {
+                gsap.to(this, {
+                    '--stop-hover': '100%',
+                    ease: customEase,
+                    duration: 0.8
+                });
+            });
+            
+            span.addEventListener('mouseleave', function() {
+                gsap.to(this, {
+                    '--stop-hover': '0%',
+                    ease: customEase,
+                    duration: 0.8
+                });
+            });
+        });
     </script>
 </body>
 </html>
