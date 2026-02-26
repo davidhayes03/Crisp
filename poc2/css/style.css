@@ -2198,10 +2198,17 @@ img {
         -webkit-touch-callout: none;
     }
 
-    /* Fix scrolling on iOS */
+    /* Fix scrolling on iOS Safari */
     .offcanvas-menu {
         -webkit-overflow-scrolling: touch;
         overflow-y: auto;
+        -webkit-overflow-scrolling: -webkit-anchor;
+    }
+    
+    /* Safari link fix */
+    .offcanvas-menu a {
+        -webkit-tap-highlight-color: transparent;
+        tap-highlight-color: transparent;
     }
 
     /* Improve button responsiveness */
@@ -2538,5 +2545,16 @@ html, body {
     .floating-scroll-btn {
         position: -webkit-sticky;
         bottom: 30px;
+    }
+    
+    /* Safari offcanvas menu fix */
+    .offcanvas-menu {
+        height: -webkit-fill-available;
+    }
+    
+    /* Safari link tap highlight fix */
+    .offcanvas-menu a, 
+    .offcanvas-menu button {
+        -webkit-tap-highlight-color: rgba(37, 162, 220, 0.3);
     }
 }
