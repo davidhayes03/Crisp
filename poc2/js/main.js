@@ -190,11 +190,9 @@ function initBurgerMenu() {
         burger.classList.toggle('active');
         offcanvas.classList.toggle('active');
 
-        // Toggle body scroll
+        // Toggle body scroll - use overflow hidden instead of fixed for better mobile support
         if (offcanvas.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
-            document.body.style.position = 'fixed'; // Prevent iOS scroll
-            document.body.style.width = '100%';
         } else {
             document.body.style.overflow = '';
             document.body.style.position = '';
@@ -202,26 +200,19 @@ function initBurgerMenu() {
         }
     }
 
-    // Support both click and touch events
+    // Use click only - works on mobile
     burger.addEventListener('click', toggleMenu);
-    burger.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        toggleMenu();
-    });
 
     // Close menu when clicking on menu items
     const menuLinks = offcanvas.querySelectorAll('a');
     menuLinks.forEach(link => {
-        const closeMenu = () => {
+        link.addEventListener('click', () => {
             burger.classList.remove('active');
             offcanvas.classList.remove('active');
             document.body.style.overflow = '';
             document.body.style.position = '';
             document.body.style.width = '';
-        };
-
-        link.addEventListener('click', closeMenu);
-        link.addEventListener('touchend', closeMenu);
+        });
     });
 
     // Prevent background scroll on touch devices
