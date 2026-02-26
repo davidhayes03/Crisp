@@ -203,34 +203,19 @@ function initBurgerMenu() {
     // Use click only - works on mobile
     burger.addEventListener('click', toggleMenu);
 
-    // Close menu when clicking on menu items - with Safari touch support
+    // Close menu when clicking on menu items - Safari fix
     const menuLinks = offcanvas.querySelectorAll('a');
     menuLinks.forEach(link => {
-        function handleLinkClick(e) {
-            // Let the link navigate naturally
-            const href = link.getAttribute('href');
-            if (href && href !== '#') {
-                // Close menu and navigate
+        // Use onclick for Safari - most reliable
+        link.onclick = function(e) {
+            // Just let the click propagate naturally
+            // Menu will close and link will navigate
+            setTimeout(() => {
                 burger.classList.remove('active');
                 offcanvas.classList.remove('active');
                 document.body.style.overflow = '';
-            }
-        }
-        
-        link.addEventListener('click', handleLinkClick);
-        
-        // Safari touch support
-        link.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            handleLinkClick();
-            // Navigate after a small delay
-            setTimeout(() => {
-                const href = link.getAttribute('href');
-                if (href && href !== '#') {
-                    window.location.href = href;
-                }
-            }, 50);
-        });
+            }, 100);
+        };
     });
 
     // Prevent background scroll on touch devices
