@@ -58,66 +58,94 @@
             width: auto;
         }
 
-        /* Burger Menu */
-        .burger-menu {
+        /* Burger Button */
+        #burger {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            width: 40px;
-            height: 40px;
+            background: none;
+            border: none;
             cursor: pointer;
+            padding: 0;
             z-index: 3000;
             margin-left: auto;
         }
         
-        .burger-menu span {
+        #burger .bar-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        #burger .bar {
             display: block;
             background-color: var(--color-black);
             width: 33px;
             height: 2px;
             border-radius: 5px;
-            margin: 6px 0;
             transition: all 0.3s ease;
         }
         
-        .burger-menu:hover span.top {
+        #burger:hover .bar.top {
             width: 40px;
         }
         
-        .burger-menu.open span.top {
-            transform: translate(7px, 5px) rotateZ(45deg);
+        #burger.open .bar.top {
+            transform: translate(7px, 8px) rotateZ(45deg);
             width: 25px !important;
         }
         
-        .burger-menu.open span.bottom {
-            transform: translateY(-3px) rotateZ(-45deg);
+        #burger.open .bar.bottom {
+            transform: translateY(-8px) rotateZ(-45deg);
             width: 25px !important;
         }
         
-        .burger-menu.open span.middle {
+        #burger .menu-text {
+            margin-left: 10px;
+            font-size: 1rem;
+            color: var(--color-black);
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+        
+        #burger.open .menu-text {
             opacity: 0;
         }
 
-        /* Slide-in Menu */
+        /* Full Screen Slide-in Menu */
         .aside-menu {
             position: fixed;
             top: 0;
             right: 0;
             width: 100%;
-            max-width: 500px;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.57);
             backdrop-filter: blur(10px);
             z-index: 2500;
             transform: translateX(100%);
             transition: transform 0.4s ease-in-out;
-            padding: 100px 40px 40px;
             overflow-y: auto;
         }
         
         .aside-menu.open {
             transform: translateX(0);
+        }
+        
+        .aside-menu .menu-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+        
+        .aside-menu .menu-col-left {
+            padding: 0 40px;
+        }
+        
+        .aside-menu .menu-col-right {
+            padding: 0 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .aside-menu ul {
@@ -126,51 +154,95 @@
             margin: 0;
         }
         
-        .aside-menu > ul > li {
+        .aside-menu > .menu-container > .menu-col-left > ul > li {
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .aside-menu > ul > li > a {
+        .aside-menu .menu-item > a {
             display: flex;
             align-items: baseline;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 600;
             color: #fff;
             text-decoration: none;
             padding: 25px 0;
             line-height: 1;
+            cursor: pointer;
         }
         
         .aside-menu .menu-number {
             font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            margin-right: 60px;
+            font-size: 0.7rem;
+            margin-right: 80px;
             opacity: 0.6;
         }
         
-        .aside-menu .menu-contact {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        .aside-menu .menu-name {
+            flex: 1;
         }
         
-        .aside-menu .menu-contact a {
+        .aside-menu .menu-toggle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            opacity: 0.6;
+            cursor: pointer;
+        }
+        
+        /* Sub Menu */
+        .aside-menu .sub-menu {
+            display: none;
+            padding: 0 0 20px 0;
+        }
+        
+        .aside-menu .sub-menu.open {
+            display: block;
+        }
+        
+        .aside-menu .sub-menu li {
+            padding: 8px 0;
+        }
+        
+        .aside-menu .sub-menu li a {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        
+        .aside-menu .sub-menu li a:hover {
+            color: #fff;
+        }
+        
+        /* Menu Contact Info */
+        .aside-menu .contact-links {
+            color: #fff;
+        }
+        
+        .aside-menu .contact-links a {
             display: block;
             color: #fff;
             text-decoration: none;
-            font-size: 1rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
             opacity: 0.8;
         }
+        
+        .aside-menu .contact-links a:hover {
+            opacity: 1;
+        }
 
+        /* Menu Overlay */
         .menu-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.3);
             z-index: 2400;
             opacity: 0;
             visibility: hidden;
@@ -236,10 +308,6 @@
             font-weight: 600;
             line-height: 1;
             letter-spacing: -2px;
-        }
-        
-        .hero-title span {
-            font-family: 'Space Grotesk', sans-serif;
         }
 
         /* Projects Section - Horizontal Scroll */
@@ -550,6 +618,20 @@
         }
 
         /* Mobile Styles */
+        @media (max-width: 991px) {
+            .aside-menu .menu-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .aside-menu .menu-col-right {
+                display: none;
+            }
+            
+            .aside-menu .menu-col-left {
+                padding: 0 20px;
+            }
+        }
+        
         @media (max-width: 1023px) {
             .projects-slider {
                 height: calc(((100vw - 48px) / 1.8) * 4/5 + 15px + 80px);
@@ -645,6 +727,14 @@
             .contact-section {
                 padding: 100px 20px;
             }
+            
+            .aside-menu .menu-item > a {
+                font-size: 1.8rem;
+            }
+            
+            .aside-menu .menu-number {
+                margin-right: 40px;
+            }
         }
 
         body.stop-scrolling {
@@ -656,38 +746,62 @@
     <!-- Menu Overlay -->
     <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- Slide-in Menu -->
-    <aside class="aside-menu" id="AsideMenu">
-        <ul>
-            <li>
-                <a href="#about">
-                    <span class="menu-number">01</span>
-                    <span class="menu-name">About</span>
-                </a>
-            </li>
-            <li>
-                <a href="#projects">
-                    <span class="menu-number">02</span>
-                    <span class="menu-name">Projects</span>
-                </a>
-            </li>
-            <li>
-                <a href="#services">
-                    <span class="menu-number">03</span>
-                    <span class="menu-name">Services</span>
-                </a>
-            </li>
-            <li>
-                <a href="#contact">
-                    <span class="menu-number">04</span>
-                    <span class="menu-name">Contact</span>
-                </a>
-            </li>
-        </ul>
-        <div class="menu-contact">
-            <a href="tel:+44123456789">+44 123 456 789</a>
-            <a href="mailto:hello@crisp.co.uk">hello@crisp.co.uk</a>
-            <a href="#">123 High Street, Kent, UK</a>
+    <!-- Full Screen Slide-in Menu -->
+    <aside class="aside-menu" id="asideMenu">
+        <div class="menu-container">
+            <div class="menu-col-left">
+                <ul>
+                    <li class="menu-item menu-open">
+                        <a href="#projects" class="menu-link">
+                            <span class="menu-number">01</span>
+                            <span class="menu-name">Projects</span>
+                            <span class="menu-toggle">−</span>
+                        </a>
+                        <ul class="sub-menu open">
+                            <li><a href="#">Residential Projects</a></li>
+                            <li><a href="#">Commercial Projects</a></li>
+                            <li><a href="#">Medical Projects</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#services" class="menu-link">
+                            <span class="menu-number">02</span>
+                            <span class="menu-name">Services</span>
+                            <span class="menu-toggle">+</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Architecture</a></li>
+                            <li><a href="#">Interior Architecture</a></li>
+                            <li><a href="#">Project Management</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#about" class="menu-link">
+                            <span class="menu-number">03</span>
+                            <span class="menu-name">About</span>
+                            <span class="menu-toggle">+</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Our Team</a></li>
+                            <li><a href="#">Our Approach</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#contact" class="menu-link">
+                            <span class="menu-number">04</span>
+                            <span class="menu-name">Contact</span>
+                            <span class="menu-toggle">+</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-col-right">
+                <div class="contact-links">
+                    <a href="tel:+44123456789">+44 123 456 789</a>
+                    <a href="mailto:hello@crisp.co.uk">hello@crisp.co.uk</a>
+                    <a href="#">123 High Street, Kent, UK</a>
+                </div>
+            </div>
         </div>
     </aside>
 
@@ -696,11 +810,13 @@
         <a href="#" class="header-logo">
             <img src="images/eyka/logo.svg" alt="CRISP">
         </a>
-        <div class="burger-menu" id="burgerMenu">
-            <span class="top"></span>
-            <span class="middle"></span>
-            <span class="bottom"></span>
-        </div>
+        <button id="burger">
+            <div class="bar-container">
+                <span class="bar top"></span>
+                <span class="bar bottom"></span>
+            </div>
+            <span class="menu-text">Menu</span>
+        </button>
     </header>
 
     <!-- Hero Section with Video -->
@@ -887,19 +1003,19 @@
         });
         
         // Mobile menu toggle
-        const burgerMenu = document.getElementById('burgerMenu');
-        const asideMenu = document.getElementById('AsideMenu');
+        const burger = document.getElementById('burger');
+        const asideMenu = document.getElementById('asideMenu');
         const menuOverlay = document.getElementById('menuOverlay');
         
-        burgerMenu.addEventListener('click', () => {
-            burgerMenu.classList.toggle('open');
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('open');
             asideMenu.classList.toggle('open');
             menuOverlay.classList.toggle('open');
             document.body.classList.toggle('stop-scrolling');
         });
         
         menuOverlay.addEventListener('click', () => {
-            burgerMenu.classList.remove('open');
+            burger.classList.remove('open');
             asideMenu.classList.remove('open');
             menuOverlay.classList.remove('open');
             document.body.classList.remove('stop-scrolling');
@@ -908,10 +1024,52 @@
         // Close menu when clicking a link
         asideMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                burgerMenu.classList.remove('open');
+                burger.classList.remove('open');
                 asideMenu.classList.remove('open');
                 menuOverlay.classList.remove('open');
                 document.body.classList.remove('stop-scrolling');
+            });
+        });
+        
+        // Sub-menu toggle
+        const menuItems = document.querySelectorAll('.aside-menu .menu-item > a.menu-link');
+        
+        menuItems.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const menuItem = link.parentElement;
+                const subMenu = menuItem.querySelector('.sub-menu');
+                const toggle = menuItem.querySelector('.menu-toggle');
+                
+                // If there's no sub-menu, allow the link
+                if (!subMenu) return;
+                
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Close other open menus
+                menuItems.forEach(otherLink => {
+                    const otherItem = otherLink.parentElement;
+                    if (otherItem !== menuItem) {
+                        otherItem.classList.remove('menu-open');
+                        const otherSubMenu = otherItem.querySelector('.sub-menu');
+                        const otherToggle = otherItem.querySelector('.menu-toggle');
+                        if (otherSubMenu) {
+                            otherSubMenu.classList.remove('open');
+                            otherToggle.textContent = '+';
+                        }
+                    }
+                });
+                
+                // Toggle current menu
+                if (menuItem.classList.contains('menu-open')) {
+                    menuItem.classList.remove('menu-open');
+                    subMenu.classList.remove('open');
+                    toggle.textContent = '+';
+                } else {
+                    menuItem.classList.add('menu-open');
+                    subMenu.classList.add('open');
+                    toggle.textContent = '−';
+                }
             });
         });
         
