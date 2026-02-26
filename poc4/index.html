@@ -318,6 +318,37 @@
             overflow: hidden;
         }
         
+        .projects-filters {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding: 0 3%;
+        }
+        
+        .filter-btn {
+            background: none;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-black);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            padding: 0;
+        }
+        
+        .filter-btn:hover {
+            opacity: 1;
+        }
+        
+        .filter-btn.active {
+            opacity: 1;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+        
         .swiper {
             overflow: hidden !important;
             height: calc(((100vw - 72px) / 3) * 4/5 + 15px + 80px);
@@ -854,49 +885,91 @@
     <!-- Projects Section - Swiper -->
     <section class="projects-section" id="projects">
         <div class="container">
+            <div class="projects-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+                <button class="filter-btn" data-filter="inprogress">In Progress</button>
+                <button class="filter-btn" data-filter="future">Future</button>
+            </div>
             <div class="swiper" id="projectsSlider">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <!-- Completed -->
+                    <div class="swiper-slide" data-category="completed">
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="images/eyka/Villa-Seranah_Facade.jpg" alt="Villa Seranah">
+                                <img src="images/Completed/130 High Street/130 High Street, TN8 5AY 001.jpg" alt="130 High Street">
                             </div>
                             <div class="project-info">
-                                <h3 class="project-title">Villa Seranah</h3>
-                                <p class="project-category">Residential</p>
+                                <h3 class="project-title">130 High Street</h3>
+                                <p class="project-category">Completed</p>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-category="completed">
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="images/eyka/Jordils_03_Photo_Charpente.jpg" alt="Maison de Maître les Jordils">
+                                <img src="images/Completed/6 Eden View/6 Eden View 1.jpg" alt="6 Eden View">
                             </div>
                             <div class="project-info">
-                                <h3 class="project-title">Maison de Maître les Jordils</h3>
-                                <p class="project-category">Residential</p>
+                                <h3 class="project-title">6 Eden View</h3>
+                                <p class="project-category">Completed</p>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-category="completed">
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="images/eyka/Domaine-des-Bois_Facade-piscine.jpg" alt="Domaine des Bois">
+                                <img src="images/Completed/7 Eden View/7 Eden View 1.jpg" alt="7 Eden View">
                             </div>
                             <div class="project-info">
-                                <h3 class="project-title">Domaine des Bois</h3>
-                                <p class="project-category">Residential</p>
+                                <h3 class="project-title">7 Eden View</h3>
+                                <p class="project-category">Completed</p>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <!-- In Progress -->
+                    <div class="swiper-slide" data-category="inprogress">
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="images/eyka/Neve_Clinique_Dentaire.jpg" alt="Névé Clinique Dentaire">
+                                <img src="images/InProgress/IMG_6775.jpeg" alt="Project In Progress">
                             </div>
                             <div class="project-info">
-                                <h3 class="project-title">Névé Clinique Dentaire</h3>
-                                <p class="project-category">Medical</p>
+                                <h3 class="project-title">Current Project</h3>
+                                <p class="project-category">In Progress</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-category="inprogress">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/InProgress/445.jpg" alt="Project In Progress 2">
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">Development 445</h3>
+                                <p class="project-category">In Progress</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Future -->
+                    <div class="swiper-slide" data-category="future">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/Future/MG-1303-Crisp-Construction-High-Street-Exteriors-Draft-V01-02.jpg" alt="Future Project">
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">High Street Development</h3>
+                                <p class="project-category">Future</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-category="future">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/Future/MG-1303-Crisp-Construction-High-Street-Exteriors-Draft-V02-02.jpg" alt="Future Project 2">
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">Future Development</h3>
+                                <p class="project-category">Future</p>
                             </div>
                         </div>
                     </div>
@@ -1166,6 +1239,38 @@
                     }
                 }
             }
+        });
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectSlides = document.querySelectorAll('.swiper-slide');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter slides
+                projectSlides.forEach(slide => {
+                    const category = slide.dataset.category;
+                    
+                    if (filter === 'all' || category === filter) {
+                        slide.style.display = 'block';
+                        setTimeout(() => {
+                            slide.style.opacity = '0.7';
+                        }, 10);
+                    } else {
+                        slide.style.display = 'none';
+                    }
+                });
+                
+                // Update Swiper
+                projectsSwiper.update();
+                projectsSwiper.slideTo(0, 0);
+            });
         });
     </script>
 </body>
