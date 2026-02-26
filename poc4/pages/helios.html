@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helios - A Logistics Building with Bold Style - Crisp Construction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-black: #1e1e1c;
+            --color-white: #ffffff;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'Courier New', monospace;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-display);
+            font-size: 14px;
+            color: var(--color-black);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 94%;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .main-header {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: 0;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            padding: 15px 40px;
+            transition: all 0.4s ease;
+        }
+        
+        .main-header.head-pinned {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        #burger {
+            display: flex;
+            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 3000;
+            margin-left: auto;
+        }
+        
+        #burger .bar-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        #burger .bar {
+            display: block;
+            background-color: var(--color-black);
+            width: 33px;
+            height: 2px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        #burger:hover .bar.top {
+            width: 40px;
+        }
+        
+        #burger.open .bar.top {
+            transform: translate(7px, 8px) rotateZ(45deg);
+            width: 25px !important;
+        }
+        
+        #burger.open .bar.bottom {
+            transform: translateY(-8px) rotateZ(-45deg);
+            width: 25px !important;
+        }
+        
+        #burger .menu-text {
+            margin-left: 10px;
+            font-size: 1rem;
+            color: var(--color-black);
+            opacity: 0.6;
+        }
+
+        /* Menu Overlay */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 2400;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Full Screen Menu */
+        .aside-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.57);
+            backdrop-filter: blur(10px);
+            z-index: 2500;
+            transform: translateX(100%);
+            transition: transform 0.4s ease-in-out;
+            overflow-y: auto;
+        }
+        
+        .aside-menu.open {
+            transform: translateX(0);
+        }
+        
+        .aside-menu .menu-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+        
+        .aside-menu .menu-col-left {
+            padding: 0 40px;
+        }
+        
+        .aside-menu .menu-col-right {
+            padding: 0 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .aside-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .aside-menu > .menu-container > .menu-col-left > ul > li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .aside-menu .menu-item > a {
+            display: flex;
+            align-items: baseline;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            padding: 25px 0;
+            line-height: 1;
+        }
+        
+        .aside-menu .menu-number {
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            margin-right: 80px;
+            opacity: 0.6;
+        }
+        
+        .aside-menu .menu-name {
+            flex: 1;
+        }
+        
+        .aside-menu .contact-links a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        /* Project Banner */
+        .project-banner {
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
+        }
+        
+        .project-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.45) 0, rgba(0,0,0,0) 100%);
+            z-index: 1;
+        }
+
+        /* Project Header */
+        .project-header {
+            padding: 80px 0;
+        }
+        
+        .project-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .project-meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .project-meta-value {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.8;
+            max-width: 800px;
+        }
+
+        /* Project Gallery */
+        .project-gallery {
+            padding: 40px 0 80px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item.full-width {
+            grid-column: span 2;
+        }
+
+        /* Next Project */
+        .next-project {
+            background: var(--color-black);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .next-project-label {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin-bottom: 20px;
+        }
+        
+        .next-project-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+        
+        .next-project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border: 1px solid white;
+            padding: 20px 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .next-project-link:hover {
+            background: white;
+            color: var(--color-black);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr 2fr 5fr;
+            gap: 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .footer-col {
+            padding: 20px 0;
+        }
+        
+        .footer-logo img {
+            height: 80px;
+            width: auto;
+        }
+        
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-menu li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-menu a {
+            color: var(--color-black);
+            text-decoration: none;
+            font-size: 1rem;
+            opacity: 0.6;
+        }
+        
+        .footer-menu a:hover {
+            opacity: 1;
+        }
+        
+        .footer-back-to-top {
+            text-align: right;
+            padding: 20px 0;
+        }
+        
+        .footer-back-to-top a {
+            color: var(--color-black);
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.7;
+        }
+        
+        .footer-bar {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .footer-copyright {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 991px) {
+            .aside-menu .menu-container {
+                grid-template-columns: 1fr;
+            }
+            .aside-menu .menu-col-right {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item.full-width {
+                grid-column: span 1;
+            }
+            .project-meta {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .main-header {
+                padding: 15px 20px;
+            }
+            .project-banner {
+                height: 50vh;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        body.stop-scrolling {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Full Screen Menu -->
+    <aside class="aside-menu" id="asideMenu">
+        <div class="menu-container">
+            <div class="menu-col-left">
+                <ul>
+                    <li class="menu-item">
+                        <a href="../index.html">
+                            <span class="menu-number">01</span>
+                            <span class="menu-name">Home</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../index.html#projects">
+                            <span class="menu-number">02</span>
+                            <span class="menu-name">Projects</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../index.html#services">
+                            <span class="menu-number">03</span>
+                            <span class="menu-name">Services</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="../index.html#contact">
+                            <span class="menu-number">04</span>
+                            <span class="menu-name">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-col-right">
+                <div class="contact-links">
+                    <a href="tel:+44123456789">+44 123 456 789</a>
+                    <a href="mailto:hello@crisp.co.uk">hello@crisp.co.uk</a>
+                    <a href="#">123 High Street, Kent, UK</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Header -->
+    <header class="main-header" id="mainHeader">
+        <a href="../index.html" class="header-logo">
+            <img src="../images/eyka/logo.svg" alt="CRISP">
+        </a>
+        <button id="burger">
+            <div class="bar-container">
+                <span class="bar top"></span>
+                <span class="bar bottom"></span>
+            </div>
+            <span class="menu-text">Menu</span>
+        </button>
+    </header>
+
+    <!-- Project Banner -->
+    <section class="project-banner">
+        <img src="images/helios/Helios_5K.jpg" alt="Helios Logistics Building">
+        <div class="banner-overlay"></div>
+    </section>
+
+    <!-- Project Header -->
+    <section class="project-header">
+        <div class="container">
+            <h1 class="project-title">Helios - A Logistics Building<br>with Bold Style</h1>
+            
+            <div class="project-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Location</span>
+                    <span class="project-meta-value">Switzerland</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Year</span>
+                    <span class="project-meta-value">2025</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Category</span>
+                    <span class="project-meta-value">Commercial / Logistics</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Status</span>
+                    <span class="project-meta-value">Completed</span>
+                </div>
+            </div>
+            
+            <p class="project-description">
+                This logistics building stands out with its bold architectural style, challenging traditional warehouse design norms. 
+                The project combines functional requirements with aesthetic innovation, creating a space that is both efficient and visually striking.
+                Every detail was carefully considered to ensure the building serves its purpose while making a statement in its surroundings.
+            </p>
+        </div>
+    </section>
+
+    <!-- Project Gallery -->
+    <section class="project-gallery">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/helios/Helios_5K.jpg" alt="Helios Exterior View">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/helios/Helios_5K.jpg" alt="Helios Detail View">
+                </div>
+                <div class="gallery-item full-width">
+                    <img src="images/helios/Helios_5K.jpg" alt="Helios Wide View">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Project -->
+    <section class="next-project">
+        <div class="container">
+            <p class="next-project-label">Next Project</p>
+            <h2 class="next-project-title">Villa Seranah</h2>
+            <a href="#" class="next-project-link">
+                View Project
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="../images/eyka/logo.svg" alt="CRISP">
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <ul class="footer-menu">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#projects">Projects</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <ul class="footer-menu">
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-back-to-top">
+                        <a href="#">
+                            Back to top
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 19V5M5 12l7-7 7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bar">
+                <p class="footer-copyright">&copy; Crisp Construction Ltd - All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('head-pinned');
+            } else {
+                header.classList.remove('head-pinned');
+            }
+        });
+        
+        // Menu toggle
+        const burger = document.getElementById('burger');
+        const asideMenu = document.getElementById('asideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('open');
+            asideMenu.classList.toggle('open');
+            menuOverlay.classList.toggle('open');
+            document.body.classList.toggle('stop-scrolling');
+        });
+        
+        menuOverlay.addEventListener('click', () => {
+            burger.classList.remove('open');
+            asideMenu.classList.remove('open');
+            menuOverlay.classList.remove('open');
+            document.body.classList.remove('stop-scrolling');
+        });
+    </script>
+</body>
+</html>
