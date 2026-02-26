@@ -551,11 +551,18 @@ img {
     line-height: 1.1;
     display: inline-block;
     transition: color var(--transition-fast);
+    position: relative;
+    z-index: 2;
 }
 
     .menu-title:hover {
         color: var(--color-accent);
     }
+
+.swap-hover::before,
+.swap-hover::after {
+    pointer-events: none;
+}
 
 .submenu {
     display: flex;
@@ -892,7 +899,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../images/minimalist-spacious-interior-design.jpg');
+    background-image: url('../images/pexels-anete-lusina-4792479.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1135,7 +1142,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../images/grunge-wall-texture.jpg');
+    background-image: url('../images/minimalist-spacious-interior-design.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
