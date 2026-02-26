@@ -690,6 +690,10 @@ img {
     font-weight: 300;
     color: var(--color-text-light);
     transition: color 0.3s ease;
+    padding: 15px 0;
+    display: block;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
     .offcanvas-link:hover {
@@ -704,6 +708,8 @@ img {
     display: inline-block;
     overflow: hidden;
     cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .swap-hover__wrapper {
