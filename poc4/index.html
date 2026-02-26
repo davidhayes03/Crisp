@@ -266,6 +266,36 @@
             overflow: hidden;
         }
         
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            z-index: 100;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .scroll-indicator:hover {
+            transform: translateY(-5px);
+        }
+        
+        .scroll-indicator svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--color-black);
+            stroke-width: 1.5;
+            fill: none;
+            transition: stroke 0.3s ease;
+        }
+        
+        .scroll-indicator:hover svg {
+            stroke: #0066ff;
+        }
+        
+        .scroll-indicator.hidden {
+            display: none;
+        }
+        
         .hero-video {
             position: absolute;
             top: 0;
@@ -865,6 +895,13 @@
                 Excellence<span>.</span>
             </h1>
         </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" id="scrollIndicator">
+            <svg viewBox="0 0 24 24">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+        </div>
     </section>
 
     <section class="about-section" id="about">
@@ -1132,6 +1169,29 @@
                 header.classList.add('head-pinned');
             } else {
                 header.classList.remove('head-pinned');
+            }
+        });
+
+        // Scroll indicator
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        const footer = document.querySelector('.footer');
+        
+        scrollIndicator.addEventListener('click', () => {
+            const projectsSection = document.getElementById('projects');
+            if (projectsSection) {
+                projectsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+        
+        // Hide scroll indicator when near footer
+        window.addEventListener('scroll', () => {
+            const footerRect = footer.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            if (footerRect.top < windowHeight + 100) {
+                scrollIndicator.classList.add('hidden');
+            } else {
+                scrollIndicator.classList.remove('hidden');
             }
         });
 
