@@ -267,7 +267,7 @@
         }
         
         .scroll-indicator {
-            position: absolute;
+            position: fixed;
             bottom: 40px;
             right: 40px;
             z-index: 100;
@@ -276,7 +276,7 @@
         }
         
         .scroll-indicator:hover {
-            transform: translateY(-5px);
+            transform: translateY(5px);
         }
         
         .scroll-indicator svg {
@@ -882,7 +882,7 @@
     </header>
 
     <!-- Hero Section with Video -->
-    <section class="hero-section">
+    <section class="hero-section" id="hero-section">
         <video class="hero-video" autoplay muted loop playsinline poster="images/eyka/intro_eyka_poster.jpg">
             <source src="images/Marcus Sies-luxury-kitchen-interior-886704-filmsupply.mov" type="video/mp4">
         </video>
@@ -895,14 +895,14 @@
                 Excellence<span>.</span>
             </h1>
         </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator" id="scrollIndicator">
-            <svg viewBox="0 0 24 24">
-                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-        </div>
     </section>
+
+    <!-- Scroll Indicator (fixed) -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+    </div>
 
     <section class="about-section" id="about">
         <div class="container">
@@ -1010,25 +1010,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <div class="container">
-            <h2 class="about-title">Our <br>vision.</h2>
-            <div class="about-image">
-                <img src="images/stock-plans-slim.jpg" alt="Our Team">
-            </div>
-            <div class="about-content">
-                <div class="about-highlight">
-                    <p>We buy properties and land, obtain planning permissions and carry out the projects we have designed for resale. We are a property development company... but not like any you've experienced before.</p>
-                </div>
-                <div class="about-text">
-                    <p>Our approach is simple. What is the best answer to the question posed. Then, how can we improve on that. And how can we improve on that again.</p>
-                    <p>Our product is what we are judged by. Acceptable is not a word we use at Crisp. We strive to have the most aesthetically pleasing and design-forward properties.</p>
                 </div>
             </div>
         </div>
@@ -1175,11 +1156,24 @@
         // Scroll indicator
         const scrollIndicator = document.getElementById('scrollIndicator');
         const footer = document.querySelector('.footer');
+        const sections = ['hero-section', 'projects', 'about', 'services', 'contact'];
         
         scrollIndicator.addEventListener('click', () => {
-            const projectsSection = document.getElementById('projects');
-            if (projectsSection) {
-                projectsSection.scrollIntoView({ behavior: 'smooth' });
+            const currentSection = sections.find(id => {
+                const el = document.getElementById(id);
+                if (!el) return false;
+                const rect = el.getBoundingClientRect();
+                return rect.top <= 100 && rect.bottom > 100;
+            }) || 'hero-section';
+            
+            const currentIndex = sections.indexOf(currentSection);
+            const nextSection = sections[currentIndex + 1];
+            
+            if (nextSection) {
+                const nextEl = document.getElementById(nextSection);
+                if (nextEl) {
+                    nextEl.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
         
