@@ -344,43 +344,24 @@
         
         .hero-title span {
             display: inline-block;
-            background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
+            background: linear-gradient(to right, #ffffff 0%, #ffffff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: textGradient 6s ease-in-out infinite;
+            background-size: 200% 100%;
+            animation: textWave 6s linear infinite;
         }
         
-        .hero-title span:nth-child(1) {
-            animation-delay: 0s;
-        }
+        .hero-title span:nth-child(1) { animation-delay: 0s; }
+        .hero-title span:nth-child(3) { animation-delay: 2s; }
+        .hero-title span:nth-child(5) { animation-delay: 4s; }
         
-        .hero-title span:nth-child(3) {
-            animation-delay: 2s;
-        }
-        
-        .hero-title span:nth-child(5) {
-            animation-delay: 4s;
-        }
-        
-        @keyframes textGradient {
-            0%, 100% {
-                background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
+        @keyframes textWave {
+            0% {
+                background-position: 200% 0;
             }
-            33% {
-                background: linear-gradient(90deg, #0066ff 0%, #00ccff 50%, #0066ff 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-            66% {
-                background: linear-gradient(90deg, #00ccff 0%, #0066ff 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
+            100% {
+                background-position: -200% 0;
             }
         }
 
