@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
         :root {
             --color-black: #1e1e1c;
@@ -310,34 +311,37 @@
             letter-spacing: -2px;
         }
 
-        /* Projects Section - Horizontal Scroll */
+        /* Projects Section - Swiper */
         .projects-section {
             padding: 40px 0 80px;
         }
         
-        .projects-slider {
+        .swiper {
             overflow: visible;
             height: calc(((100vw - 72px) / 3) * 4/5 + 15px + 80px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
         }
         
-        .projects-track {
+        .swiper-wrapper {
             display: flex;
             align-items: flex-end;
-            gap: 24px;
-            padding: 0 12px;
+            height: auto !important;
+        }
+        
+        .swiper-slide {
+            width: calc(33.333% - 16px);
+            height: auto;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.7;
+            margin-right: 24px !important;
+        }
+        
+        .swiper-slide:hover,
+        .swiper-slide-active {
+            opacity: 1;
         }
         
         .project-card {
-            flex: 0 0 calc(33.333% - 16px);
-            min-width: 280px;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0.7;
-        }
-        
-        .project-card:hover,
-        .project-card.active {
-            opacity: 1;
+            width: 100%;
         }
         
         .project-image {
@@ -349,8 +353,8 @@
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .project-card:hover .project-image,
-        .project-card.active .project-image {
+        .swiper-slide:hover .project-image,
+        .swiper-slide-active .project-image {
             aspect-ratio: 4/5;
         }
         
@@ -633,12 +637,12 @@
         }
         
         @media (max-width: 1023px) {
-            .projects-slider {
+            .swiper {
                 height: calc(((100vw - 48px) / 1.8) * 4/5 + 15px + 80px);
             }
             
-            .project-card {
-                flex: 0 0 calc(50% - 12px);
+            .swiper-slide {
+                width: calc(50% - 12px) !important;
             }
             
             .footer-grid {
@@ -656,23 +660,18 @@
         }
         
         @media (max-width: 768px) {
-            .projects-slider {
+            .swiper {
                 height: auto;
-            }
-            
-            .projects-track {
                 overflow-x: auto;
-                scroll-snap-type: x mandatory;
                 -webkit-overflow-scrolling: touch;
-                padding-bottom: 20px;
             }
             
-            .project-card {
-                flex: 0 0 80%;
-                scroll-snap-align: center;
+            .swiper-slide {
+                width: 80% !important;
+                margin-right: 20px !important;
             }
             
-            .project-card.active .project-image {
+            .swiper-slide-active .project-image {
                 aspect-ratio: 1/1;
             }
             
@@ -849,45 +848,53 @@
         </div>
     </section>
 
-    <!-- Projects Section - Horizontal Scroll -->
+    <!-- Projects Section - Swiper -->
     <section class="projects-section" id="projects">
         <div class="container">
-            <div class="projects-slider" id="projectsSlider">
-                <div class="projects-track">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/eyka/Villa-Seranah_Facade.jpg" alt="Villa Seranah">
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">Villa Seranah</h3>
-                            <p class="project-category">Residential</p>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/eyka/Jordils_03_Photo_Charpente.jpg" alt="Maison de Maître les Jordils">
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">Maison de Maître les Jordils</h3>
-                            <p class="project-category">Residential</p>
+            <div class="swiper" id="projectsSlider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/eyka/Villa-Seranah_Facade.jpg" alt="Villa Seranah">
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">Villa Seranah</h3>
+                                <p class="project-category">Residential</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/eyka/Domaine-des-Bois_Facade-piscine.jpg" alt="Domaine des Bois">
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">Domaine des Bois</h3>
-                            <p class="project-category">Residential</p>
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/eyka/Jordils_03_Photo_Charpente.jpg" alt="Maison de Maître les Jordils">
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">Maison de Maître les Jordils</h3>
+                                <p class="project-category">Residential</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/eyka/Neve_Clinique_Dentaire.jpg" alt="Névé Clinique Dentaire">
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/eyka/Domaine-des-Bois_Facade-piscine.jpg" alt="Domaine des Bois">
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">Domaine des Bois</h3>
+                                <p class="project-category">Residential</p>
+                            </div>
                         </div>
-                        <div class="project-info">
-                            <h3 class="project-title">Névé Clinique Dentaire</h3>
-                            <p class="project-category">Medical</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/eyka/Neve_Clinique_Dentaire.jpg" alt="Névé Clinique Dentaire">
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">Névé Clinique Dentaire</h3>
+                                <p class="project-category">Medical</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1080,23 +1087,21 @@
                 document.body.classList.remove('stop-scrolling');
             });
         });
-
+        
         // Sub-menu toggle
         const menuItems = document.querySelectorAll('.aside-menu .menu-item > a.menu-link');
-
+        
         menuItems.forEach(link => {
             link.addEventListener('click', (e) => {
                 const menuItem = link.parentElement;
                 const subMenu = menuItem.querySelector('.sub-menu');
                 const toggle = menuItem.querySelector('.menu-toggle');
-
-                // If there's no sub-menu, allow the link
+                
                 if (!subMenu) return;
-
+                
                 e.preventDefault();
                 e.stopPropagation();
-
-                // Close other open menus
+                
                 menuItems.forEach(otherLink => {
                     const otherItem = otherLink.parentElement;
                     if (otherItem !== menuItem) {
@@ -1109,8 +1114,7 @@
                         }
                     }
                 });
-
-                // Toggle current menu
+                
                 if (menuItem.classList.contains('menu-open')) {
                     menuItem.classList.remove('menu-open');
                     subMenu.classList.remove('open');
@@ -1123,20 +1127,45 @@
             });
         });
 
-        // Projects slider - hover interaction
-        const projectCards = document.querySelectorAll('.project-card');
-        const slider = document.getElementById('projectsSlider');
-
-        projectCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                projectCards.forEach(c => c.classList.remove('active'));
-                card.classList.add('active');
-            });
-        });
-
-        slider.addEventListener('mouseleave', () => {
-            projectCards.forEach(c => c.classList.remove('active'));
+        // Initialize Swiper for Projects
+        const projectsSwiper = new Swiper('#projectsSlider', {
+            slidesPerView: 'auto',
+            spaceBetween: 24,
+            freeMode: {
+                enabled: true,
+                sticky: true,
+            },
+            grabCursor: true,
+            mousewheel: {
+                releaseOnEdges: true,
+            },
+            centerInsufficientSlides: true,
+            watchSlidesProgress: true,
+            on: {
+                init: function() {
+                    this.slides.forEach(slide => {
+                        slide.addEventListener('mouseenter', () => {
+                            slide.style.opacity = '1';
+                        });
+                        slide.addEventListener('mouseleave', () => {
+                            if (!slide.classList.contains('swiper-slide-active')) {
+                                slide.style.opacity = '0.7';
+                            }
+                        });
+                    });
+                },
+                slideChange: function() {
+                    this.slides.forEach(slide => {
+                        slide.style.opacity = '0.7';
+                    });
+                    if (this.activeSlide) {
+                        this.activeSlide.style.opacity = '1';
+                    }
+                }
+            }
         });
     </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>
