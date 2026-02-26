@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
     <style>
         :root {
             --color-black: #1e1e1c;
@@ -1571,6 +1573,37 @@
                 });
             });
         });
+
+        // Hero title gradient animation
+        const titleSpans = document.querySelectorAll('.hero-title span');
+        
+        gsap.set(titleSpans, { '--stop-hover': '0%' });
+        
+        const customEase = CustomEase.create("custom", "M0,0 C0.548,0.032 0.63,1 1,1 ");
+        
+        const titleTween = gsap.timeline({ repeat: -1 })
+            .to(titleSpans, {
+                "--stop-active": "100%",
+                stagger: {
+                    each: 0.15,
+                    ease: customEase
+                },
+                duration: 0.48
+            })
+            .to(titleSpans, {
+                "--stop-hover": "100%",
+                stagger: {
+                    each: 0.15
+                },
+                duration: 0.48
+            })
+            .to(titleSpans, {
+                "--stop-hover": "0%",
+                stagger: {
+                    each: -0.15
+                },
+                duration: 0.48
+            }, "-=0.1");
     </script>
 </body>
 </html>
