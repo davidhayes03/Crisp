@@ -341,6 +341,31 @@
             line-height: 1.2;
             letter-spacing: -2px;
         }
+        
+        .hero-title span {
+            --color-hover: #0066ff;
+            --color-active: #ffffff;
+            --color-start: #ffffff;
+            --stop-hover: 0%;
+            --stop-active: 0%;
+            
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+            background: linear-gradient(90deg, var(--color-hover) var(--stop-hover), var(--color-active) var(--stop-hover), var(--color-active) var(--stop-active), var(--color-start) var(--stop-active));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.48s cubic-bezier(0.475, 0.425, 0, 0.995);
+        }
+        
+        .hero-title span:hover {
+            --stop-hover: 100%;
+            transform: translateX(0.3ch);
+        }
 
         /* Projects Section - Swiper */
         .projects-section {
@@ -1032,9 +1057,9 @@
         <div class="hero-overlay-top"></div>
         <div class="hero-content">
             <h1 class="hero-title">
-                Precision.<br>
-                Vision.<br>
-                Excellence.
+                <span>Precision.</span><br>
+                <span>Vision.</span><br>
+                <span>Excellence.</span>
             </h1>
         </div>
     </section>
