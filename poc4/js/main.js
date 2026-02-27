@@ -133,21 +133,39 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     /* ========================================
-       DEVELOPMENTS FILTER
-       ======================================== */
+   DEVELOPMENTS FILTER
+   ======================================== */
     const devFilterBtns = document.querySelectorAll('.development-filters__btn');
     const devCards = document.querySelectorAll('.development-card');
-    
+
+    // Set default filter to "completed"
+    const defaultFilter = 'completed';
+    devFilterBtns.forEach(btn => {
+        if (btn.dataset.filter === defaultFilter) {
+            btn.classList.add('development-filters__btn--active');
+        } else {
+            btn.classList.remove('development-filters__btn--active');
+        }
+    });
+    devCards.forEach(card => {
+        const status = card.dataset.status;
+        if (status === defaultFilter) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
     devFilterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const filter = btn.dataset.filter;
-            
+
             devFilterBtns.forEach(b => b.classList.remove('development-filters__btn--active'));
             btn.classList.add('development-filters__btn--active');
-            
+
             devCards.forEach(card => {
                 const status = card.dataset.status;
-                
+
                 if (filter === 'all' || status === filter) {
                     card.style.display = 'flex';
                 } else {

@@ -558,7 +558,7 @@ img {
    ======================================== */
 
 .about-section {
-    padding: 20px 0;
+    padding: 100px 0;
 }
 
 .about-title {
@@ -589,8 +589,8 @@ img {
 }
 
 .about-image img {
-    width: 100%;
-    height: 100%;
+    width:80%;
+    height: 50%;
     object-fit: cover;
     border-radius: 8px;
 }
