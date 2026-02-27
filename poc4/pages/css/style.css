@@ -131,6 +131,24 @@ body {
     transform: translateX(0);
 }
 
+.menu-close {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2600;
+    transition: transform 0.3s ease;
+}
+
+.menu-close:hover {
+    transform: scale(1.1);
+}
+
 .aside-menu .menu-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -241,9 +259,71 @@ body {
     font-size: 1.5rem;
     font-weight: 500;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     position: relative;
     left: 2px;
+}
+
+.floorplan-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--color-black);
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.floorplan-btn:hover {
+    background: #0074d9;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lightbox.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.1);
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
 }
 
 .project-meta {
@@ -280,6 +360,37 @@ body {
     line-height: 1.8;
     opacity: 0.8;
     max-width: 1500px;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 100;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    transform: translateY(5px);
+}
+
+.scroll-indicator svg {
+    width: 40px;
+    height: 40px;
+    stroke: var(--color-black);
+    stroke-width: 1.5;
+    fill: none;
+    transition: stroke 0.3s ease;
+}
+
+.scroll-indicator:hover svg {
+    stroke: #0066ff;
+}
+
+.scroll-indicator.hidden {
+    display: none;
 }
 
 /* Project Gallery */
