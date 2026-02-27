@@ -242,10 +242,10 @@ img {
     cursor: pointer;
 }
 
-.aside-menu .sub-menu {
-    display: none;
-    padding: 0 0 20px 0;
-}
+    .aside-menu .sub-menu {
+        display: none;
+        padding: 0 0 20px 100px;
+    }
 
 .aside-menu .sub-menu.open {
     display: block;
@@ -421,10 +421,13 @@ img {
 }
 
 .developments-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 600;
-    display: inline;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+    line-height: 1.1;
 }
+
 
 .developments-title--italic {
     font-style: italic;
@@ -566,7 +569,7 @@ img {
    ======================================== */
 
 .about-section {
-    padding: 40px 0;
+    padding: 100px 0;
 }
 
 .about-title {
