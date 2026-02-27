@@ -271,11 +271,15 @@ body {
     font-weight: 500;
 }
 
+.project-meta-value-complete {
+    color:green;
+}
+
 .project-description {
     font-size: 1.1rem;
     line-height: 1.8;
     opacity: 0.8;
-    max-width: 800px;
+    max-width: 1500px;
 }
 
 /* Project Gallery */
@@ -285,7 +289,7 @@ body {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
@@ -445,6 +449,10 @@ body {
     }
     .footer-grid {
         grid-template-columns: 1fr 1fr;
+    }
+    .project-title-sub {
+       
+        font-size: 1rem;
     }
 }
 
