@@ -411,7 +411,7 @@ img {
    ======================================== */
 
 .developments-section {
-    padding: 20px 0;
+    padding: 70px 0;
 }
 
 .developments-header {
@@ -595,7 +595,7 @@ img {
 
 .about-image {
     width: 100%;
-    aspect-ratio: 1 / 1;
+ 
     overflow: hidden;
 }
 
