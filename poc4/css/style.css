@@ -11,6 +11,14 @@
     --font-mono: 'Courier New', monospace;
 }
 
+.title-black {
+    color: var(--color-black) !important;
+}
+
+.title-blue {
+    color: var(--color-blue) !important;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -216,7 +224,7 @@ img {
 }
 
 .aside-menu .menu-number {
-    font-family: 'Courier New', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.7rem;
     margin-right: 80px;
     opacity: 0.6;
@@ -248,7 +256,7 @@ img {
 }
 
 .aside-menu .sub-menu li a {
-    font-family: 'Courier New', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.75rem;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.6);
@@ -403,7 +411,7 @@ img {
    ======================================== */
 
 .developments-section {
-    padding: 80px 0;
+    padding: 20px 0;
 }
 
 .developments-header {
@@ -432,7 +440,7 @@ img {
 }
 
 .development-filters__btn {
-    font-family: var(--font-mono);
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.8rem;
     color: var(--color-black);
     background: transparent;
@@ -558,13 +566,13 @@ img {
    ======================================== */
 
 .about-section {
-    padding: 100px 0;
+    padding: 40px 0;
 }
 
 .about-title {
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 600;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     letter-spacing: -1px;
     line-height: 1.1;
 }

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
        ======================================== */
     const scrollIndicator = document.getElementById('scrollIndicator');
     const footer = document.querySelector('.footer');
-    const sections = ['hero-section', 'projects', 'developments', 'about', 'services', 'contact'];
+    const sections = ['hero-section', 'about', 'developments', 'team', 'services', 'contact'];
     
     // Click to scroll to next section
     scrollIndicator.addEventListener('click', () => {
@@ -79,9 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.remove('stop-scrolling');
     });
     
-    // Close menu when clicking a link
+    // Close menu when clicking a link (but not when toggling sub-menus)
     asideMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+            const hasSubMenu = link.nextElementSibling && link.nextElementSibling.classList.contains('sub-menu');
+            if (hasSubMenu) return;
+            
             burger.classList.remove('open');
             asideMenu.classList.remove('open');
             menuOverlay.classList.remove('open');
